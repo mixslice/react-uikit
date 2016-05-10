@@ -1,21 +1,11 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import Button from '../index';
+import Button from '../Button';
 
 storiesOf('Button', module)
-  .add('default view', () => (
-    <Button onClick={ action('button clicked') }>Hello</Button>
+  .add('primary', () => (
+    <Button onClick={ action('button clicked') } kind="primary">Hello</Button>
   ))
-  .add('some emojies as the text', () => (
-    <Button>😀 😎 👍 💯</Button>
-  ))
-  .add('custom styles', () => {
-    const style = {
-      fontSize: 20,
-      textTransform: 'uppercase',
-      color: '#FF8833',
-    };
-    return (
-      <Button style={ style }>Hello</Button>
-    );
-  });
+  .add('warning', () => (
+    <Button kind="warning">Miaow</Button>
+  ));
