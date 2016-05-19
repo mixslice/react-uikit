@@ -1,25 +1,27 @@
 import {
   lightBlue800,
+  blueGrey700,
   pinkA200,
-  grey100, grey300,
+  blueGrey300,
+  grey500,
   white, black
 } from '../colors';
 
 export default {
-  name: 'lightBaseTheme',
+  name: 'darkBaseTheme',
   fontFamily: 'system,-apple-system,\".SFNSText-Regular\",\"Helvetica Neue\",Roboto,\"Segoe UI\",sans-serif',
   palette: {
     primaryColor: lightBlue800,
     accentColor: pinkA200,
-    greyColor: grey100,
-    textColor: black,
+    greyColor: blueGrey700,
+    textColor: white,
     textColorAlpha: 0.87,
     highlightTextColor: white,
-    canvasColor: white,
-    borderColor: grey300,
-    disabledColor: grey100,
+    canvasColor: blueGrey700,
+    borderColor: blueGrey300,
+    disabledColor: grey500,
     disabledColorDarken: 0.1,
-    shadowColor: black,
+    shadowColor: white,
     shadows: [
       [1, 6, 0.12, 1, 4, 0.12],
       [3, 10, 0.16, 3, 10, 0.23],
