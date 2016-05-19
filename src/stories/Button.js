@@ -10,7 +10,7 @@ const theme = themes.getTheme(darkBaseTheme);
 storiesOf('Button', module)
   .add('FlatButton', () => (
     <div style={{ width: '100%' }}>
-      <div style={{ width: '50%', float: 'left' }}>
+      <div>
         <Button onClick={ action('button clicked') }>Default</Button>
         <Button onClick={ action('button clicked') } kind="primary">Primary</Button>
         <Button onClick={ action('button clicked') } kind="secondary">Secondary</Button>
@@ -21,7 +21,7 @@ storiesOf('Button', module)
         >Customized Color</Button>
       </div>
       <ThemeProvider theme={theme}>
-        <div style={{ width: '50%', float: 'left', backgroundColor: '#263238' }}>
+        <div style={{ backgroundColor: '#263238' }}>
           <Button onClick={ action('button clicked') }>Default</Button>
           <Button onClick={ action('button clicked') } kind="primary">Primary</Button>
           <Button onClick={ action('button clicked') } kind="secondary">Secondary</Button>
