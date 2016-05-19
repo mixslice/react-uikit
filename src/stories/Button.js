@@ -36,7 +36,7 @@ storiesOf('Button', module)
   ))
   .add('RasiedButton', () => (
     <div style={{ width: '100%' }}>
-      <div style={{ width: '50%', float: 'left' }}>
+      <div>
         <Button onClick={ action('button clicked') } design="raisedButton">Default</Button>
         <Button onClick={ action('button clicked') }
           design="raisedButton" kind="primary"
@@ -53,7 +53,7 @@ storiesOf('Button', module)
         >Customized Color</Button>
       </div>
       <ThemeProvider theme={theme}>
-        <div style={{ width: '50%', float: 'left', backgroundColor: '#263238' }}>
+        <div style={{ backgroundColor: '#263238' }}>
           <Button onClick={ action('button clicked') } design="raisedButton">Default</Button>
           <Button onClick={ action('button clicked') }
             design="raisedButton" kind="primary"
