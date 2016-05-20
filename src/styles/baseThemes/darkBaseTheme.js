@@ -3,7 +3,7 @@ import {
   blueGrey700,
   pinkA200,
   blueGrey300,
-  grey500,
+  grey700,
   white, black
 } from '../colors';
 
@@ -19,9 +19,9 @@ export default {
     highlightTextColor: white,
     canvasColor: blueGrey700,
     borderColor: blueGrey300,
-    disabledColor: grey500,
+    disabledColor: grey700,
     disabledColorDarken: 0.1,
-    shadowColor: white,
+    shadowColor: black,
     shadows: [
       [1, 6, 0.12, 1, 4, 0.12],
       [3, 10, 0.16, 3, 10, 0.23],
