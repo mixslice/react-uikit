@@ -9,7 +9,7 @@ import {
 
 export default {
   name: 'darkBaseTheme',
-  fontFamily: 'system,-apple-system,\".SFNSText-Regular\",\"Helvetica Neue\",Roboto,\"Segoe UI\",sans-serif',
+  fontFamily: 'lato,system,-apple-system,".SFNSText-Regular","Helvetica Neue",Roboto,"Segoe UI",sans-serif',
   palette: {
     primaryColor: lightBlue800,
     accentColor: pinkA200,
@@ -29,11 +29,10 @@ export default {
       [14, 45, 0.25, 10, 18, 0.22],
       [19, 60, 0.30, 15, 20, 0.22],
     ],
-    hoverDarken: 0.1
+    hoverColorDepth: 0.1
   },
   spacing: {
     iconSize: 24,
-    buttonHeight: 44,
-    buttonWidth: 88
+    buttonWidth: 72
   }
 };

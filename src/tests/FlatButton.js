@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import Button from '../Button';
+import { FlatButton } from '../Button';
 import { expect } from 'chai';
 import sinon from 'sinon';
 const { describe, it } = global;
 
-describe('Button', () => {
+describe('FlatButton', () => {
   it('should show the given text', () => {
     const text = 'The Text';
-    const wrapper = shallow(<Button>{text}</Button>);
+    const wrapper = shallow(<FlatButton>{text}</FlatButton>);
     expect(wrapper.text()).to.be.equal(text);
   });
 
@@ -18,7 +18,7 @@ describe('Button', () => {
     // wrap this with a div.
     const wrapper = mount(
       <div>
-        <Button onClick={ clickMe }>ClickMe</Button>
+        <FlatButton onClick={ clickMe }>ClickMe</FlatButton>
       </div>
     );
 

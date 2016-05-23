@@ -1,214 +1,105 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
-import themes from '../styles/themes';
-import darkBaseTheme from '../styles/baseThemes/darkBaseTheme';
-import Button from '../Button';
+import {
+  FlatButton, RaisedButton,
+  IconButton, FloatingButton
+} from '../Button';
 import SvgIcon from '../SvgIcon';
-import { ActionAndroid } from '../SvgIcon/paths';
-
-const darkTheme = themes.getTheme(darkBaseTheme);
+import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
 
 storiesOf('Button', module)
   .add('FlatButton', () => (
-    <div style={{ width: '100%' }}>
-      <ThemeProvider>
-        <div>
-          <Button onClick={ action('button clicked') }>Default</Button>
-          <Button onClick={ action('button clicked') } kind="primary">Primary</Button>
-          <Button onClick={ action('button clicked') } kind="secondary">Secondary</Button>
-          <Button onClick={ action('button clicked') } kind="primary" disabled>Disabled</Button>
-          <Button onClick={ action('button clicked') } label="Label" />
-          <Button onClick={ action('button clicked') }
-            backgroundColor="#607d8b" hoverColor="#bcaaa4"
-          >Customized Color</Button>
-          <Button onClick={ action('button clicked') }
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } label="Android"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } label="Android" labelPosition="after"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>}
-          />
-        </div>
-      </ThemeProvider>
-      <ThemeProvider theme={darkTheme}>
-        <div style={{ backgroundColor: '#263238' }}>
-          <Button onClick={ action('button clicked') }>Default</Button>
-          <Button onClick={ action('button clicked') } kind="primary">Primary</Button>
-          <Button onClick={ action('button clicked') } kind="secondary">Secondary</Button>
-          <Button onClick={ action('button clicked') } kind="primary" disabled>Disabled</Button>
-          <Button onClick={ action('button clicked') } label="Label" />
-          <Button onClick={ action('button clicked') }
-            backgroundColor="#607d8b" hoverColor="#bcaaa4"
-          >Customized Color</Button>
-          <Button onClick={ action('button clicked') }
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } label="Android"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } label="Android" labelPosition="after"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>}
-          />
-        </div>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider>
+      <FlatButton onClick={ action('button clicked') }>Default</FlatButton>
+      <FlatButton onClick={ action('button clicked') } kind="primary">Primary</FlatButton>
+      <FlatButton onClick={ action('button clicked') } kind="secondary">Secondary</FlatButton>
+      <FlatButton onClick={ action('button clicked') } kind="primary" disabled>Disabled</FlatButton>
+      <FlatButton onClick={ action('button clicked') } label="Label" />
+      <FlatButton onClick={ action('button clicked') }
+        backgroundColor="#607d8b" hoverColor="#bcaaa4"
+      >Customized Color</FlatButton>
+      <FlatButton onClick={ action('button clicked') }
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <FlatButton onClick={ action('button clicked') } label="Android"
+        icon={<SvgIcon kind="primary" path={ActionAndroid} />}
+      />
+      <FlatButton onClick={ action('button clicked') } label="Android" labelPosition="after"
+        icon={<SvgIcon kind="secondary" path={ActionAndroid} />}
+      />
+    </ThemeProvider>
   ))
-  .add('RasiedButton', () => (
-    <div style={{ width: '100%' }}>
-      <ThemeProvider>
-        <div>
-          <Button onClick={ action('button clicked') } design="raisedButton">Default</Button>
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" kind="primary"
-          >Primary</Button>
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" kind="secondary"
-          >Secondary</Button>
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" kind="primary" disabled
-          >Disabled</Button>
-          <Button onClick={ action('button clicked') } design="raisedButton" label="Label" />
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" backgroundColor="#607d8b" hoverColor="#bcaaa4"
-          >Customized Color</Button>
-          <Button onClick={ action('button clicked') } design="raisedButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="raisedButton" label="Android"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="raisedButton"
-            label="Android" labelPosition="after"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>}
-          />
-        </div>
-      </ThemeProvider>
-      <ThemeProvider theme={darkTheme}>
-        <div style={{ backgroundColor: '#263238' }}>
-          <Button onClick={ action('button clicked') } design="raisedButton">Default</Button>
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" kind="primary"
-          >Primary</Button>
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" kind="secondary"
-          >Secondary</Button>
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" kind="primary" disabled
-          >Disabled</Button>
-          <Button onClick={ action('button clicked') } design="raisedButton" label="Label" />
-          <Button onClick={ action('button clicked') }
-            design="raisedButton" backgroundColor="#607d8b" hoverColor="#bcaaa4"
-          >Customized Color</Button>
-          <Button onClick={ action('button clicked') } design="raisedButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="raisedButton" label="Android"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="raisedButton"
-            label="Android" labelPosition="after"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>}
-          />
-        </div>
-      </ThemeProvider>
-    </div>
+  .add('RaisedButton', () => (
+    <ThemeProvider>
+      <RaisedButton onClick={ action('button clicked') }>Default</RaisedButton>
+      <RaisedButton onClick={ action('button clicked') } kind="primary">Primary</RaisedButton>
+      <RaisedButton onClick={ action('button clicked') } kind="secondary">Secondary</RaisedButton>
+      <RaisedButton onClick={ action('button clicked') } kind="primary" disabled>Disabled</RaisedButton>
+      <RaisedButton onClick={ action('button clicked') } label="Label" />
+      <RaisedButton onClick={ action('button clicked') }
+        backgroundColor="#607d8b" hoverColor="#bcaaa4"
+      >Customized Color</RaisedButton>
+      <RaisedButton onClick={ action('button clicked') }
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <RaisedButton onClick={ action('button clicked') } label="Android"
+        icon={<SvgIcon kind="primary" path={ActionAndroid} />}
+      />
+      <RaisedButton onClick={ action('button clicked') } label="Android" labelPosition="after"
+        icon={<SvgIcon kind="secondary" path={ActionAndroid} />}
+      />
+    </ThemeProvider>
   ))
   .add('IconButton', () => (
-    <div style={{ width: '100%' }}>
-      <ThemeProvider>
-        <div>
-          <Button onClick={ action('button clicked') } design="iconButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } disabled design="iconButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton" kind="primary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton" kind="secondary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>}
-          />
-        </div>
-      </ThemeProvider>
-      <ThemeProvider theme={darkTheme}>
-        <div style={{ backgroundColor: '#263238' }}>
-          <Button onClick={ action('button clicked') } design="iconButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } disabled design="iconButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton" kind="primary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="iconButton" kind="secondary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>}
-          />
-        </div>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider>
+      <IconButton onClick={ action('button clicked') }
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <IconButton onClick={ action('button clicked') } kind="primary"
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <IconButton onClick={ action('button clicked') } kind="secondary"
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <IconButton onClick={ action('button clicked') }
+        baseColor="#00bcd4" hoverColor="#0097a7"
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <IconButton onClick={ action('button clicked') } disabled
+        icon={<SvgIcon path={ActionAndroid} />}
+      />
+      <IconButton onClick={ action('button clicked') } kind="secondary"
+        size="large" icon={<SvgIcon path={ActionAndroid} />}
+      />
+    </ThemeProvider>
   ))
   .add('FloatingButton', () => (
-    <div style={{ width: '100%' }}>
-      <ThemeProvider>
-        <div>
-          <Button onClick={ action('button clicked') } design="floatingButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>} size="mini"
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>} size="large"
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton" kind="primary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>} size="mini"
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton" kind="secondary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } disabled design="floatingButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>} size="large"
-          />
-        </div>
-      </ThemeProvider>
-      <ThemeProvider theme={darkTheme}>
-        <div style={{ backgroundColor: '#263238' }}>
-          <Button onClick={ action('button clicked') } design="floatingButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>} size="mini"
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton"
-            icon={<SvgIcon kind="primary">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton"
-            icon={<SvgIcon kind="secondary">{ActionAndroid}</SvgIcon>} size="large"
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton" kind="primary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>} size="mini"
-          />
-          <Button onClick={ action('button clicked') } design="floatingButton" kind="secondary"
-            icon={<SvgIcon baseColor="#fff">{ActionAndroid}</SvgIcon>}
-          />
-          <Button onClick={ action('button clicked') } disabled design="floatingButton"
-            icon={<SvgIcon>{ActionAndroid}</SvgIcon>} size="large"
-          />
-        </div>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider>
+      <FloatingButton onClick={ action('button clicked') }
+        icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') } kind="primary"
+        icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') } kind="secondary"
+        icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') }
+        backgroundColor="#00bcd4" hoverColor="#4dd0e1"
+        icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') } disabled
+        icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') } kind="secondary"
+        size="large" icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') } kind="secondary"
+        size="large" depth={1} icon={<SvgIcon path={ContentAdd} />}
+      />
+      <FloatingButton onClick={ action('button clicked') } kind="secondary"
+        size="large" depth={2} icon={<SvgIcon path={ContentAdd} />}
+      />
+    </ThemeProvider>
   ));

@@ -1,5 +1,10 @@
-import { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Style } from 'radium';
+import merge from 'lodash.merge';
 import themes from './themes';
+import normalize from './normalize';
+import globalStyle from './global';
+import font from './font.css';
 
 export default class ThemeProvider extends Component {
 
@@ -19,7 +24,12 @@ export default class ThemeProvider extends Component {
   }
 
   render() {
-    return this.props.children;
+    return (
+      <div>
+        <Style rules={merge(normalize, font, globalStyle)} />
+        {this.props.children}
+      </div>
+    );
   }
 
 }

@@ -1,4 +1,6 @@
 .scripts/*
 node_modules/*
 **/node_modules/*
-src/SvgIcon/paths.js
+src/SvgIcon/*
+src/utils/*
+src/styles/font.js

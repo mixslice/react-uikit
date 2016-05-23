@@ -11,7 +11,7 @@ class SvgIcon extends Component {
     /**
      * Elements passed into the SVG Icon.
      */
-    children: PropTypes.node,
+    path: PropTypes.node,
     /**
      * This is the fill color of the svg icon.
      * If not specified, this component will default
@@ -43,7 +43,7 @@ class SvgIcon extends Component {
      * and each unit will be worth 10px.
      */
     viewBox: PropTypes.string,
-    size: PropTypes.oneOf(['normal', 'mini', 'large']),
+    size: PropTypes.oneOf(['normal', 'large']),
     kind: PropTypes.oneOf(['primary', 'secondary'])
   };
 
@@ -54,12 +54,20 @@ class SvgIcon extends Component {
   };
 
   static contextTypes = {
-    theme: PropTypes.object.isRequired,
+    theme: PropTypes.object,
+  };
+
+  handleMouseLeave = (event) => {
+    this.props.onMouseLeave(event);
+  };
+
+  handleMouseEnter = (event) => {
+    this.props.onMouseEnter(event);
   };
 
   render() {
     const {
-      children,
+      path,
       baseColor,
       hoverColor,
       onMouseEnter, // eslint-disable-line no-unused-vars
@@ -71,57 +79,72 @@ class SvgIcon extends Component {
       ...other,
     } = this.props;
 
-    const theme = this.context.theme || themes.getTheme();
-    const palette = theme.palette;
+    const _t = this.context.theme || themes.getTheme();
+    const _p = _t.palette;
 
     const colors = {
-      primaryColor: color(palette.primaryColor).hexString(),
-      primaryColorHover: color(palette.primaryColor).darken(palette.hoverDarken).hexString(),
-      accentColor: color(palette.accentColor).hexString(),
-      accentColorHover: color(palette.accentColor).darken(palette.hoverDarken).hexString(),
-      greyColor: color(palette.greyColor).hexString(),
-      textColor: palette.textColor,
-      highlightTextColor: palette.highlightTextColor,
-      disabledColor: color(palette.disabledColor).hexString()
+      primaryColor: color(_p.primaryColor).hexString(),
+      primaryColorHover: color(_p.primaryColor).darken(_p.hoverColorDepth).hexString(),
+      accentColor: color(_p.accentColor).hexString(),
+      accentColorHover: color(_p.accentColor).darken(_p.hoverColorDepth).hexString(),
+      greyColor: color(_p.greyColor).hexString(),
+      textColor: _p.textColor,
+      highlightTextColor: _p.highlightTextColor,
+      disabledColor: color(_p.disabledColor).darken(_p.hoverColorDepth).hexString()
     };
 
     const styles = {
       default: {
-        fill: colors.textColor
+        display: 'inline-block',
+        height: _t.spacing.iconSize,
+        width: _t.spacing.iconSize,
+        userSelect: 'none',
+        verticalAlign: 'middle',
+        fill: colors.textColor,
+        ':hover': {
+          fill: colors.primaryColor
+        }
       },
       primary: {
-        fill: colors.primaryColor
+        fill: colors.primaryColor,
+        ':hover': {
+          fill: colors.primaryColorHover
+        }
       },
       secondary: {
-        fill: colors.accentColor
+        fill: colors.accentColor,
+        ':hover': {
+          fill: colors.accentColorHover
+        }
       },
       disabled: {
-        fill: colors.disabledColor
+        fill: colors.disabledColor,
+        ':hover': {
+          fill: colors.disabledColor
+        }
       },
       large: {
-        height: theme.spacing.iconSize * 1.5,
-        width: theme.spacing.iconSize * 1.5
-      },
-      mini: {
-        height: theme.spacing.iconSize / 2,
-        width: theme.spacing.iconSize / 2
+        height: _t.spacing.iconSize * 1.5,
+        width: _t.spacing.iconSize * 1.5
       }
     };
 
     const inlineStyle = [];
-    inlineStyle.push(theme.svgIcon);
+    inlineStyle.push(styles.default);
     if (disabled) {
       inlineStyle.push(styles.disabled);
     } else {
-      inlineStyle.push(styles.default);
       inlineStyle.push(styles[kind]);
       if (style) {
         inlineStyle.push(style);
       }
       if (baseColor) {
         inlineStyle.push({ fill: baseColor });
-        // inlineStyle.push(hoverColor
-        //  && { ':hover': { fill: hoverColor } });
+      }
+      if (hoverColor) {
+        inlineStyle.push({
+          ':hover': { fill: hoverColor }
+        });
       }
     }
 
@@ -137,7 +160,7 @@ class SvgIcon extends Component {
         style={inlineStyle}
         viewBox={viewBox}
       >
-        {children}
+        {path}
       </svg>
     );
   }

@@ -5,6 +5,7 @@
     "react"
   ],
   "rules": {
+    "max-len": 0,
     "comma-dangle": 0,
     "arrow-body-style": 0,
     "prefer-arrow-callback": 0,
