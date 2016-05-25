@@ -27,7 +27,7 @@ export default {
       [14, 45, 0.25, 10, 18, 0.22],
       [19, 60, 0.30, 15, 20, 0.22],
     ],
-    hoverColorDepth: 0.2
+    hoverColorDepth: 0.1
   },
   spacing: {
     iconSize: 24,

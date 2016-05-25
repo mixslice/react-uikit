@@ -9,13 +9,9 @@ import { extendChildren } from '../utils/childUtils';
 const getStyles = (theme) => {
   const { palette, spacing } = theme;
   const colors = {
-    primaryColor: color(palette.primaryColor).hexString(),
-    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth).hexString(),
-    accentColor: color(palette.accentColor).hexString(),
-    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth).hexString(),
-    greyColor: color(palette.greyColor).hexString(),
+    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 2).hexString(),
+    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 2).hexString(),
     textColor: color(palette.textColor).alpha(palette.textColorAlpha).rgbString(),
-    highlightTextColor: palette.highlightTextColor,
     disabledColor: color(palette.disabledColor).darken(palette.disabledColorDarken).rgbString()
   };
 
@@ -40,17 +36,17 @@ const getStyles = (theme) => {
       transition: transitions.easeOut()
     },
     flatButton: {
-      color: colors.textColor,
-      backgroundColor: colors.greyColor,
+      color: color(palette.textColor).alpha(palette.textColorAlpha).rgbString(),
+      backgroundColor: palette.greyColor,
       ':hover': {
-        backgroundColor: colors.primaryColor
+        backgroundColor: palette.primaryColor
       }
     },
     raisedButton: {
-      color: colors.textColor,
+      color: color(palette.textColor).alpha(palette.textColorAlpha).rgbString(),
       backgroundColor: palette.canvasColor,
       ':hover': {
-        backgroundColor: colors.greyColor
+        backgroundColor: palette.greyColor
       },
       boxShadow:
         `0 ${palette.shadows[0][0]}px ${palette.shadows[0][1]}px
@@ -59,15 +55,15 @@ const getStyles = (theme) => {
          ${color(palette.shadowColor).alpha(palette.shadows[0][5]).rgbString()}`
     },
     primary: {
-      backgroundColor: colors.primaryColor,
-      color: colors.highlightTextColor,
+      backgroundColor: palette.primaryColor,
+      color: palette.highlightTextColor,
       ':hover': {
         backgroundColor: colors.primaryColorHover
       }
     },
     secondary: {
-      backgroundColor: colors.accentColor,
-      color: colors.highlightTextColor,
+      backgroundColor: palette.accentColor,
+      color: palette.highlightTextColor,
       ':hover': {
         backgroundColor: colors.accentColorHover
       }
@@ -75,10 +71,10 @@ const getStyles = (theme) => {
     disabled: {
       cursor: 'default',
       backgroundColor: colors.disabledColor,
-      color: colors.greyColor,
+      color: palette.greyColor,
       ':hover': {
         backgroundColor: colors.disabledColor,
-        color: colors.greyColor
+        color: palette.greyColor
       },
       boxShadow: 'none'
     },
@@ -140,9 +136,18 @@ const RaisedButton = (props, context) => {
     if (props.backgroundColor) {
       inlineStyle.push({
         backgroundColor: props.backgroundColor,
+        color: color(props.backgroundColor).light()
+          ? color(theme.palette.textColor).alpha(theme.palette.textColorAlpha).rgbString()
+          : theme.palette.highlightTextColor
       });
       inlineStyle.push(props.hoverColor
-        && { ':hover': { backgroundColor: props.hoverColor } });
+        && { ':hover': {
+          backgroundColor: props.hoverColor,
+          color: color(props.hoverColor).light()
+            ? color(theme.palette.textColor).alpha(theme.palette.textColorAlpha).rgbString()
+            : theme.palette.highlightTextColor
+        }
+      });
     }
   }
 
