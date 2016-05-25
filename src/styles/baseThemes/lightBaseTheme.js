@@ -31,6 +31,8 @@ export default {
   },
   spacing: {
     iconSize: 24,
+    avatarSize: 40,
+    largeAvatarSize: 56,
     buttonWidth: 72
   }
 };

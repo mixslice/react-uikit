@@ -86,8 +86,8 @@ class FloatingButton extends Component {
         margin: '0.8em',
         padding: '0px',
         fontWeight: 600,
-        height: 40,
-        minWidth: 40,
+        height: _t.spacing.avatarSize,
+        minWidth: _t.spacing.avatarSize,
         position: 'relative',
         textAlign: 'center',
         border: 0,
@@ -121,8 +121,8 @@ class FloatingButton extends Component {
         cursor: 'default'
       },
       large: {
-        height: 56,
-        width: 56
+        height: _t.spacing.largeAvatarSize,
+        width: _t.spacing.largeAvatarSize
       }
     };
 
