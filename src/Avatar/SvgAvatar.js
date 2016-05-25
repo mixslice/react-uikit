@@ -102,7 +102,7 @@ class SvgAvatar extends Component {
         style={inlineStyle}
         onClick={this.props.onClick}
       >
-      { getChildren() }
+      {getChildren()}
       </div>
     );
   }

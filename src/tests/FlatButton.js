@@ -18,7 +18,7 @@ describe('FlatButton', () => {
     // wrap this with a div.
     const wrapper = mount(
       <div>
-        <FlatButton onClick={ clickMe }>ClickMe</FlatButton>
+        <FlatButton onClick={clickMe}>ClickMe</FlatButton>
       </div>
     );
 

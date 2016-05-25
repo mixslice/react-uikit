@@ -11,10 +11,10 @@ import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
 storiesOf('Avatar', module)
   .add('ImageAvatar', () => (
     <ThemeProvider>
-      <ImageAvatar onClick={ action('button clicked') }
+      <ImageAvatar onClick={action('button clicked')}
         src="http://www.material-ui.com/images/uxceo-128.jpg"
       />
-      <ImageAvatar onClick={ action('button clicked') }
+      <ImageAvatar onClick={action('button clicked')}
         src="http://www.material-ui.com/images/uxceo-128.jpg"
         size="large"
       />
@@ -22,12 +22,12 @@ storiesOf('Avatar', module)
   ))
   .add('LetterAvatar', () => (
     <ThemeProvider>
-      <LetterAvatar onClick={ action('button clicked') } label="L" />
-      <LetterAvatar onClick={ action('button clicked') }
+      <LetterAvatar onClick={action('button clicked')} label="L" />
+      <LetterAvatar onClick={action('button clicked')}
         size="normal"
         backgroundColor="#40c4ff" color="#dce775"
       >C</LetterAvatar>
-      <LetterAvatar onClick={ action('button clicked') }
+      <LetterAvatar onClick={action('button clicked')}
         size="large" label="YP"
         backgroundColor="#aa00ff" color="#fff"
       />
@@ -35,20 +35,20 @@ storiesOf('Avatar', module)
   ))
   .add('SvgAvatar', () => (
     <ThemeProvider>
-      <SvgAvatar onClick={ action('button clicked') }
+      <SvgAvatar onClick={action('button clicked')}
         icon={<SvgIcon path={ActionAndroid} />}
         backgroundColor="#40c4ff" baseColor="#dce775"
       />
-      <SvgAvatar onClick={ action('button clicked') }
+      <SvgAvatar onClick={action('button clicked')}
         icon={<SvgIcon path={ActionAndroid} />}
         size="large"
         backgroundColor="#aa00ff" baseColor="#fff"
       />
-      <SvgAvatar onClick={ action('button clicked') }
+      <SvgAvatar onClick={action('button clicked')}
         icon={<SvgIcon path={ContentAdd} />}
         backgroundColor="#ec407a" baseColor="#fff"
       />
-      <SvgAvatar onClick={ action('button clicked') }
+      <SvgAvatar onClick={action('button clicked')}
         icon={<SvgIcon path={ContentAdd} />}
         size="large"
         backgroundColor="#ec407a" baseColor="#fff"

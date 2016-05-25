@@ -210,7 +210,7 @@ class FlatButton extends Component {
         onClick={this.props.onClick}
         disabled={this.props.disabled ? 'disabled' : ''}
       >
-      { getChildren() }
+      {getChildren()}
       </button>
     );
   }
