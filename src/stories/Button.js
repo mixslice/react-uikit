@@ -17,7 +17,7 @@ storiesOf('Button', module)
       <FlatButton onClick={action('button clicked')} kind="primary" disabled>Disabled</FlatButton>
       <FlatButton onClick={action('button clicked')} label="Label" />
       <FlatButton onClick={action('button clicked')}
-        backgroundColor="#607d8b" hoverColor="#bcaaa4"
+        backgroundColor="#607d8b" hoverColor="#f4f4f4"
       >Customized Color</FlatButton>
       <FlatButton onClick={action('button clicked')}
         icon={<SvgIcon path={ActionAndroid} />}
