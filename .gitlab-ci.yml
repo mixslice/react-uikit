@@ -12,6 +12,9 @@ build_staging:
   script:
     - npm run build
     - docker build -t $IMAGE_NAME .
+  cache:
+    paths:
+    - node_modules/
   only:
     - develop
   tags:
