@@ -7,24 +7,26 @@ import { extendChildren } from '../utils/childUtils';
 const getStyles = (props, theme) => {
   const { palette, spacing } = theme;
 
-  const size = props.size === 'large' ? spacing.largeAvatarSize : spacing.avatarSize;
-
   return {
     avatar: {
       outline: 'none',
       boxSizing: 'border-box',
-      display: 'inline-block',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       textDecoration: 'none',
       margin: '0.5em',
       padding: '0',
-      lineHeight: `${size}px`,
-      height: size,
-      minWidth: size,
-      position: 'relative',
-      textAlign: 'center',
+      width: spacing.avatarSize,
+      height: spacing.avatarSize,
       border: 0,
       borderRadius: '50%',
       backgroundColor: props.backgroundColor || palette.greyColor
+    },
+    large: {
+      fontSize: `${spacing.largeAvatarSize / spacing.avatarSize}rem`,
+      width: spacing.largeAvatarSize,
+      height: spacing.largeAvatarSize
     },
     avatarPic: {
       backgroundImage: `url(${props.src})`,
@@ -32,8 +34,7 @@ const getStyles = (props, theme) => {
       backgroundSize: 'contain'
     },
     letter: {
-      color: props.color || palette.textColor,
-      fontSize: `${size / spacing.avatarSize}em`
+      color: props.color || palette.textColor
     },
     icon: {
       fontFamily: 'system'
@@ -44,6 +45,7 @@ const getStyles = (props, theme) => {
 const getChildren = (props, palette) => {
   let children = '';
   const extendProps = {
+    flex: 'none',
     size: props.size || 'normal',
     baseColor: props.baseColor || palette.greyColor,
     hoverColor: props.baseColor || palette.greyColor
@@ -72,6 +74,10 @@ const Avatar = (props, context) => {
     inlineStyle.push(styles.avatarPic);
   }
 
+  if (props.size === 'large') {
+    inlineStyle.push(styles.large);
+  }
+
   if (props.label || props.children) {
     inlineStyle.push(styles.letter);
   }
@@ -86,52 +92,20 @@ const Avatar = (props, context) => {
 
 
   return (
-    <div
-      style={inlineStyle}
-      onClick={props.onClick}
-    >
-    {getChildren(props, theme.palette)}
+    <div style={inlineStyle}>
+      {getChildren(props, theme.palette)}
     </div>
   );
 };
 
 Avatar.propTypes = {
-  /**
-   * Customized backgroundColor
-   */
   backgroundColor: React.PropTypes.string,
-  // TODO className: React.PropTypes.string,
-  /**
-   * svg base color
-   */
   baseColor: PropTypes.string,
-  /**
-   * Children node
-   */
   children: PropTypes.node,
-  /**
-   * svg icon
-   */
   icon: React.PropTypes.element,
-  /**
-   * Letter label
-   */
   label: PropTypes.string,
-  /**
-   * onClick event function
-   */
-  onClick: PropTypes.func,
-  /**
-   * Preset size: normal, large
-   */
   size: PropTypes.oneOf(['normal', 'large']),
-  /**
-   * The image source url
-   */
   src: PropTypes.string,
-  /**
-   * Customized style
-   */
   style: React.PropTypes.object
 };
 

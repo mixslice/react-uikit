@@ -5,8 +5,7 @@ import lightBaseTheme from './baseThemes/lightBaseTheme';
 class Themes {
 
   getTheme(theme, ...more) {
-    const _t = merge({}, lightBaseTheme, theme, ...more);
-    return _t;
+    return merge({}, lightBaseTheme, theme, ...more);
   }
 }
 

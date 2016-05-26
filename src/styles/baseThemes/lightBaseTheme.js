@@ -1,19 +1,21 @@
 import {
-  lightBlue800,
+  blue500,
   pinkA200,
-  grey100, grey300,
-  white, black
+  grey100,
+  grey300,
+  white,
+  black
 } from '../colors';
+import color from 'color';
 
 export default {
   name: 'lightBaseTheme',
   fontFamily: 'lato,system,-apple-system,".SFNSText-Regular","Helvetica Neue",Roboto,"Segoe UI",sans-serif',
   palette: {
-    primaryColor: lightBlue800,
+    primaryColor: blue500,
     accentColor: pinkA200,
     greyColor: grey100,
-    textColor: black,
-    textColorAlpha: 0.87,
+    textColor: color(black).alpha(0.87).rgbString(),
     highlightTextColor: white,
     canvasColor: white,
     borderColor: grey300,
@@ -30,9 +32,11 @@ export default {
     hoverColorDepth: 0.1
   },
   spacing: {
-    iconSize: 24,
+    iconSize: 20,
     avatarSize: 40,
     largeAvatarSize: 56,
-    buttonWidth: 72
+    buttonWidth: 72,
+    padding: 10,
+    borderRadius: 2
   }
 };

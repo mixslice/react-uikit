@@ -1,4 +1,2 @@
-export FlatButton from './FlatButton';
-export RaisedButton from './RaisedButton';
+export Button from './Button';
 export IconButton from './IconButton';
-export FloatingButton from './FloatingButton';

@@ -6,50 +6,80 @@ import transitions from '../styles/transitions';
 import themes from '../styles/themes';
 import { extendChildren } from '../utils/childUtils';
 
-const styles = {
-  button: {
-    outline: 'none',
-    boxSizing: 'border-box',
-    display: 'inline-block',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    textDecoration: 'none',
-    margin: '0.8em',
-    padding: '0px',
-    lineHeight: 2.5,
-    fontWeight: 600,
-    minWidth: '2.5em',
-    position: 'relative',
-    textAlign: 'center',
-    border: 0,
-    borderRadius: '0.2em',
-    overflow: 'hidden',
-    transition: transitions.easeOut(),
-    backgroundColor: 'transparent'
-  },
-  disabled: {
-    cursor: 'default',
-    boxShadow: 'none'
-  },
-  large: {
-    fontSize: '1.5rem'
-  }
+const getStyles = (theme) => {
+  const { palette, spacing } = theme;
+  const colors = {
+    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 2).hexString(),
+    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 2).hexString(),
+    textColor: palette.textColor,
+    disabledColor: color(palette.disabledColor).darken(palette.disabledColorDarken).rgbString()
+  };
+
+  return {
+    button: {
+      outline: 'none',
+      boxSizing: 'border-box',
+      display: 'inline-block',
+      fontSize: '1rem',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      margin: '0.8em',
+      padding: '0px',
+      fontWeight: 600,
+      width: spacing.avatarSize,
+      height: spacing.avatarSize,
+      position: 'relative',
+      textAlign: 'center',
+      border: 0,
+      borderRadius: '50%',
+      overflow: 'hidden',
+      transition: transitions.easeOut(),
+      color: palette.textColor,
+      backgroundColor: palette.greyColor
+    },
+    hover: {
+      ':hover': {
+        backgroundColor: color(palette.greyColor).darken(palette.hoverColorDepth).hexString()
+      }
+    },
+    disabled: {
+      cursor: 'default',
+      boxShadow: 'none'
+    },
+    large: {
+      width: spacing.largeAvatarSize,
+      height: spacing.largeAvatarSize
+    },
+    primary: {
+      backgroundColor: palette.primaryColor,
+      color: palette.highlightTextColor,
+      ':hover': {
+        backgroundColor: colors.primaryColorHover,
+        color: palette.highlightTextColor,
+      }
+    },
+    secondary: {
+      backgroundColor: palette.accentColor,
+      color: palette.highlightTextColor,
+      ':hover': {
+        backgroundColor: colors.accentColorHover,
+        color: palette.highlightTextColor,
+      }
+    }
+  };
 };
 
 const getChildren = (props, palette) => {
   const extendProps = {
     default: {
       size: props.size,
-      baseColor: props.baseColor || palette.textColor,
-      hoverColor: props.hoverColor || color(palette.textColor).alpha(palette.textColorAlpha).rgbString()
+      baseColor: palette.textColor
     },
     primary: {
-      baseColor: palette.primaryColor,
-      hoverColor: color(palette.primaryColor).lighten(palette.hoverColorDepth * 2).hexString()
+      baseColor: palette.highlightTextColor
     },
     secondary: {
-      baseColor: palette.accentColor,
-      hoverColor: color(palette.accentColor).lighten(palette.hoverColorDepth * 2).hexString()
+      baseColor: palette.highlightTextColor
     }
   };
 
@@ -70,6 +100,7 @@ const getChildren = (props, palette) => {
 
 const IconButton = (props, context) => {
   const theme = context.theme || themes.getTheme();
+  const styles = getStyles(theme);
   const { palette } = theme;
 
   const inlineStyle = [];
@@ -78,6 +109,8 @@ const IconButton = (props, context) => {
   if (props.disabled) {
     inlineStyle.push(styles.disabled);
   } else {
+    inlineStyle.push(styles.hover);
+    inlineStyle.push(styles[props.kind]);
     if (props.backgroundColor) {
       inlineStyle.push({
         backgroundColor: props.backgroundColor,
@@ -108,45 +141,14 @@ const IconButton = (props, context) => {
 };
 
 IconButton.propTypes = {
-  /**
-   * Background color: css color string
-   */
   backgroundColor: PropTypes.string,
-  /**
-   * Disable
-   */
   disabled: PropTypes.bool,
-  /**
-   * Base color: css color string
-   */
   baseColor: PropTypes.string,
-  /**
-   * Hover color: css color string
-   */
   hoverColor: PropTypes.string,
-  // TODO href: React.PropTypes.string,
-  /**
-   * Icon element: only support SVG Icon
-   */
   icon: PropTypes.element,
-  // TODO linkButton: React.PropTypes.bool,
-  /**
-   * Click event function
-   */
   onClick: PropTypes.func,
-  // TODO onKeyboardFocus, onMouseEnter, onMouseLeave, onTouchStart
-  // TODO rippleColor: React.PropTypes.string,
-  /**
-   * Preset Kind: Primary or Secondary
-   */
   kind: PropTypes.oneOf(['primary', 'secondary']),
-  /**
-   * Preset Size: normal, mini, large
-   */
   size: PropTypes.oneOf(['normal', 'large']),
-  /**
-   * Customized style
-   */
   style: PropTypes.object
 };
 
