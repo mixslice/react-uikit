@@ -1,6 +1,5 @@
 import {
-  blue500,
-  pinkA200,
+  blueA200,
   grey100,
   grey300,
   white,
@@ -12,10 +11,10 @@ export default {
   name: 'lightBaseTheme',
   fontFamily: 'lato,system,-apple-system,".SFNSText-Regular","Helvetica Neue",Roboto,"Segoe UI",sans-serif',
   palette: {
-    primaryColor: blue500,
-    accentColor: pinkA200,
+    primaryColor: blueA200,
+    accentColor: '#ff5a5f',
     greyColor: grey100,
-    textColor: color(black).alpha(0.87).rgbString(),
+    textColor: color(black).alpha(0.75).rgbString(),
     highlightTextColor: white,
     canvasColor: white,
     borderColor: grey300,

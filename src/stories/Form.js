@@ -11,14 +11,17 @@ const styles = {
 };
 
 storiesOf('Form', module)
-  .add('TextField', () => (
+  .addDecorator((story) => (
     <Aligner>
       <ThemeProvider>
-        <div style={styles.wrapper}>
-          <TextField placeholder="Text" /><br />
-          <TextField placeholder="Text" /><br />
-          <TextField /><br />
-        </div>
+        {story()}
       </ThemeProvider>
     </Aligner>
+  ))
+  .add('TextField', () => (
+    <div style={styles.wrapper}>
+      <TextField placeholder="Text" /><br />
+      <TextField placeholder="Text" /><br />
+      <TextField /><br />
+    </div>
   ));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
+import Aligner from './Aligner';
 import {
   Button,
   IconButton
@@ -9,8 +10,15 @@ import SvgIcon from '../SvgIcon';
 import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
 
 storiesOf('Button', module)
+  .addDecorator((story) => (
+    <Aligner>
+      <ThemeProvider>
+        {story()}
+      </ThemeProvider>
+    </Aligner>
+  ))
   .add('Button', () => (
-    <ThemeProvider>
+    <div>
       <Button onClick={action('button clicked')}>Default</Button>
       <Button onClick={action('button clicked')} kind="primary">Primary</Button>
       <Button onClick={action('button clicked')} kind="secondary">Secondary</Button>
@@ -28,10 +36,10 @@ storiesOf('Button', module)
       <Button onClick={action('button clicked')} label="Android" labelPosition="after"
         icon={<SvgIcon kind="secondary" path={ContentAdd} />}
       />
-    </ThemeProvider>
+    </div>
   ))
   .add('IconButton', () => (
-    <ThemeProvider>
+    <div>
       <IconButton onClick={action('button clicked')}
         icon={<SvgIcon path={ActionAndroid} />}
       />
@@ -51,5 +59,5 @@ storiesOf('Button', module)
       <IconButton onClick={action('button clicked')} kind="secondary"
         size="large" icon={<SvgIcon path={ActionAndroid} />}
       />
-    </ThemeProvider>
+    </div>
   ));

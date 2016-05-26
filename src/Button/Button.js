@@ -22,7 +22,8 @@ const getStyles = (theme) => {
       fontSize: '1rem',
       cursor: 'pointer',
       textDecoration: 'none',
-      margin: '0.8em',
+      marginBottom: 20,
+      marginRight: 10,
       padding: '9px 20px',
       fontWeight: 600,
       minWidth: spacing.buttonWidth,
@@ -62,11 +63,13 @@ const getStyles = (theme) => {
     large: {
       fontSize: '1.5rem'
     },
-    before: {
-      padding: '9px 20px 9px 17px'
-    },
-    after: {
-      padding: '9px 17px 9px 20px'
+    iconStyle: {
+      before: {
+        padding: '9px 20px 9px 17px'
+      },
+      after: {
+        padding: '9px 17px 9px 20px'
+      }
     }
   };
 };
@@ -146,7 +149,7 @@ const Button = (props, context) => {
 
   if (props.icon && props.label) {
     const position = props.labelPosition || 'before';
-    inlineStyle.push(styles[position]);
+    inlineStyle.push(styles.iconStyle[position]);
   }
 
   if (props.size && props.size !== 'normal') {
@@ -179,6 +182,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   kind: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['normal', 'large']),
+  float: PropTypes.oneOf(['left', 'right']),
   style: PropTypes.object
 };
 
