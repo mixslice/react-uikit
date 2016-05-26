@@ -14,6 +14,7 @@ const getStyles = (props, theme) => {
       display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
+      verticalAlign: 'middle',
       textDecoration: 'none',
       margin: '0.5em',
       padding: '0',

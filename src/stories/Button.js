@@ -8,6 +8,8 @@ import {
 } from '../Button';
 import SvgIcon from '../SvgIcon';
 import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
+import { blueGrey500, blueGrey100 } from '../styles/colors';
+
 
 storiesOf('Button', module)
   .addDecorator((story) => (
@@ -24,8 +26,10 @@ storiesOf('Button', module)
       <Button onClick={action('button clicked')} kind="secondary">Secondary</Button>
       <Button onClick={action('button clicked')} kind="primary" disabled>Disabled</Button>
       <Button onClick={action('button clicked')} label="Label" />
-      <Button onClick={action('button clicked')}
-        backgroundColor="#607d8b" hoverColor="#f4f4f4"
+      <Button
+        onClick={action('button clicked')}
+        backgroundColor={blueGrey500}
+        hoverColor={blueGrey100}
       >Customized Color</Button>
       <Button onClick={action('button clicked')}
         icon={<SvgIcon path={ActionAndroid} />}

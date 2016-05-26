@@ -19,7 +19,7 @@ export default {
   },
 
   create(duration, property, delay, easeFunction) {
-    const thisDuration = duration || '450ms';
+    const thisDuration = duration || '300ms';
     const thisProperty = property || 'all';
     const thisDelay = delay || '0ms';
     const thisEaseFunction = easeFunction || 'linear';

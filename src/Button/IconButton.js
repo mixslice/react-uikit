@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
-import merge from 'lodash.merge';
 import radium from 'radium';
 import color from 'color';
 import transitions from '../styles/transitions';
 import themes from '../styles/themes';
+import merge from 'lodash.merge';
 import { extendChildren } from '../utils/childUtils';
 
 const getStyles = (theme) => {
   const { palette, spacing } = theme;
   const colors = {
-    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 2).hexString(),
-    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 2).hexString(),
+    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
+    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
     textColor: palette.textColor,
     disabledColor: color(palette.disabledColor).darken(palette.disabledColorDarken).rgbString()
   };
@@ -19,17 +19,15 @@ const getStyles = (theme) => {
     button: {
       outline: 'none',
       boxSizing: 'border-box',
-      display: 'inline-block',
-      fontSize: '1rem',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      verticalAlign: 'middle',
       cursor: 'pointer',
       textDecoration: 'none',
       margin: '0.8em',
-      padding: '0px',
-      fontWeight: 600,
       width: spacing.avatarSize,
       height: spacing.avatarSize,
-      position: 'relative',
-      textAlign: 'center',
       border: 0,
       borderRadius: '50%',
       overflow: 'hidden',
@@ -75,6 +73,9 @@ const getChildren = (props, palette) => {
       size: props.size,
       baseColor: palette.textColor
     },
+    disabled: {
+      disabled: props.disabled
+    },
     primary: {
       baseColor: palette.highlightTextColor
     },
@@ -84,7 +85,7 @@ const getChildren = (props, palette) => {
   };
 
   let children = '';
-  let childProps = props.disabled ? { disabled: props.disabled } : extendProps.default;
+  let childProps = props.disabled ? extendProps.disabled : extendProps.default;
 
   if (props.kind) {
     childProps = merge({}, childProps, extendProps[props.kind]);

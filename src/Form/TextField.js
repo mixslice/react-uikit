@@ -44,9 +44,6 @@ const TextField = (props, context) => {
 };
 
 TextField.propTypes = {
-  /**
-   * Customized backgroundColor
-   */
   children: PropTypes.node,
   icon: PropTypes.element,
   placeholder: PropTypes.string,

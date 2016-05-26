@@ -7,12 +7,6 @@ import Avatar from '../Avatar';
 import SvgIcon from '../SvgIcon';
 import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
 
-const styles = {
-  wrapper: {
-    display: 'flex',
-    alignItems: 'center'
-  }
-};
 
 storiesOf('Avatar', module)
   .addDecorator((story) => (
@@ -23,7 +17,7 @@ storiesOf('Avatar', module)
     </Aligner>
   ))
   .add('Avatar', () => (
-    <div style={styles.wrapper}>
+    <div>
       <Avatar
         src="http://www.material-ui.com/images/uxceo-128.jpg"
       />

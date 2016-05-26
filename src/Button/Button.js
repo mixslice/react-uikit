@@ -8,8 +8,8 @@ import { extendChildren } from '../utils/childUtils';
 const getStyles = (theme) => {
   const { palette, spacing } = theme;
   const colors = {
-    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 2).hexString(),
-    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 2).hexString(),
+    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
+    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
     textColor: palette.textColor,
     disabledColor: color(palette.disabledColor).darken(palette.disabledColorDarken).rgbString()
   };
@@ -19,6 +19,7 @@ const getStyles = (theme) => {
       outline: 'none',
       boxSizing: 'border-box',
       display: 'inline-block',
+      verticalAlign: 'middle',
       fontSize: '1rem',
       cursor: 'pointer',
       textDecoration: 'none',
@@ -75,6 +76,22 @@ const getStyles = (theme) => {
 };
 
 const getChildren = (props) => {
+  const childrenStyles = {
+    wrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    label: {
+      before: {
+        margin: '0 0 0 0.5em'
+      },
+      after: {
+        margin: '0 0.5em 0 0'
+      }
+    }
+  };
+
   let children = '';
   if (props.icon || props.label) {
     const icon = extendChildren(props.icon, {
@@ -84,32 +101,18 @@ const getChildren = (props) => {
 
     const labelPosition = props.labelPosition || 'before';
 
-    const childrenStyles = {
-      wrapper: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      },
-      label: {
-        before: {
-          margin: '0 0 0 0.5em'
-        },
-        after: {
-          margin: '0 0.5em 0 0'
-        }
-      }
-    };
-
     const label = (
-      <span style={[props.icon && props.label && childrenStyles.label[labelPosition]]}>
+      <span style={childrenStyles.label[labelPosition]}>
         {props.label}
       </span>
     );
 
     if (props.labelPosition && props.labelPosition === 'after') {
       children = (<div style={childrenStyles.wrapper}>{label}{icon}</div>);
-    } else {
+    } else if (props.label) {
       children = (<div style={childrenStyles.wrapper}>{icon}{label}</div>);
+    } else {
+      children = (<div style={childrenStyles.wrapper}>{icon}</div>);
     }
   } else {
     children = props.children;
