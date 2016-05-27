@@ -27,9 +27,11 @@ storiesOf('Form', module)
   ))
   .add('Sample', () => (
     <div style={styles.wrapper}>
-      <Subheader>Header</Subheader>
+      <Subheader>Account</Subheader>
       <TextField placeholder="Name" />
       <TextField type="password" placeholder="Password" />
+
+      <Subheader position="right">Users</Subheader>
       <SelectField data-prefill="1">
         <option value="1">1 User</option>
         <option value="2">2 Users</option>
@@ -39,9 +41,7 @@ storiesOf('Form', module)
       </SelectField>
 
       <Subheader position="center">Center</Subheader>
-      <TextField placeholder="Say hi," />
-
-      <Subheader>Comment</Subheader>
+      <TextField placeholder="Say hi for auto complete" />
       <TextArea placeholder="Leave your message" />
 
       <ActionBar kind="stretch">
