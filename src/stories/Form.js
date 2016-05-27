@@ -2,7 +2,12 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
-import { TextField, ActionBar } from '../Form';
+import {
+  TextField,
+  TextArea,
+  SelectField,
+  ActionBar
+} from '../Form';
 import Subheader from '../Subheader';
 import { Button } from '../Button';
 
@@ -20,13 +25,25 @@ storiesOf('Form', module)
       </ThemeProvider>
     </Aligner>
   ))
-  .add('TextField', () => (
+  .add('Sample', () => (
     <div style={styles.wrapper}>
       <Subheader>Header</Subheader>
       <TextField placeholder="Name" />
       <TextField type="password" placeholder="Password" />
+      <SelectField data-prefill="1">
+        <option value="1">1 User</option>
+        <option value="2">2 Users</option>
+        <option value="3">3 Users</option>
+        <option value="4">4 Users</option>
+        <option value="5">5 Users</option>
+      </SelectField>
+
       <Subheader position="center">Center</Subheader>
       <TextField placeholder="Say hi," />
+
+      <Subheader>Comment</Subheader>
+      <TextArea placeholder="Leave your message" />
+
       <ActionBar kind="stretch">
         <Button style={{ backgroundColor: 'white', border: '1px solid #ccc' }}>Cancel</Button>
         <Button kind="primary" lastChild>Primary</Button>

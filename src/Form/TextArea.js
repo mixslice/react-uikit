@@ -27,7 +27,7 @@ const getStyles = (props, theme) => {
   };
 };
 
-const TextField = (props, context) => {
+const Textarea = (props, context) => {
   const theme = context.theme || themes.getTheme();
   const styles = getStyles(props, theme);
   const {
@@ -44,18 +44,18 @@ const TextField = (props, context) => {
 
 
   return (
-    <input {...other} style={inlineStyle} placeholder={props.placeholder} />
+    <textarea {...other} style={inlineStyle} placeholder={props.placeholder} />
   );
 };
 
-TextField.propTypes = {
+Textarea.propTypes = {
   children: PropTypes.node,
   placeholder: PropTypes.string,
   style: PropTypes.object
 };
 
-TextField.contextTypes = {
+Textarea.contextTypes = {
   theme: PropTypes.object
 };
 
-export default radium(TextField);
+export default radium(Textarea);

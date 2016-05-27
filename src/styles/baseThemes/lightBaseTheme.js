@@ -2,6 +2,7 @@ import {
   blueA200,
   grey100,
   grey300,
+  grey500,
   white,
   black
 } from '../colors';
@@ -15,9 +16,11 @@ export default {
     accentColor: '#ff5a5f',
     greyColor: grey100,
     textColor: color(black).alpha(0.75).rgbString(),
+    backgroundColor: white,
     highlightTextColor: white,
     canvasColor: white,
     borderColor: grey300,
+    placeholderColor: grey500,
     disabledColor: grey100,
     disabledColorDarken: 0.1,
     shadowColor: black,
