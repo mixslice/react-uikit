@@ -25,7 +25,7 @@ storiesOf('Form', module)
       </ThemeProvider>
     </Aligner>
   ))
-  .add('Sample', () => (
+  .add('Form', () => (
     <div style={styles.wrapper}>
       <Subheader>Account</Subheader>
       <TextField placeholder="Name" />
