@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const styles = {
   aligner: {
     margin: '0 auto',
-    height: '100%',
+    minHeight: '100%',
     width: 600,
     display: 'flex',
     justifyContent: 'center',

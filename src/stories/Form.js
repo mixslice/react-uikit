@@ -25,7 +25,7 @@ storiesOf('Form', module)
       </ThemeProvider>
     </Aligner>
   ))
-  .add('Form', () => (
+  .add('Basic', () => (
     <div style={styles.wrapper}>
       <Subheader>Account</Subheader>
       <TextField placeholder="Name" />
@@ -41,7 +41,6 @@ storiesOf('Form', module)
       </SelectField>
 
       <Subheader position="center">Center</Subheader>
-      <TextField placeholder="Say hi for auto complete" />
       <TextArea placeholder="Leave your message" />
 
       <ActionBar kind="stretch">
