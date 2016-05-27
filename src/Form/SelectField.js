@@ -36,7 +36,7 @@ const getStyles = (props, theme) => {
       pointerEvents: 'none',
       top: 0,
       bottom: 1,
-      paddingTop: '0.9em',
+      marginTop: '0.9em',
       right: 0,
       width: '2.5em',
       textAlign: 'center'

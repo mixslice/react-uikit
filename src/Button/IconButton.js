@@ -19,13 +19,13 @@ const getStyles = (theme) => {
     button: {
       outline: 'none',
       boxSizing: 'border-box',
-      display: 'inline-flex',
+      display: 'inline-block',
       justifyContent: 'center',
       alignItems: 'center',
       verticalAlign: 'middle',
       cursor: 'pointer',
       textDecoration: 'none',
-      margin: '0.8em',
+      marginRight: '0.8em',
       width: spacing.avatarSize,
       height: spacing.avatarSize,
       border: 0,
@@ -93,7 +93,7 @@ const getChildren = (props, palette) => {
 
   if (props.icon) {
     const icon = extendChildren(props.icon, childProps);
-    children = (<div>{icon}</div>);
+    children = icon;
   }
 
   return children;

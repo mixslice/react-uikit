@@ -2,8 +2,9 @@ export default {
   'html, body, #root': {
     height: '100%'
   },
-  html: {
-    font: '14px/1.5 lato,system,-apple-system,".SFNSText-Regular","Helvetica Neue",Roboto,"Segoe UI",sans-serif',
-    fontFamily: 'lato'
+  'html, body': {
+    fontSize: 14,
+    lineHeight: 1.5,
+    fontFamily: "lato, -apple-system, '.SFNSText-Regular', 'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif"
   }
 };

@@ -16,7 +16,7 @@ const getStyles = (props, theme) => {
       alignItems: 'center',
       verticalAlign: 'middle',
       textDecoration: 'none',
-      margin: '0.5em',
+      marginRight: '0.5em',
       padding: 0,
       width: spacing.avatarSize,
       height: spacing.avatarSize,
