@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
-import { Button, IconButton } from '../Button';
+import { Button, IconButton, ActionGroup } from '../Button';
 import SvgIcon from '../SvgIcon';
 import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
 import { blueGrey500, blueGrey100 } from '../styles/colors';
@@ -27,14 +27,21 @@ storiesOf('Button', module)
         onClick={action('button clicked')}
         backgroundColor={blueGrey500}
         hoverColor={blueGrey100}
-      >Customized Color</Button>
-      <Button onClick={action('button clicked')}
+      >Customized Color
+      </Button>
+      <Button
+        onClick={action('button clicked')}
         icon={<SvgIcon path={ActionAndroid} />}
       />
-      <Button onClick={action('button clicked')} label="Android"
+      <Button
+        onClick={action('button clicked')}
+        label="Android"
         icon={<SvgIcon kind="primary" path={ActionAndroid} />}
       />
-      <Button onClick={action('button clicked')} label="Android" labelPosition="after"
+      <Button
+        onClick={action('button clicked')}
+        label="Android"
+        labelPosition="after"
         icon={<SvgIcon kind="secondary" path={ContentAdd} />}
       />
     </div>
@@ -60,5 +67,43 @@ storiesOf('Button', module)
       <IconButton onClick={action('button clicked')} kind="secondary"
         size="large" icon={<SvgIcon path={ActionAndroid} />}
       />
+    </div>
+  ))
+  .add('ActionGroup', () => (
+    <div>
+      <ActionGroup>
+        <IconButton
+          kind="primary"
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={ActionAndroid} />}
+        />
+        <IconButton
+          kind="primary"
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={ActionAndroid} />}
+        />
+        <IconButton
+          kind="primary"
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={ActionAndroid} />}
+        />
+      </ActionGroup>
+      <ActionGroup>
+        <IconButton
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={ActionAndroid} />}
+        />
+        <IconButton
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={ActionAndroid} />}
+        />
+      </ActionGroup>
+      <ActionGroup>
+        <IconButton
+          kind="secondary"
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={ActionAndroid} />}
+        />
+      </ActionGroup>
     </div>
   ));

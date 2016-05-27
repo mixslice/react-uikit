@@ -38,6 +38,7 @@ export default {
     avatarSize: 40,
     largeAvatarSize: 56,
     buttonWidth: 72,
+    margin: 10,
     padding: 10,
     verticalPadding: '9px 0 8px',
     borderRadius: 2

@@ -23,12 +23,12 @@ export function createChildFragment(fragments) {
 }
 
 export function extendChildren(children, extendedProps, extendedChildren) {
-  return React.Children.map(children, (child) => {
+  return React.Children.map(children, (child, idx) => {
     const newProps = typeof (extendedProps) === 'function' ?
-      extendedProps(child) : extendedProps;
+      extendedProps(child, idx) : extendedProps;
 
     const newChildren = typeof (extendedChildren) === 'function' ?
-      extendedChildren(child) : extendedChildren ?
+      extendedChildren(child, idx) : extendedChildren ?
       extendedChildren : child.props.children;
 
     return React.cloneElement(child, newProps, newChildren);
