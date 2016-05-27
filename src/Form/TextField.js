@@ -8,6 +8,7 @@ const getStyles = (props, theme) => {
 
   return {
     root: {
+      appearance: 'none',
       boxSizing: 'border-box',
       fontSize: '1.15rem',
       width: '100%',

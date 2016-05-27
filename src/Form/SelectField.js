@@ -10,7 +10,7 @@ const getStyles = (props, theme) => {
 
   return {
     root: {
-      '-webkit-appearance': 'none',
+      appearance: 'none',
       boxSizing: 'border-box',
       fontSize: '1.15rem',
       width: '100%',
