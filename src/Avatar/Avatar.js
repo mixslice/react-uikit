@@ -9,6 +9,7 @@ const getStyles = (props, theme) => {
 
   return {
     avatar: {
+      userSelect: 'none',
       outline: 'none',
       boxSizing: 'border-box',
       display: 'inline-flex',
@@ -39,6 +40,9 @@ const getStyles = (props, theme) => {
     },
     icon: {
       fontFamily: 'system'
+    },
+    clickable: {
+      cursor: 'pointer'
     }
   };
 };
@@ -56,9 +60,7 @@ const getChildren = (props, palette) => {
     const icon = extendChildren(props.icon, extendProps);
     children = icon;
   } else if (props.label || props.children) {
-    children = (<div>{props.label || props.children}</div>);
-  } else {
-    children = (<span>&nbsp;</span>);
+    children = props.label || props.children;
   }
 
   return children;
@@ -67,33 +69,46 @@ const getChildren = (props, palette) => {
 const Avatar = (props, context) => {
   const theme = context.theme || themes.getTheme();
   const styles = getStyles(props, theme);
+  const {
+    children,
+    style,
+    icon,
+    label,
+    size,
+    src,
+    ...other
+  } = props;
 
   const inlineStyle = [];
   inlineStyle.push(styles.avatar);
 
-  if (props.src) {
+  if (src) {
     inlineStyle.push(styles.avatarPic);
   }
 
-  if (props.size === 'large') {
+  if (size === 'large') {
     inlineStyle.push(styles.large);
   }
 
-  if (props.label || props.children) {
+  if (label || children) {
     inlineStyle.push(styles.letter);
   }
 
-  if (props.icon) {
+  if (icon) {
     inlineStyle.push(styles.icon);
   }
 
-  if (props.style) {
-    inlineStyle.push(props.style);
+  if (props.onClick) {
+    inlineStyle.push(styles.clickable);
+  }
+
+  if (style) {
+    inlineStyle.push(style);
   }
 
 
   return (
-    <div style={inlineStyle}>
+    <div {...other} style={inlineStyle}>
       {getChildren(props, theme.palette)}
     </div>
   );
@@ -106,6 +121,7 @@ Avatar.propTypes = {
   icon: React.PropTypes.element,
   label: PropTypes.string,
   size: PropTypes.oneOf(['normal', 'large']),
+  onClick: PropTypes.func,
   src: PropTypes.string,
   style: React.PropTypes.object
 };
