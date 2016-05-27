@@ -19,7 +19,7 @@ const getStyles = (theme) => {
     button: {
       outline: 'none',
       boxSizing: 'border-box',
-      display: 'inline-block',
+      display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
       verticalAlign: 'middle',
@@ -92,8 +92,7 @@ const getChildren = (props, palette) => {
   }
 
   if (props.icon) {
-    const icon = extendChildren(props.icon, childProps);
-    children = icon;
+    children = extendChildren(props.icon, childProps);
   }
 
   return children;
@@ -131,13 +130,13 @@ const IconButton = (props, context) => {
   }
 
   return (
-    <button
+    <div
       style={inlineStyle}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >
     {getChildren(props, palette)}
-    </button>
+    </div>
   );
 };
 
