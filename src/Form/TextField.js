@@ -49,7 +49,6 @@ const TextField = (props, context) => {
 };
 
 TextField.propTypes = {
-  children: PropTypes.node,
   placeholder: PropTypes.string,
   style: PropTypes.object
 };

@@ -49,7 +49,6 @@ const Textarea = (props, context) => {
 };
 
 Textarea.propTypes = {
-  children: PropTypes.node,
   placeholder: PropTypes.string,
   style: PropTypes.object
 };
