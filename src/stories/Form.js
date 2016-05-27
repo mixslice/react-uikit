@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
-import { TextField } from '../Form';
-import SvgIcon from '../SvgIcon';
-import { ContentAdd } from '../SvgIcon/paths';
+import { TextField, ActionBar } from '../Form';
+import Subheader from '../Subheader';
+import { Button } from '../Button';
 
 const styles = {
   wrapper: {
@@ -22,8 +22,14 @@ storiesOf('Form', module)
   ))
   .add('TextField', () => (
     <div style={styles.wrapper}>
-      <TextField placeholder="Text" icon={<SvgIcon path={ContentAdd} />} />
-      <TextField placeholder="Text" />
-      <TextField />
+      <Subheader>Header</Subheader>
+      <TextField placeholder="Name" />
+      <TextField type="password" placeholder="Password" />
+      <Subheader position="center">Center</Subheader>
+      <TextField placeholder="Say hi," />
+      <ActionBar kind="stretch">
+        <Button style={{ backgroundColor: 'white', border: '1px solid #ccc' }}>Cancel</Button>
+        <Button kind="primary" lastChild>Primary</Button>
+      </ActionBar>
     </div>
   ));

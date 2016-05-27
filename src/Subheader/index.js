@@ -9,29 +9,21 @@ const getStyles = (props, theme) => {
   return {
     root: {
       boxSizing: 'border-box',
-      fontSize: '1.15rem',
       width: '100%',
-      backgroundImage: props.icon,
+      fontSize: '1rem',
       color: palette.textColor,
-      outline: 'none',
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: palette.borderColor,
-      ':focus': {
-        boxShadow: `0 0 0 1px ${palette.primaryColor}`,
-        borderColor: palette.primaryColor,
-      },
-      borderRadius: spacing.borderRadius,
-      padding: spacing.padding,
-      marginBottom: 15
+      textAlign: props.position,
+      fontWeight: 600,
+      padding: spacing.verticalPadding
     }
   };
 };
 
-const TextField = (props, context) => {
+const Subheader = (props, context) => {
   const theme = context.theme || themes.getTheme();
   const styles = getStyles(props, theme);
   const {
+    children,
     style,
     ...other
   } = props;
@@ -43,21 +35,21 @@ const TextField = (props, context) => {
     inlineStyle.push(style);
   }
 
-
   return (
-    <input {...other} style={inlineStyle} placeholder={props.placeholder} />
+    <div {...other} style={inlineStyle}>
+      {children}
+    </div>
   );
 };
 
-TextField.propTypes = {
+Subheader.propTypes = {
   children: PropTypes.node,
-  icon: PropTypes.element,
-  placeholder: PropTypes.string,
+  position: PropTypes.oneOf(['left', 'center', 'right']),
   style: PropTypes.object
 };
 
-TextField.contextTypes = {
+Subheader.contextTypes = {
   theme: PropTypes.object
 };
 
-export default radium(TextField);
+export default radium(Subheader);

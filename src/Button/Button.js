@@ -35,6 +35,9 @@ const getStyles = (theme) => {
       color: palette.textColor,
       backgroundColor: palette.greyColor
     },
+    lastChild: {
+      marginRight: 0
+    },
     hover: {
       ':hover': {
         backgroundColor: color(palette.greyColor).darken(palette.hoverColorDepth).hexString()
@@ -155,6 +158,10 @@ const Button = (props, context) => {
     inlineStyle.push(styles.iconStyle[position]);
   }
 
+  if (props.lastChild) {
+    inlineStyle.push(styles.lastChild);
+  }
+
   if (props.size && props.size !== 'normal') {
     inlineStyle.push(styles[props.size]);
   }
@@ -182,6 +189,7 @@ Button.propTypes = {
   icon: PropTypes.element,
   label: PropTypes.string,
   labelPosition: PropTypes.oneOf(['before', 'after']),
+  lastChild: PropTypes.bool,
   onClick: PropTypes.func,
   kind: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['normal', 'large']),

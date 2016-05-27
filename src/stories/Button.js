@@ -2,10 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
-import {
-  Button,
-  IconButton
-} from '../Button';
+import { Button, IconButton } from '../Button';
 import SvgIcon from '../SvgIcon';
 import { ActionAndroid, ContentAdd } from '../SvgIcon/paths';
 import { blueGrey500, blueGrey100 } from '../styles/colors';
