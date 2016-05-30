@@ -4,7 +4,11 @@ import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
 import { Button, IconButton, ActionGroup } from '../Button';
 import SvgIcon from '../SvgIcon';
-import { contactIcon, contentAddIcon } from '../SvgIcon/paths';
+import {
+  contactIcon,
+  contentAddIcon,
+  boxIcon
+} from '../SvgIcon/paths';
 import { blueGrey500, blueGrey100 } from '../styles/colors';
 
 
@@ -49,23 +53,23 @@ storiesOf('Button', module)
   .add('IconButton', () => (
     <div>
       <IconButton onClick={action('button clicked')}
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={boxIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="primary"
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={boxIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="secondary"
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={boxIcon} />}
       />
       <IconButton onClick={action('button clicked')}
         baseColor="#00bcd4" hoverColor="#0097a7"
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={boxIcon} />}
       />
       <IconButton onClick={action('button clicked')} disabled
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={boxIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="secondary"
-        size="large" icon={<SvgIcon path={contactIcon} />}
+        size="large" icon={<SvgIcon path={boxIcon} />}
       />
     </div>
   ))
