@@ -5,7 +5,7 @@ import Aligner from './Aligner';
 import Avatar from '../Avatar';
 // import SvgIcon from '../SvgIcon';
 import SvgIcon from '../SvgIcon';
-import { androidIcon, contentAddIcon } from '../SvgIcon/paths';
+import { contactIcon, contentAddIcon } from '../SvgIcon/paths';
 
 
 storiesOf('Avatar', module)
@@ -40,12 +40,12 @@ storiesOf('Avatar', module)
         color="#fff"
       />
       <Avatar
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
         backgroundColor="#40c4ff"
         baseColor="#dce775"
       />
       <Avatar
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
         size="large"
         backgroundColor="#aa00ff"
         baseColor="#fff"

@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
+import Subheader from '../Subheader';
+import { Button } from '../Button';
 import {
   TextField,
   TextArea,
@@ -9,8 +11,9 @@ import {
   ActionBar,
   Checkbox
 } from '../Form';
-import Subheader from '../Subheader';
-import { Button } from '../Button';
+import SvgIcon from '../SvgIcon';
+import { contactIcon, lockIcon } from '../SvgIcon/paths';
+
 
 const styles = {
   wrapper: {
@@ -31,8 +34,16 @@ storiesOf('Form', module)
   .add('Basic', () => (
     <div>
       <Subheader>Account</Subheader>
-      <TextField placeholder="Name" />
-      <TextField type="password" placeholder="Password" />
+      <TextField
+        placeholder="Name"
+        icon={<SvgIcon path={contactIcon} />}
+      />
+      <TextField
+        type="password"
+        placeholder="Password"
+        icon={<SvgIcon path={lockIcon} />}
+        iconPosition="after"
+      />
 
       <Subheader position="right">Users</Subheader>
       <SelectField data-prefill="1">

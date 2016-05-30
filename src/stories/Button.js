@@ -4,7 +4,7 @@ import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
 import { Button, IconButton, ActionGroup } from '../Button';
 import SvgIcon from '../SvgIcon';
-import { androidIcon, contentAddIcon } from '../SvgIcon/paths';
+import { contactIcon, contentAddIcon } from '../SvgIcon/paths';
 import { blueGrey500, blueGrey100 } from '../styles/colors';
 
 
@@ -31,16 +31,16 @@ storiesOf('Button', module)
       </Button>
       <Button
         onClick={action('button clicked')}
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
       />
       <Button
         onClick={action('button clicked')}
-        label="Android"
-        icon={<SvgIcon kind="primary" path={androidIcon} />}
+        label="Person"
+        icon={<SvgIcon kind="primary" path={contactIcon} />}
       />
       <Button
         onClick={action('button clicked')}
-        label="Android"
+        label="New"
         labelPosition="after"
         icon={<SvgIcon kind="secondary" path={contentAddIcon} />}
       />
@@ -49,23 +49,23 @@ storiesOf('Button', module)
   .add('IconButton', () => (
     <div>
       <IconButton onClick={action('button clicked')}
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="primary"
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="secondary"
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
       />
       <IconButton onClick={action('button clicked')}
         baseColor="#00bcd4" hoverColor="#0097a7"
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
       />
       <IconButton onClick={action('button clicked')} disabled
-        icon={<SvgIcon path={androidIcon} />}
+        icon={<SvgIcon path={contactIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="secondary"
-        size="large" icon={<SvgIcon path={androidIcon} />}
+        size="large" icon={<SvgIcon path={contactIcon} />}
       />
     </div>
   ))
@@ -75,34 +75,34 @@ storiesOf('Button', module)
         <IconButton
           kind="primary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={androidIcon} />}
+          icon={<SvgIcon path={contactIcon} />}
         />
         <IconButton
           kind="primary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={androidIcon} />}
+          icon={<SvgIcon path={contactIcon} />}
         />
         <IconButton
           kind="primary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={androidIcon} />}
+          icon={<SvgIcon path={contactIcon} />}
         />
       </ActionGroup>
       <ActionGroup>
         <IconButton
           onClick={action('button clicked')}
-          icon={<SvgIcon path={androidIcon} />}
+          icon={<SvgIcon path={contactIcon} />}
         />
         <IconButton
           onClick={action('button clicked')}
-          icon={<SvgIcon path={androidIcon} />}
+          icon={<SvgIcon path={contactIcon} />}
         />
       </ActionGroup>
       <ActionGroup>
         <IconButton
           kind="secondary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={androidIcon} />}
+          icon={<SvgIcon path={contactIcon} />}
         />
       </ActionGroup>
     </div>

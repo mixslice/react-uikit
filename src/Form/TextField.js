@@ -1,11 +1,18 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
+import { extendChildren } from '../utils/childUtils';
+import merge from 'lodash.merge';
 
 
 const getStyles = (props, theme) => {
   const { palette, spacing } = theme;
 
   return {
+    wrapper: {
+      fontSize: '1rem',
+      position: 'relative',
+      marginBottom: 15
+    },
     root: {
       appearance: 'none',
       boxSizing: 'border-box',
@@ -20,10 +27,51 @@ const getStyles = (props, theme) => {
         borderColor: palette.primaryColor,
       },
       borderRadius: spacing.borderRadius,
-      padding: spacing.padding,
-      marginBottom: 15
+      paddingTop: spacing.padding,
+      paddingRight: spacing.padding,
+      paddingBottom: spacing.padding,
+      paddingLeft: spacing.padding
+    },
+    iconPosition: {
+      before: {
+        paddingLeft: '2.5em'
+      },
+      after: {
+        paddingRight: '2.5em'
+      }
     }
   };
+};
+
+const getChildren = (props, theme) => {
+  const { palette } = theme;
+
+  const childrenStyles = {
+    root: {
+      pointerEvents: 'none',
+      position: 'absolute',
+      width: '1.25em',
+      height: '100%',
+      marginTop: 1,
+      paddingLeft: '0.75em',
+      paddingRight: '0.75em',
+    },
+    after: {
+      right: 0
+    }
+  };
+
+  let children = '';
+  if (props.icon) {
+    children = extendChildren(props.icon, {
+      baseColor: palette.placeholderColor,
+      disabled: props.disabled,
+      style: props.iconPosition === 'after'
+        ? merge(childrenStyles.root, childrenStyles.after)
+        : childrenStyles.root
+    });
+  }
+  return children;
 };
 
 const TextField = (props, context) => {
@@ -37,18 +85,23 @@ const TextField = (props, context) => {
   const inlineStyle = [];
   inlineStyle.push(styles.root);
 
-  if (style) {
-    inlineStyle.push(style);
+  if (props.icon) {
+    const position = props.iconPosition || 'before';
+    inlineStyle.push(styles.iconPosition[position]);
   }
 
-
   return (
-    <input {...other} style={inlineStyle} placeholder={props.placeholder} />
+    <div style={[styles.wrapper, style]}>
+      {getChildren(props, theme)}
+      <input {...other} style={inlineStyle} placeholder={props.placeholder} />
+    </div>
   );
 };
 
 TextField.propTypes = {
   placeholder: PropTypes.string,
+  iconPosition: PropTypes.oneOf(['before', 'after']),
+  icon: PropTypes.element,
   style: PropTypes.object
 };
 

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import SvgIcon from '../SvgIcon';
-import { ExpandIcon } from '../SvgIcon/paths';
+import { expandIcon } from '../SvgIcon/paths';
 
 
 const getStyles = (props, theme) => {
@@ -65,7 +65,7 @@ const TextField = (props, context) => {
       <SvgIcon
         baseColor={palette.placeholderColor}
         style={styles.icon}
-        path={ExpandIcon}
+        path={expandIcon}
       />
       <select {...other} style={inlineStyle}>
         {children}
