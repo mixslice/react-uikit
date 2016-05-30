@@ -33,6 +33,9 @@ const getStyles = (props, theme) => {
       borderColor: palette.checkboxColor,
       borderRadius: spacing.borderRadius
     },
+    hidden: {
+      display: 'none'
+    },
     icon: {
       position: 'absolute',
       width: '1.4em',
@@ -54,6 +57,9 @@ class Checkbox extends Component {
   handleChange = (event) => {
     const checked = event.target.checked;
     this.setState({ checked });
+    if (this.props.onChange) {
+      this.props.onChange(checked);
+    }
   }
 
   render() {
@@ -74,17 +80,14 @@ class Checkbox extends Component {
       inlineStyle.push(style);
     }
 
-    const checkmark = this.state.checked
-    ? <SvgIcon
-      baseColor={palette.primaryColor}
-      style={styles.icon}
-      path={checkIcon}
-    /> : null;
-
     return (
       <label style={inlineStyle}>
         <div style={styles.inputWrapper}>
-          {checkmark}
+          <SvgIcon
+            baseColor={palette.primaryColor}
+            style={this.state.checked ? styles.icon : styles.hidden}
+            path={checkIcon}
+          />
           <input
             {...other}
             value={value}
@@ -107,6 +110,7 @@ Checkbox.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
+  onChange: PropTypes.func,
   checked: PropTypes.bool,
   label: PropTypes.string,
   style: PropTypes.object

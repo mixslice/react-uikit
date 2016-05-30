@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook';
 import ThemeProvider from '../styles/ThemeProvider';
 import Aligner from './Aligner';
 import {
@@ -54,7 +54,7 @@ storiesOf('Form', module)
   ))
   .add('Checkbox and Radio', () => (
     <div>
-      <Checkbox value="castello" label="Castello" />
-      <Checkbox value="cannaregio" label="Cannaregio" checked />
+      <Checkbox onChange={action('check1 clicked')} value="castello" label="Castello" />
+      <Checkbox onChange={action('check2 clicked')} value="cannaregio" label="Cannaregio" checked />
     </div>
   ));
