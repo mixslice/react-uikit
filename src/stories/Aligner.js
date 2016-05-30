@@ -1,20 +1,18 @@
 import React, { PropTypes } from 'react';
+import { Flex } from 'reflexbox';
 
 const styles = {
   aligner: {
     margin: '0 auto',
     minHeight: '100%',
-    width: 600,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    width: 600
   }
 };
 
 const Aligner = (props) => (
-  <div style={styles.aligner}>
+  <Flex style={styles.aligner} align="center" justify="center">
     {props.children}
-  </div>
+  </Flex>
 );
 
 Aligner.propTypes = {

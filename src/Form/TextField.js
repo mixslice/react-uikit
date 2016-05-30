@@ -4,44 +4,40 @@ import { extendChildren } from '../utils/childUtils';
 import merge from 'lodash.merge';
 
 
-const getStyles = (props, theme) => {
-  const { palette, spacing } = theme;
-
-  return {
-    wrapper: {
-      fontSize: '1rem',
-      position: 'relative',
-      marginBottom: 15
+const getStyles = ({ palette, spacing }) => ({
+  wrapper: {
+    fontSize: '1rem',
+    position: 'relative',
+    marginBottom: 15
+  },
+  root: {
+    appearance: 'none',
+    boxSizing: 'border-box',
+    width: '100%',
+    color: palette.textColor,
+    outline: 'none',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: palette.borderColor,
+    ':focus': {
+      boxShadow: `0 0 0 1px ${palette.primaryColor}`,
+      borderColor: palette.primaryColor,
     },
-    root: {
-      appearance: 'none',
-      boxSizing: 'border-box',
-      width: '100%',
-      color: palette.textColor,
-      outline: 'none',
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: palette.borderColor,
-      ':focus': {
-        boxShadow: `0 0 0 1px ${palette.primaryColor}`,
-        borderColor: palette.primaryColor,
-      },
-      borderRadius: spacing.borderRadius,
-      paddingTop: spacing.padding,
-      paddingRight: spacing.padding,
-      paddingBottom: spacing.padding,
-      paddingLeft: spacing.padding
+    borderRadius: spacing.borderRadius,
+    paddingTop: spacing.padding,
+    paddingRight: spacing.padding,
+    paddingBottom: spacing.padding,
+    paddingLeft: spacing.padding
+  },
+  iconPosition: {
+    before: {
+      paddingLeft: '2.5em'
     },
-    iconPosition: {
-      before: {
-        paddingLeft: '2.5em'
-      },
-      after: {
-        paddingRight: '2.5em'
-      }
+    after: {
+      paddingRight: '2.5em'
     }
-  };
-};
+  }
+});
 
 const getChildren = (props, theme) => {
   const { palette } = theme;
@@ -74,9 +70,8 @@ const getChildren = (props, theme) => {
   return children;
 };
 
-const TextField = (props, context) => {
-  const { theme } = context;
-  const styles = getStyles(props, theme);
+const TextField = (props, { theme }) => {
+  const styles = getStyles(theme);
   const {
     style,
     ...other

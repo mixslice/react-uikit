@@ -2,22 +2,14 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 
 
-const getStyles = (props, theme) => {
+const Slider = ({
+  style,
+  ...other
+}, { theme }) => {
   const { palette } = theme;
-
-  return {
-    root: {
-    }
+  const styles = {
+    color: palette.primaryColor
   };
-};
-
-const Slider = (props, context) => {
-  const { theme } = context;
-  const styles = getStyles(props, theme);
-  const {
-    style,
-    ...other
-  } = props;
 
   const inlineStyle = [];
   inlineStyle.push(styles.root);

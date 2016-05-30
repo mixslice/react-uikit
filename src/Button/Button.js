@@ -4,8 +4,7 @@ import color from 'color';
 import transitions from '../styles/transitions';
 import { extendChildren } from '../utils/childUtils';
 
-const getStyles = (theme) => {
-  const { palette, spacing } = theme;
+const getStyles = ({ palette, spacing }) => {
   const colors = {
     primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
     accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
@@ -121,8 +120,7 @@ const getChildren = (props) => {
   return children;
 };
 
-const Button = (props, context) => {
-  const { theme } = context;
+const Button = (props, { theme }) => {
   const styles = getStyles(theme);
 
   const inlineStyle = [];

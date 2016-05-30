@@ -4,53 +4,47 @@ import SvgIcon from '../SvgIcon';
 import { expandIcon } from '../SvgIcon/paths';
 
 
-const getStyles = (props, theme) => {
-  const { palette, spacing } = theme;
-
-  return {
-    root: {
-      appearance: 'none',
-      boxSizing: 'border-box',
-      width: '100%',
-      color: palette.textColor,
-      outline: 'none',
-      backgroundColor: palette.backgroundColor,
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: palette.borderColor,
-      borderRadius: spacing.borderRadius,
-      padding: spacing.padding,
-      marginBottom: 15,
-      ':focus': {
-        boxShadow: `0 0 0 1px ${palette.primaryColor}`,
-        borderColor: palette.primaryColor,
-      }
-    },
-    wrapper: {
-      position: 'relative'
-    },
-    icon: {
-      position: 'absolute',
-      pointerEvents: 'none',
-      top: 0,
-      bottom: 1,
-      marginTop: '0.9em',
-      right: 0,
-      width: '2.5em',
-      textAlign: 'center'
+const getStyles = ({ palette, spacing }) => ({
+  root: {
+    appearance: 'none',
+    boxSizing: 'border-box',
+    width: '100%',
+    color: palette.textColor,
+    outline: 'none',
+    backgroundColor: palette.backgroundColor,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: palette.borderColor,
+    borderRadius: spacing.borderRadius,
+    padding: spacing.padding,
+    marginBottom: 15,
+    ':focus': {
+      boxShadow: `0 0 0 1px ${palette.primaryColor}`,
+      borderColor: palette.primaryColor,
     }
-  };
-};
+  },
+  wrapper: {
+    position: 'relative'
+  },
+  icon: {
+    position: 'absolute',
+    pointerEvents: 'none',
+    top: 0,
+    bottom: 1,
+    marginTop: '0.9em',
+    right: 0,
+    width: '2.5em',
+    textAlign: 'center'
+  }
+});
 
-const TextField = (props, context) => {
-  const { theme } = context;
+const TextField = ({
+  children,
+  style,
+  ...other
+}, { theme }) => {
+  const styles = getStyles(theme);
   const { palette } = theme;
-  const styles = getStyles(props, theme);
-  const {
-    children,
-    style,
-    ...other
-  } = props;
 
   const inlineStyle = [];
   inlineStyle.push(styles.root);

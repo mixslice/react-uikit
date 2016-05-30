@@ -3,9 +3,7 @@ import radium from 'radium';
 import color from 'color';
 
 
-const getStyles = (theme) => {
-  const { palette, spacing } = theme;
-
+const getStyles = ({ palette, spacing }) => {
   const colors = {
     primaryColor: color(palette.primaryColor).hexString(),
     primaryColorHover: color(palette.primaryColor).darken(palette.hoverColorDepth).hexString(),
@@ -51,18 +49,16 @@ const getStyles = (theme) => {
   };
 };
 
-const SvgIcon = (props, context) => {
-  const {
-    path,
-    baseColor,
-    style,
-    viewBox,
-    disabled,
-    kind,
-    ...other,
-  } = props;
-
-  const { theme } = context;
+const SvgIcon = ({
+  path,
+  baseColor,
+  style,
+  viewBox,
+  disabled,
+  kind,
+  size,
+  ...other,
+}, { theme }) => {
   const styles = getStyles(theme);
 
   const inlineStyle = [];
@@ -79,8 +75,8 @@ const SvgIcon = (props, context) => {
     }
   }
 
-  if (props.size && props.size !== 'normal') {
-    inlineStyle.push(styles[props.size]);
+  if (size && size !== 'normal') {
+    inlineStyle.push(styles[size]);
   }
 
   return (

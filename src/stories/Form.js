@@ -13,6 +13,7 @@ import {
 } from '../Form';
 import SvgIcon from '../SvgIcon';
 import { contactIcon, lockIcon } from '../SvgIcon/paths';
+import { Flex, Box } from 'reflexbox';
 
 
 const styles = {
@@ -65,7 +66,14 @@ storiesOf('Form', module)
   ))
   .add('Checkbox and Radio', () => (
     <div>
-      <Checkbox onChange={action('check1 clicked')} value="castello" label="Castello" />
-      <Checkbox onChange={action('check2 clicked')} value="cannaregio" label="Cannaregio" checked />
+      <Subheader>Checkbox</Subheader>
+      <Flex justify="space-between">
+        <Box auto>
+          <Checkbox onChange={action('check1 clicked')} name="options" value="castello" label="Castello" />
+        </Box>
+        <Box auto>
+          <Checkbox onChange={action('check2 clicked')} name="options" value="cannaregio" label="Cannaregio" checked />
+        </Box>
+      </Flex>
     </div>
   ));

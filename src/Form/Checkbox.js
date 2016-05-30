@@ -4,46 +4,41 @@ import SvgIcon from '../SvgIcon';
 import { checkIcon } from '../SvgIcon/paths';
 
 
-const getStyles = (props, theme) => {
-  const { spacing, palette } = theme;
-
-  const styles = {
-    root: {
-      userSelect: 'none',
-      display: 'flex',
-      cursor: 'pointer',
-      alignItems: 'center',
-      padding: spacing.verticalPadding
-    },
-    inputWrapper: {
-      display: 'flex',
-      boxSizing: 'border-box',
-      position: 'relative'
-    },
-    input: {
-      cursor: 'pointer',
-      appearance: 'none',
-      marginRight: 15,
-      width: '1.4em',
-      height: '1.4em',
-      outline: 'none',
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: palette.checkboxColor,
-      borderRadius: spacing.borderRadius
-    },
-    hidden: {
-      display: 'none'
-    },
-    icon: {
-      position: 'absolute',
-      width: '1.4em',
-      height: '1.4em'
-    }
-  };
-
-  return styles;
-};
+const getStyles = ({ spacing, palette }) => ({
+  root: {
+    userSelect: 'none',
+    display: 'flex',
+    cursor: 'pointer',
+    alignItems: 'center',
+    padding: spacing.verticalPadding
+  },
+  inputWrapper: {
+    display: 'flex',
+    boxSizing: 'border-box',
+    position: 'relative'
+  },
+  input: {
+    pointerEvents: 'all',
+    cursor: 'pointer',
+    appearance: 'none',
+    marginRight: 15,
+    width: '1.4em',
+    height: '1.4em',
+    outline: 'none',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: palette.checkboxColor,
+    borderRadius: spacing.borderRadius
+  },
+  hidden: {
+    display: 'none'
+  },
+  icon: {
+    position: 'absolute',
+    width: '1.4em',
+    height: '1.4em'
+  }
+});
 
 class Checkbox extends Component {
   constructor(props) {
@@ -68,9 +63,9 @@ class Checkbox extends Component {
       value,
       ...other
     } = this.props;
-    const theme = this.context.theme || themes.getTheme();
+    const { theme } = this.context;
     const { palette } = theme;
-    const styles = getStyles(this.props, theme);
+    const styles = getStyles(theme);
 
     const inlineStyle = [];
     inlineStyle.push(styles.root);

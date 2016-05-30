@@ -2,30 +2,24 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 
 
-const getStyles = (props, theme) => {
+const Subheader = ({
+  children,
+  style,
+  position,
+  ...other
+}, { theme }) => {
   const { palette, spacing } = theme;
-
-  return {
+  const styles = {
     root: {
       boxSizing: 'border-box',
       width: '100%',
       fontSize: '1rem',
       color: palette.textColor,
-      textAlign: props.position,
+      textAlign: position,
       fontWeight: 600,
       padding: spacing.verticalPadding
     }
   };
-};
-
-const Subheader = (props, context) => {
-  const { theme } = context;
-  const styles = getStyles(props, theme);
-  const {
-    children,
-    style,
-    ...other
-  } = props;
 
   const inlineStyle = [];
   inlineStyle.push(styles.root);

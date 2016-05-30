@@ -5,8 +5,7 @@ import transitions from '../styles/transitions';
 import merge from 'lodash.merge';
 import { extendChildren } from '../utils/childUtils';
 
-const getStyles = (theme) => {
-  const { palette, spacing } = theme;
+const getStyles = ({ palette, spacing }) => {
   const colors = {
     primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
     accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
@@ -67,14 +66,19 @@ const getStyles = (theme) => {
   };
 };
 
-const getChildren = (props, palette) => {
+const getChildren = ({
+  size,
+  disabled,
+  kind,
+  icon
+}, palette) => {
   const extendProps = {
     default: {
-      size: props.size,
+      size,
       baseColor: palette.textColor
     },
     disabled: {
-      disabled: props.disabled
+      disabled
     },
     primary: {
       baseColor: palette.highlightTextColor
@@ -85,21 +89,20 @@ const getChildren = (props, palette) => {
   };
 
   let children = '';
-  let childProps = props.disabled ? extendProps.disabled : extendProps.default;
+  let childProps = disabled ? extendProps.disabled : extendProps.default;
 
-  if (props.kind) {
-    childProps = merge({}, childProps, extendProps[props.kind]);
+  if (kind) {
+    childProps = merge({}, childProps, extendProps[kind]);
   }
 
-  if (props.icon) {
-    children = extendChildren(props.icon, childProps);
+  if (icon) {
+    children = extendChildren(icon, childProps);
   }
 
   return children;
 };
 
-const IconButton = (props, context) => {
-  const { theme } = context;
+const IconButton = (props, { theme }) => {
   const styles = getStyles(theme);
   const { palette } = theme;
 

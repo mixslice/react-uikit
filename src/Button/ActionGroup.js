@@ -4,19 +4,15 @@ import merge from 'lodash.merge';
 import { extendChildren } from '../utils/childUtils';
 
 
-const getStyles = (props, theme) => {
-  const { spacing } = theme;
-
-  return {
-    root: {
-      display: 'inline-block',
-      boxSizing: 'border-box',
-      borderRadius: spacing.borderRadius,
-      overflow: 'hidden',
-      marginRight: spacing.margin
-    }
-  };
-};
+const getStyles = ({ spacing }) => ({
+  root: {
+    display: 'inline-block',
+    boxSizing: 'border-box',
+    borderRadius: spacing.borderRadius,
+    overflow: 'hidden',
+    marginRight: spacing.margin
+  }
+});
 
 const getChildren = (props) => (
   extendChildren(props.children, (child, idx) => {
@@ -39,9 +35,8 @@ const getChildren = (props) => (
   })
 );
 
-const ActionGroup = (props, context) => {
-  const { theme } = context;
-  const styles = getStyles(props, theme);
+const ActionGroup = (props, { theme }) => {
+  const styles = getStyles(theme);
   const { style } = props;
 
   const inlineStyle = [];

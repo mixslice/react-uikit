@@ -4,17 +4,36 @@ import { extendChildren } from '../utils/childUtils';
 import merge from 'lodash.merge';
 
 
-const getStyles = (props, theme) => {
-  const { spacing } = theme;
-  const { style } = props;
+const getStyles = ({ kind, spacing }) => ({
+  root: {
+    display: 'flex',
+    justifyContent: kind,
+    padding: spacing.verticalPadding
+  }
+});
 
-  const styles = {
-    root: {
-      display: 'flex',
-      justifyContent: props.kind,
-      padding: spacing.verticalPadding
-    }
-  };
+const getChildren = (children, kind) => {
+  let result = children;
+
+  if (kind === 'stretch') {
+    result = extendChildren(children, (child) => {
+      const newStyle = merge(child.props.style, {
+        flex: 1
+      });
+      return { style: newStyle };
+    });
+  }
+
+  return result;
+};
+
+const ActionBar = ({
+  children,
+  style,
+  kind,
+  ...other
+}, { theme }) => {
+  const styles = getStyles({ kind, ...theme });
 
   const inlineStyle = [];
   inlineStyle.push(styles.root);
@@ -23,33 +42,9 @@ const getStyles = (props, theme) => {
     inlineStyle.push(style);
   }
 
-  return inlineStyle;
-};
-
-const getChildren = (props) => {
-  let children = props.children;
-
-  if (props.kind === 'stretch') {
-    children = extendChildren(props.children, (child) => {
-      const newStyle = merge(child.props.style, {
-        flex: 1
-      });
-      return {
-        style: newStyle
-      };
-    });
-  }
-
-  return children;
-};
-
-const ActionBar = (props, context) => {
-  const { theme } = context;
-  const styles = getStyles(props, theme);
-
   return (
-    <div style={styles}>
-      {getChildren(props)}
+    <div {...other} style={inlineStyle}>
+      {getChildren(children, kind)}
     </div>
   );
 };

@@ -3,48 +3,44 @@ import radium from 'radium';
 import { extendChildren } from '../utils/childUtils';
 
 
-const getStyles = (props, theme) => {
-  const { palette, spacing } = theme;
-
-  return {
-    avatar: {
-      userSelect: 'none',
-      outline: 'none',
-      boxSizing: 'border-box',
-      display: 'inline-flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      verticalAlign: 'middle',
-      textDecoration: 'none',
-      marginRight: '0.5em',
-      padding: 0,
-      width: spacing.avatarSize,
-      height: spacing.avatarSize,
-      border: 0,
-      borderRadius: '50%',
-      backgroundColor: props.backgroundColor || palette.greyColor
-    },
-    large: {
-      fontSize: `${spacing.largeAvatarSize / spacing.avatarSize}rem`,
-      width: spacing.largeAvatarSize,
-      height: spacing.largeAvatarSize
-    },
-    avatarPic: {
-      backgroundImage: `url(${props.src})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'contain'
-    },
-    letter: {
-      color: props.color || palette.textColor
-    },
-    icon: {
-      fontFamily: 'system'
-    },
-    clickable: {
-      cursor: 'pointer'
-    }
-  };
-};
+const getStyles = (props, { palette, spacing }) => ({
+  avatar: {
+    userSelect: 'none',
+    outline: 'none',
+    boxSizing: 'border-box',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    verticalAlign: 'middle',
+    textDecoration: 'none',
+    marginRight: '0.5em',
+    padding: 0,
+    width: spacing.avatarSize,
+    height: spacing.avatarSize,
+    border: 0,
+    borderRadius: '50%',
+    backgroundColor: props.backgroundColor || palette.greyColor
+  },
+  large: {
+    fontSize: `${spacing.largeAvatarSize / spacing.avatarSize}rem`,
+    width: spacing.largeAvatarSize,
+    height: spacing.largeAvatarSize
+  },
+  avatarPic: {
+    backgroundImage: `url(${props.src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain'
+  },
+  letter: {
+    color: props.color || palette.textColor
+  },
+  icon: {
+    fontFamily: 'system'
+  },
+  clickable: {
+    cursor: 'pointer'
+  }
+});
 
 const getChildren = (props, palette) => {
   let children = '';
@@ -65,8 +61,7 @@ const getChildren = (props, palette) => {
   return children;
 };
 
-const Avatar = (props, context) => {
-  const { theme } = context;
+const Avatar = (props, { theme }) => {
   const styles = getStyles(props, theme);
   const {
     children,

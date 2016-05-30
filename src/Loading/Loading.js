@@ -13,10 +13,8 @@ const loadingKeyframes = radium.keyframes({
 }, 'loading');
 
 
-const getStyles = (props, theme) => {
-  const { palette } = theme;
+const getStyles = ({ palette }) => {
   const fadeColor = color(palette.primaryColor).alpha(0.2).rgbString();
-
   return {
     root: {
       display: 'inline-block',
@@ -43,14 +41,12 @@ const getStyles = (props, theme) => {
   };
 };
 
-const Loading = (props, context) => {
-  const { theme } = context;
-  const styles = getStyles(props, theme);
-  const {
-    style,
-    size,
-    ...other
-  } = props;
+const Loading = ({
+  style,
+  size,
+  ...other
+}, { theme }) => {
+  const styles = getStyles(theme);
 
   const inlineStyle = [];
   inlineStyle.push(styles.root);
@@ -64,9 +60,7 @@ const Loading = (props, context) => {
   }
 
 
-  return (
-    <div {...other} style={inlineStyle}></div>
-  );
+  return (<div {...other} style={inlineStyle}></div>);
 };
 
 Loading.propTypes = {
