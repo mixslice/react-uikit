@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
-import themes from '../styles/themes';
 import { extendChildren } from '../utils/childUtils';
 
 
@@ -67,7 +66,7 @@ const getChildren = (props, palette) => {
 };
 
 const Avatar = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(props, theme);
   const {
     children,

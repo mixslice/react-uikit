@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
 import transitions from '../styles/transitions';
-import themes from '../styles/themes';
 import { extendChildren } from '../utils/childUtils';
 
 const getStyles = (theme) => {
@@ -123,7 +122,7 @@ const getChildren = (props) => {
 };
 
 const Button = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(theme);
 
   const inlineStyle = [];

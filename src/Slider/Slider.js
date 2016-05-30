@@ -12,7 +12,7 @@ const getStyles = (props, theme) => {
 };
 
 const Slider = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(props, theme);
   const {
     style,

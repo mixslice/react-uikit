@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import radium from 'radium';
-import themes from '../styles/themes';
 import SvgIcon from '../SvgIcon';
 import { checkIcon } from '../SvgIcon/paths';
 

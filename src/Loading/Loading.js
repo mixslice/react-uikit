@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
-import themes from '../styles/themes';
 import color from 'color';
 
 
@@ -45,7 +44,7 @@ const getStyles = (props, theme) => {
 };
 
 const Loading = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(props, theme);
   const {
     style,

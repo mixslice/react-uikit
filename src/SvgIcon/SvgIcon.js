@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
-import themes from '../styles/themes';
+
 
 const getStyles = (theme) => {
   const { palette, spacing } = theme;
@@ -62,7 +62,7 @@ const SvgIcon = (props, context) => {
     ...other,
   } = props;
 
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(theme);
 
   const inlineStyle = [];

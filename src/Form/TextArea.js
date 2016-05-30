@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
-import themes from '../styles/themes';
 
 
 const getStyles = (props, theme) => {
@@ -28,7 +27,7 @@ const getStyles = (props, theme) => {
 };
 
 const Textarea = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(props, theme);
   const {
     style,

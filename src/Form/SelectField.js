@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
-import themes from '../styles/themes';
 import SvgIcon from '../SvgIcon';
 import { ExpandIcon } from '../SvgIcon/paths';
 
@@ -44,7 +43,7 @@ const getStyles = (props, theme) => {
 };
 
 const TextField = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const { palette } = theme;
   const styles = getStyles(props, theme);
   const {

@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
-import themes from '../styles/themes';
 import merge from 'lodash.merge';
 import { extendChildren } from '../utils/childUtils';
 
@@ -41,7 +40,7 @@ const getChildren = (props) => (
 );
 
 const ActionGroup = (props, context) => {
-  const theme = context.theme || themes.getTheme();
+  const { theme } = context;
   const styles = getStyles(props, theme);
   const { style } = props;
 
