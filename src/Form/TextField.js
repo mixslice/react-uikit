@@ -49,8 +49,8 @@ const getChildren = (props, theme) => {
       width: '1.25em',
       height: '100%',
       marginTop: 1,
-      paddingLeft: '0.75em',
-      paddingRight: '0.75em',
+      marginLeft: '0.75em',
+      marginRight: '0.75em',
     },
     after: {
       right: 0
