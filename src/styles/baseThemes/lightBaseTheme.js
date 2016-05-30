@@ -2,6 +2,7 @@ import {
   blueA200,
   grey100,
   grey300,
+  grey400,
   grey500,
   white,
   black
@@ -20,6 +21,7 @@ export default {
     highlightTextColor: white,
     canvasColor: white,
     borderColor: grey300,
+    checkboxColor: grey400,
     placeholderColor: grey500,
     disabledColor: grey100,
     disabledColorDarken: 0.1,

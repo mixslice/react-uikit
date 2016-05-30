@@ -10,7 +10,6 @@ const getStyles = (props, theme) => {
     root: {
       appearance: 'none',
       boxSizing: 'border-box',
-      fontSize: '1.15rem',
       width: '100%',
       color: palette.textColor,
       outline: 'none',

@@ -6,7 +6,8 @@ import {
   TextField,
   TextArea,
   SelectField,
-  ActionBar
+  ActionBar,
+  Checkbox
 } from '../Form';
 import Subheader from '../Subheader';
 import { Button } from '../Button';
@@ -21,12 +22,14 @@ storiesOf('Form', module)
   .addDecorator((story) => (
     <Aligner>
       <ThemeProvider>
-        {story()}
+        <div style={styles.wrapper}>
+          {story()}
+        </div>
       </ThemeProvider>
     </Aligner>
   ))
   .add('Basic', () => (
-    <div style={styles.wrapper}>
+    <div>
       <Subheader>Account</Subheader>
       <TextField placeholder="Name" />
       <TextField type="password" placeholder="Password" />
@@ -47,5 +50,11 @@ storiesOf('Form', module)
         <Button style={{ backgroundColor: 'white', border: '1px solid #ccc' }}>Cancel</Button>
         <Button kind="primary" lastChild>Primary</Button>
       </ActionBar>
+    </div>
+  ))
+  .add('Checkbox and Radio', () => (
+    <div>
+      <Checkbox value="castello" label="Castello" />
+      <Checkbox value="cannaregio" label="Cannaregio" checked />
     </div>
   ));

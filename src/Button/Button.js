@@ -20,7 +20,6 @@ const getStyles = (theme) => {
       boxSizing: 'border-box',
       display: 'inline-block',
       verticalAlign: 'middle',
-      fontSize: '1rem',
       cursor: 'pointer',
       textDecoration: 'none',
       marginBottom: spacing.margin,
