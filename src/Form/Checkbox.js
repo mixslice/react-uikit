@@ -18,7 +18,6 @@ const getStyles = ({ spacing, palette }) => ({
     position: 'relative'
   },
   input: {
-    pointerEvents: 'all',
     cursor: 'pointer',
     appearance: 'none',
     marginRight: 15,
