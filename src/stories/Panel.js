@@ -25,21 +25,25 @@ storiesOf('Panel', module)
   ))
   .add('Panel', () => (
     <div>
-      <Box mt={3} is={Panel}>
-        <PanelHeader>Panel 1</PanelHeader>
-        <PanelBody>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </PanelBody>
-        <PanelFooter>
-          <Button kind="primary">Button</Button>
-        </PanelFooter>
+      <Box mt={3}>
+        <Panel>
+          <PanelHeader>Panel 1</PanelHeader>
+          <PanelBody>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </PanelBody>
+          <PanelFooter>
+            <Button kind="primary">Button</Button>
+          </PanelFooter>
+        </Panel>
       </Box>
-      <Box my={3} is={Panel}>
-        <PanelHeader>Panel 2</PanelHeader>
-        <PanelBody>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </PanelBody>
+      <Box my={3}>
+        <Panel>
+          <PanelHeader>Panel 2</PanelHeader>
+          <PanelBody>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </PanelBody>
+        </Panel>
       </Box>
     </div>
   ));

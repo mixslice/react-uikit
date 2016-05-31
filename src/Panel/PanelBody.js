@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import radium from 'radium';
+import radium, { Style } from 'radium';
 
 
 const PanelBody = ({
@@ -10,8 +10,14 @@ const PanelBody = ({
   const { palette } = theme;
   const styles = {
     root: {
+      position: 'relative',
       color: palette.textColor,
       padding: 20
+    },
+    lastChild: {
+      'p:last-child': {
+        marginBottom: 0
+      }
     }
   };
 
@@ -23,7 +29,8 @@ const PanelBody = ({
   }
 
   return (
-    <div {...other} style={inlineStyle}>
+    <div className="pbody" {...other} style={inlineStyle}>
+      <Style scopeSelector=".pbody" rules={styles.lastChild} />
       {children}
     </div>
   );
