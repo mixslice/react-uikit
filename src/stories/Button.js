@@ -23,35 +23,37 @@ storiesOf('Button', module)
   ))
   .add('Button', () => (
     <div>
-      <div style={{ marginBottom: 10 }}>
+      <Flex wrap justify="center" align="center">
         <Button onClick={action('button clicked')}>Default</Button>
         <Button onClick={action('button clicked')} kind="primary">Primary</Button>
         <Button onClick={action('button clicked')} kind="secondary">Secondary</Button>
         <Button onClick={action('button clicked')} kind="primary" disabled>Disabled</Button>
         <Button onClick={action('button clicked')} label="Label" />
-      </div>
-      <Button
-        size="large"
-        onClick={action('button clicked')}
-        backgroundColor={blueGrey500}
-        hoverColor={blueGrey100}
-      >Customized Color
-      </Button>
-      <Button
-        onClick={action('button clicked')}
-        icon={<SvgIcon path={contactIcon} />}
-      />
-      <Button
-        onClick={action('button clicked')}
-        label="Person"
-        icon={<SvgIcon kind="primary" path={contactIcon} />}
-      />
-      <Button
-        onClick={action('button clicked')}
-        label="New"
-        labelPosition="after"
-        icon={<SvgIcon kind="secondary" path={contentAddIcon} />}
-      />
+      </Flex>
+      <Flex wrap mt={2} justify="center" align="center">
+        <Button
+          size="large"
+          onClick={action('button clicked')}
+          backgroundColor={blueGrey500}
+          hoverColor={blueGrey100}
+        >Customized Color
+        </Button>
+        <Button
+          onClick={action('button clicked')}
+          icon={<SvgIcon path={contactIcon} />}
+        />
+        <Button
+          onClick={action('button clicked')}
+          label="Person"
+          icon={<SvgIcon kind="primary" path={contactIcon} />}
+        />
+        <Button
+          onClick={action('button clicked')}
+          label="New"
+          labelPosition="after"
+          icon={<SvgIcon kind="secondary" path={contentAddIcon} />}
+        />
+      </Flex>
     </div>
   ))
   .add('IconButton', () => (
