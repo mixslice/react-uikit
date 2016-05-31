@@ -36,7 +36,8 @@ storiesOf('Button', module)
           onClick={action('button clicked')}
           backgroundColor={blueGrey500}
           hoverColor={blueGrey100}
-        >Customized Color
+        >
+          Customized Color
         </Button>
         <Button
           onClick={action('button clicked')}
