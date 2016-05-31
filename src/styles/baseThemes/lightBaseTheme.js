@@ -32,9 +32,12 @@ export default {
     accentColor: '#ff5a5f',
     greyColor: grey100,
     textColor: color(black).alpha(0.75).rgbString(),
+    highlightTextColor: white,
     panelHeader: color(grey300).alpha(0.5).rgbString(),
     backgroundColor: white,
-    highlightTextColor: white,
+    toolbarColor: white,
+    toolbarHoverColor: color(white).darken(0.05).rgbString(),
+    invertColor: white,
     canvasColor: white,
     borderColor: grey300,
     checkboxColor: grey400,
@@ -50,7 +53,8 @@ export default {
     largeAvatarSize: 56,
     buttonWidth: 72,
     margin: 10,
-    padding: 10,
+    padding: 20,
+    formPadding: 10,
     verticalPadding: '9px 0 8px',
     borderRadius: 2
   }

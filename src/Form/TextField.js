@@ -24,10 +24,10 @@ const getStyles = ({ palette, spacing }) => ({
       borderColor: palette.primaryColor,
     },
     borderRadius: spacing.borderRadius,
-    paddingTop: spacing.padding,
-    paddingRight: spacing.padding,
-    paddingBottom: spacing.padding,
-    paddingLeft: spacing.padding
+    paddingTop: spacing.formPadding,
+    paddingRight: spacing.formPadding,
+    paddingBottom: spacing.formPadding,
+    paddingLeft: spacing.formPadding
   },
   iconPosition: {
     before: {

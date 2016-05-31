@@ -75,10 +75,8 @@ const getChildren = ({
   const extendProps = {
     default: {
       size,
+      disabled,
       baseColor: palette.textColor
-    },
-    disabled: {
-      disabled
     },
     primary: {
       baseColor: palette.highlightTextColor
@@ -89,7 +87,7 @@ const getChildren = ({
   };
 
   let children = '';
-  let childProps = disabled ? extendProps.disabled : extendProps.default;
+  let childProps = extendProps.default;
 
   if (kind) {
     childProps = merge({}, childProps, extendProps[kind]);

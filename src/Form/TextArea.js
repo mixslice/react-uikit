@@ -17,7 +17,7 @@ const getStyles = ({ palette, spacing }) => ({
       borderColor: palette.primaryColor,
     },
     borderRadius: spacing.borderRadius,
-    padding: spacing.padding,
+    padding: spacing.formPadding,
     marginBottom: 15
   }
 });

@@ -16,7 +16,7 @@ const getStyles = ({ palette, spacing }) => ({
     borderStyle: 'solid',
     borderColor: palette.borderColor,
     borderRadius: spacing.borderRadius,
-    padding: spacing.padding,
+    padding: spacing.formPadding,
     marginBottom: 15,
     ':focus': {
       boxShadow: `0 0 0 1px ${palette.primaryColor}`,
