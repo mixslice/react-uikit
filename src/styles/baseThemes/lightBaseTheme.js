@@ -17,6 +17,7 @@ export default {
     accentColor: '#ff5a5f',
     greyColor: grey100,
     textColor: color(black).alpha(0.75).rgbString(),
+    panelHeader: color(grey300).alpha(0.5).rgbString(),
     backgroundColor: white,
     highlightTextColor: white,
     canvasColor: white,

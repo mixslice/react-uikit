@@ -6,6 +6,7 @@ import globalStyle from './global';
 import normalize from 'normalize.css';
 import font from './font.css';
 
+
 export default class ThemeProvider extends Component {
 
   static propTypes = {

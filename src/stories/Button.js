@@ -10,6 +10,7 @@ import {
   boxIcon
 } from '../SvgIcon/paths';
 import { blueGrey500, blueGrey100 } from '../styles/colors';
+import { Flex } from 'reflexbox';
 
 
 storiesOf('Button', module)
@@ -22,12 +23,15 @@ storiesOf('Button', module)
   ))
   .add('Button', () => (
     <div>
-      <Button onClick={action('button clicked')}>Default</Button>
-      <Button onClick={action('button clicked')} kind="primary">Primary</Button>
-      <Button onClick={action('button clicked')} kind="secondary">Secondary</Button>
-      <Button onClick={action('button clicked')} kind="primary" disabled>Disabled</Button>
-      <Button onClick={action('button clicked')} label="Label" />
+      <div style={{ marginBottom: 10 }}>
+        <Button onClick={action('button clicked')}>Default</Button>
+        <Button onClick={action('button clicked')} kind="primary">Primary</Button>
+        <Button onClick={action('button clicked')} kind="secondary">Secondary</Button>
+        <Button onClick={action('button clicked')} kind="primary" disabled>Disabled</Button>
+        <Button onClick={action('button clicked')} label="Label" />
+      </div>
       <Button
+        size="large"
         onClick={action('button clicked')}
         backgroundColor={blueGrey500}
         hoverColor={blueGrey100}

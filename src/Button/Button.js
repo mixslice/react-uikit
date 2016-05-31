@@ -20,9 +20,10 @@ const getStyles = ({ palette, spacing }) => {
       verticalAlign: 'middle',
       cursor: 'pointer',
       textDecoration: 'none',
-      marginBottom: spacing.margin,
-      marginRight: spacing.margin,
-      padding: '9px 20px',
+      paddingLeft: 21,
+      paddingRight: 21,
+      paddingTop: 7,
+      paddingBottom: 7,
       fontWeight: 600,
       minWidth: spacing.buttonWidth,
       border: 0,
@@ -31,9 +32,6 @@ const getStyles = ({ palette, spacing }) => {
       transition: transitions.easeOut(),
       color: palette.textColor,
       backgroundColor: palette.greyColor
-    },
-    lastChild: {
-      marginRight: 0
     },
     hover: {
       ':hover': {
@@ -62,14 +60,17 @@ const getStyles = ({ palette, spacing }) => {
       boxShadow: 'none'
     },
     large: {
-      fontSize: '1.5rem'
+      paddingLeft: 27,
+      paddingRight: 27,
+      paddingTop: 9,
+      paddingBottom: 9,
     },
     iconStyle: {
       before: {
-        padding: '9px 20px 9px 17px'
+        paddingLeft: 17
       },
       after: {
-        padding: '9px 17px 9px 20px'
+        paddingRight: 17
       }
     }
   };
@@ -80,9 +81,13 @@ const getChildren = (props) => {
     wrapper: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      minHeight: '1.5em'
     },
     label: {
+      root: {
+        margin: 0
+      },
       before: {
         margin: '0 0 0 0.5em'
       },
@@ -99,7 +104,7 @@ const getChildren = (props) => {
       disabled: props.disabled
     });
 
-    const labelPosition = props.labelPosition || 'before';
+    const labelPosition = props.icon ? (props.labelPosition || 'before') : 'root';
 
     const label = (
       <span style={childrenStyles.label[labelPosition]}>
@@ -154,10 +159,6 @@ const Button = (props, { theme }) => {
     inlineStyle.push(styles.iconStyle[position]);
   }
 
-  if (props.lastChild) {
-    inlineStyle.push(styles.lastChild);
-  }
-
   if (props.size && props.size !== 'normal') {
     inlineStyle.push(styles[props.size]);
   }
@@ -168,6 +169,7 @@ const Button = (props, { theme }) => {
 
   return (
     <button
+      className="btn"
       style={inlineStyle}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
@@ -185,7 +187,6 @@ Button.propTypes = {
   icon: PropTypes.element,
   label: PropTypes.string,
   labelPosition: PropTypes.oneOf(['before', 'after']),
-  lastChild: PropTypes.bool,
   onClick: PropTypes.func,
   kind: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['normal', 'large']),

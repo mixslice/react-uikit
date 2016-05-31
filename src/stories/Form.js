@@ -60,7 +60,7 @@ storiesOf('Form', module)
 
       <ActionBar kind="stretch">
         <Button style={{ backgroundColor: 'white', border: '1px solid #ccc' }}>Cancel</Button>
-        <Button kind="primary" lastChild>Primary</Button>
+        <Button kind="primary">Primary</Button>
       </ActionBar>
     </div>
   ))

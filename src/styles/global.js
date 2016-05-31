@@ -7,5 +7,11 @@ export default ({ palette }) => ({
     lineHeight: 1.5,
     color: palette.textColor,
     fontFamily: "lato, -apple-system, '.SFNSText-Regular', 'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif"
+  },
+  p: {
+    marginTop: 0
+  },
+  '.btn+.btn': {
+    marginLeft: 10
   }
 });
