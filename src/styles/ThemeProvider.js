@@ -28,7 +28,7 @@ export default class ThemeProvider extends Component {
     const themeGlobalStyle = globalStyle(this.props.theme || themes.getTheme());
     return (
       <StyleRoot>
-        <Style rules={merge(normalize, font, themeGlobalStyle)} />
+        <Style rules={merge({}, normalize, font, themeGlobalStyle)} />
         {this.props.children}
       </StyleRoot>
     );

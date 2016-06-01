@@ -17,7 +17,7 @@ const getChildren = (children, kind) => {
 
   if (kind === 'stretch') {
     result = extendChildren(children, (child) => {
-      const newStyle = merge(child.props.style, {
+      const newStyle = merge({}, child.props.style, {
         flex: 1
       });
       return { style: newStyle };

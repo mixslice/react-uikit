@@ -63,7 +63,7 @@ const getChildren = (props, theme) => {
       baseColor: palette.placeholderColor,
       disabled: props.disabled,
       style: props.iconPosition === 'after'
-        ? merge(childrenStyles.root, childrenStyles.after)
+        ? merge({}, childrenStyles.root, childrenStyles.after)
         : childrenStyles.root
     });
   }
