@@ -4,77 +4,66 @@ import color from 'color';
 import transitions from './utils/transitions';
 import { extendChildren } from './utils/childUtils';
 
-const getStyles = ({ palette, spacing }) => {
-  const colors = {
-    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
-    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
-    textColor: palette.textColor,
-    disabledColor: color(palette.disabledColor).darken(palette.disabledColorDarken).rgbString()
-  };
-
-  return {
-    root: {
-      outline: 'none',
-      boxSizing: 'border-box',
-      display: 'inline-block',
-      verticalAlign: 'middle',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      paddingLeft: 21,
-      paddingRight: 21,
-      paddingTop: 7,
-      paddingBottom: 7,
-      fontWeight: 600,
-      minWidth: spacing.buttonWidth,
-      border: 0,
-      borderRadius: spacing.borderRadius,
-      overflow: 'hidden',
-      transition: transitions.easeOut(),
-      color: palette.textColor,
-      backgroundColor: palette.greyColor
-    },
-    hover: {
-      ':hover': {
-        backgroundColor: color(palette.greyColor).darken(palette.hoverColorDepth).hexString()
-      }
-    },
-    primary: {
-      backgroundColor: palette.primaryColor,
-      color: palette.highlightTextColor,
-      ':hover': {
-        backgroundColor: colors.primaryColorHover,
-        color: palette.highlightTextColor,
-      }
-    },
-    secondary: {
-      backgroundColor: palette.accentColor,
-      color: palette.highlightTextColor,
-      ':hover': {
-        backgroundColor: colors.accentColorHover,
-        color: palette.highlightTextColor,
-      }
-    },
-    disabled: {
-      cursor: 'default',
-      color: colors.disabledColor,
-      boxShadow: 'none'
-    },
-    large: {
-      paddingLeft: 27,
-      paddingRight: 27,
-      paddingTop: 9,
-      paddingBottom: 9,
-    },
-    iconStyle: {
-      before: {
-        paddingLeft: 17
-      },
-      after: {
-        paddingRight: 17
-      }
+const getStyles = ({ palette, spacing }) => ({
+  root: {
+    outline: 'none',
+    boxSizing: 'border-box',
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    paddingLeft: 21,
+    paddingRight: 21,
+    paddingTop: 7,
+    paddingBottom: 7,
+    fontWeight: 600,
+    minWidth: spacing.buttonWidth,
+    border: 0,
+    borderRadius: spacing.borderRadius,
+    overflow: 'hidden',
+    transition: transitions.easeOut(),
+    color: palette.default,
+    backgroundColor: palette.grey
+  },
+  hover: {
+    ':hover': {
+      backgroundColor: color(palette.grey).darken(palette.hoverDepth).hexString()
     }
-  };
-};
+  },
+  primary: {
+    backgroundColor: palette.primary,
+    color: palette.inverted,
+    ':hover': {
+      backgroundColor: color(palette.primary).lighten(palette.hoverLightDepth).hexString()
+    }
+  },
+  secondary: {
+    backgroundColor: palette.secondary,
+    color: palette.inverted,
+    ':hover': {
+      backgroundColor: color(palette.secondary).lighten(palette.hoverLightDepth).hexString()
+    }
+  },
+  disabled: {
+    cursor: 'default',
+    color: palette.disabled,
+    boxShadow: 'none'
+  },
+  large: {
+    paddingLeft: 27,
+    paddingRight: 27,
+    paddingTop: 9,
+    paddingBottom: 9,
+  },
+  iconStyle: {
+    before: {
+      paddingLeft: 17
+    },
+    after: {
+      paddingRight: 17
+    }
+  }
+});
 
 const getChildren = (props) => {
   const childrenStyles = {
@@ -139,15 +128,15 @@ const Button = (props, { theme }) => {
       sx.push({
         backgroundColor: props.backgroundColor,
         color: color(props.backgroundColor).light()
-          ? theme.palette.textColor
-          : theme.palette.highlightTextColor
+          ? theme.palette.default
+          : theme.palette.inverted
       });
       sx.push(props.hoverColor
         && { ':hover': {
           backgroundColor: props.hoverColor,
           color: color(props.hoverColor).light()
-            ? theme.palette.textColor
-            : theme.palette.highlightTextColor
+            ? theme.palette.default
+            : theme.palette.inverted
         }
       });
     }

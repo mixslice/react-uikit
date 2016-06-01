@@ -14,7 +14,7 @@ const Subheader = ({
       boxSizing: 'border-box',
       width: '100%',
       fontSize: '1rem',
-      color: palette.textColor,
+      color: palette.default,
       textAlign: position,
       fontWeight: 600,
       padding: spacing.verticalPadding

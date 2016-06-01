@@ -17,8 +17,8 @@ const Toolbar = ({
       boxSizing: 'border-box',
       width: '100%',
       fontSize: '1rem',
-      backgroundColor: palette.toolbarColor,
-      borderBottom: `1px solid ${palette.borderColor}`
+      backgroundColor: palette.toolbar,
+      borderBottom: `1px solid ${palette.border}`
     }
   };
 

@@ -26,7 +26,7 @@ const getStyles = ({ spacing, palette }) => ({
     outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: palette.checkboxColor,
+    borderColor: palette.controlBorder,
     borderRadius: spacing.borderRadius
   },
   hidden: {
@@ -76,7 +76,7 @@ class Checkbox extends Component {
       <label style={sx}>
         <div style={styles.inputWrapper}>
           <SvgIcon
-            baseColor={palette.primaryColor}
+            baseColor={palette.primary}
             style={this.state.checked ? styles.icon : styles.hidden}
             path={checkIcon}
           />

@@ -30,13 +30,13 @@ const getChildren = ({ palette, ...props }) => {
     const extendProps = {
       default: {
         disabled: props.disabled,
-        baseColor: palette.textColor
+        baseColor: palette.default
       },
       primary: {
-        baseColor: palette.highlightTextColor
+        baseColor: palette.inverted
       },
       secondary: {
-        baseColor: palette.highlightTextColor
+        baseColor: palette.inverted
       }
     };
 
@@ -51,7 +51,7 @@ const getChildren = ({ palette, ...props }) => {
     }
 
     const icon = extendChildren(props.icon, {
-      baseColor: props.kind === 'primary' ? palette.primaryColor : palette.placeholderColor,
+      baseColor: props.kind === 'primary' ? palette.primary : palette.placeholder,
       disabled: props.disabled
     });
 
@@ -94,16 +94,16 @@ const NavItem = ({
       marginLeft: pullRight ? 'auto' : 0,
       fontSize: '1rem',
       height: 60,
-      textColor: palette.textColor,
+      textColor: palette.default,
       padding: `0 ${spacing.padding}px`,
-      backgroundColor: palette.toolbarColor,
+      backgroundColor: palette.toolbar,
       ':hover': {
-        backgroundColor: palette.toolbarHoverColor
+        backgroundColor: palette.toolbarHover
       }
     },
     border: {
-      borderRight: lastChild ? 'none' : `1px solid ${palette.borderColor}`,
-      borderLeft: borderLeft ? `1px solid ${palette.borderColor}` : 'none'
+      borderRight: lastChild ? 'none' : `1px solid ${palette.border}`,
+      borderLeft: borderLeft ? `1px solid ${palette.border}` : 'none'
     }
   };
 

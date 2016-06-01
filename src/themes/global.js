@@ -5,7 +5,7 @@ export default ({ palette }) => ({
   'html, body': {
     fontSize: 14,
     lineHeight: 1.5,
-    color: palette.textColor,
+    color: palette.default,
     fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif'
   },
   p: {

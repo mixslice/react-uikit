@@ -13,10 +13,10 @@ const PanelHeader = ({
     root: {
       position: 'relative',
       fontSize: `${16 / 14}rem`,
-      color: color(palette.textColor).alpha(0.65).rgbString(),
+      color: color(palette.default).alpha(0.65).rgbString(),
       backgroundColor: palette.panelHeader,
       padding: '12px 20px',
-      borderBottom: `1px solid ${palette.borderColor}`
+      borderBottom: `1px solid ${palette.border}`
     }
   };
 

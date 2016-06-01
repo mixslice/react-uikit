@@ -14,14 +14,14 @@ const getStyles = ({ palette, spacing }) => ({
     appearance: 'none',
     boxSizing: 'border-box',
     width: '100%',
-    color: palette.textColor,
+    color: palette.default,
     outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: palette.borderColor,
+    borderColor: palette.border,
     ':focus': {
-      boxShadow: `0 0 0 1px ${palette.primaryColor}`,
-      borderColor: palette.primaryColor,
+      boxShadow: `0 0 0 1px ${palette.primary}`,
+      borderColor: palette.primary,
     },
     borderRadius: spacing.borderRadius,
     paddingTop: spacing.formPadding,
@@ -60,7 +60,7 @@ const getChildren = (props, theme) => {
   let children = '';
   if (props.icon) {
     children = extendChildren(props.icon, {
-      baseColor: palette.placeholderColor,
+      baseColor: palette.placeholder,
       disabled: props.disabled,
       style: props.iconPosition === 'after'
         ? merge({}, childrenStyles.root, childrenStyles.after)

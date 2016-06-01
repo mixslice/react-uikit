@@ -11,7 +11,7 @@ const PanelBody = ({
   const styles = {
     root: {
       position: 'relative',
-      color: palette.textColor,
+      color: palette.default,
       padding: 20
     },
     lastChild: {

@@ -14,7 +14,7 @@ const loadingKeyframes = radium.keyframes({
 
 
 const getStyles = ({ palette }) => {
-  const fadeColor = color(palette.primaryColor).alpha(0.2).rgbString();
+  const fadeColor = color(palette.primary).alpha(0.2).rgbString();
   return {
     root: {
       display: 'inline-block',
@@ -27,7 +27,7 @@ const getStyles = ({ palette }) => {
       borderTop: `0.3em solid ${fadeColor}`,
       borderRight: `0.3em solid ${fadeColor}`,
       borderBottom: `0.3em solid ${fadeColor}`,
-      borderLeft: `0.3em solid ${palette.primaryColor}`,
+      borderLeft: `0.3em solid ${palette.primary}`,
       transform: 'translateZ(0)',
       animation: '1.1s infinite linear',
       animationName: loadingKeyframes,

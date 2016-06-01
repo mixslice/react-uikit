@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import radium, { Style } from 'radium';
 
 
-const getStyles = ({ props, palette }) => {
+const getStyles = (props, { palette }) => {
   const max = props.max || 100;
   const min = props.min || 0;
   const percent = (props.value - min) / (max - min) * 100;
@@ -16,9 +16,9 @@ const getStyles = ({ props, palette }) => {
       margin: '10px 0',
       cursor: 'pointer',
       color: 'inherit',
-      backgroundColor: palette.borderColor,
+      backgroundColor: palette.border,
       backgroundClip: 'content-box',
-      backgroundImage: `linear-gradient(90deg, ${palette.primaryColor}, ${palette.primaryColor} ${percent}%, transparent ${percent}%)`,
+      backgroundImage: `linear-gradient(90deg, ${palette.primary}, ${palette.primary} ${percent}%, transparent ${percent}%)`,
       height: 3,
       WebkitAppearance: 'none',
       appearance: 'none'
@@ -26,8 +26,8 @@ const getStyles = ({ props, palette }) => {
     thumb: {
       width: 24,
       height: 24,
-      backgroundColor: palette.backgroundColor,
-      border: `1px solid ${palette.placeholderColor}`,
+      backgroundColor: palette.background,
+      border: `1px solid ${palette.controlBorder}`,
       borderRadius: '50%',
       appearance: 'none',
       boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
@@ -40,7 +40,7 @@ const Slider = ({
   name,
   ...props
 }, { theme }) => {
-  const styles = getStyles({ props, ...theme });
+  const styles = getStyles(props, theme);
 
   const sx = [styles.root];
 

@@ -10,9 +10,9 @@ const Panel = ({
   const { palette } = theme;
   const styles = {
     root: {
-      color: palette.textColor,
-      border: `1px solid ${palette.borderColor}`,
-      backgroundColor: palette.backgroundColor
+      color: palette.default,
+      border: `1px solid ${palette.border}`,
+      backgroundColor: palette.background
     }
   };
 

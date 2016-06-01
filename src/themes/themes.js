@@ -1,11 +1,11 @@
 import merge from 'lodash.merge';
-import base from './base';
+import config from './config';
 
 
 class Themes {
 
   getTheme(theme, ...more) {
-    return merge({}, base, theme, ...more);
+    return merge({}, config, theme, ...more);
   }
 }
 

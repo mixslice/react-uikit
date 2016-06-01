@@ -3,51 +3,38 @@ import radium from 'radium';
 import color from 'color';
 
 
-const getStyles = ({ palette, spacing }) => {
-  const colors = {
-    primaryColor: color(palette.primaryColor).hexString(),
-    primaryColorHover: color(palette.primaryColor).darken(palette.hoverColorDepth).hexString(),
-    accentColor: color(palette.accentColor).hexString(),
-    accentColorHover: color(palette.accentColor).darken(palette.hoverColorDepth).hexString(),
-    greyColor: color(palette.greyColor).hexString(),
-    textColor: palette.textColor,
-    highlightTextColor: palette.highlightTextColor,
-    disabledColor: color(palette.disabledColor).darken(palette.hoverColorDepth).hexString()
-  };
-
-  return {
-    root: {
-      display: 'inline-block',
-      height: spacing.iconSize,
-      width: spacing.iconSize,
-      userSelect: 'none',
-      verticalAlign: 'middle',
-      fill: colors.textColor
-    },
-    primary: {
-      fill: colors.primaryColor,
-      ':hover': {
-        fill: colors.primaryColorHover
-      }
-    },
-    secondary: {
-      fill: colors.accentColor,
-      ':hover': {
-        fill: colors.accentColorHover
-      }
-    },
-    disabled: {
-      fill: colors.disabledColor,
-      ':hover': {
-        fill: colors.disabledColor
-      }
-    },
-    large: {
-      height: spacing.iconSize * 1.5,
-      width: spacing.iconSize * 1.5
+const getStyles = ({ palette, spacing }) => ({
+  root: {
+    display: 'inline-block',
+    height: spacing.iconSize,
+    width: spacing.iconSize,
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    fill: color(palette.default).hexString()
+  },
+  primary: {
+    fill: color(palette.primary).hexString(),
+    ':hover': {
+      fill: color(palette.primary).darken(palette.hoverDepth).hexString()
     }
-  };
-};
+  },
+  secondary: {
+    fill: color(palette.secondary).hexString(),
+    ':hover': {
+      fill: color(palette.secondary).darken(palette.hoverDepth).hexString()
+    }
+  },
+  disabled: {
+    fill: color(palette.disabled).hexString(),
+    ':hover': {
+      fill: color(palette.disabled).hexString()
+    }
+  },
+  large: {
+    height: spacing.iconSize * 1.5,
+    width: spacing.iconSize * 1.5
+  }
+});
 
 const SvgIcon = ({
   path,

@@ -21,7 +21,7 @@ const Base = ({
   style,
   ...props
 }, { theme }) => {
-  const { scale, colors, borderRadius } = { ...config, ...theme };
+  const { scale, palette, borderRadius } = { ...config, ...theme };
   const name = props.className;
   const keys = name ? name.split(' ') : [];
   const contextStyle = keys.reduce((a, key) => (assign(a, (theme ? theme[key] : {}))), {});
@@ -36,7 +36,7 @@ const Base = ({
     contextStyle,
     margin(props, scale),
     padding(props, scale),
-    colorStyle(props, colors, theme),
+    colorStyle(props, palette, theme),
     radii(props, borderRadius),
     style
   );
@@ -98,7 +98,7 @@ Base.propTypes = {
   /** Background color - can either be a key from the config colors object or any color value */
   backgroundColor: React.PropTypes.string,
   /** Sets color from config */
-  theme: React.PropTypes.oneOf([
+  kind: React.PropTypes.oneOf([
     'primary',
     'secondary',
     'default',

@@ -5,66 +5,58 @@ import transitions from './utils/transitions';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 
-const getStyles = ({ palette, spacing }) => {
-  const colors = {
-    primaryColorHover: color(palette.primaryColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
-    accentColorHover: color(palette.accentColor).lighten(palette.hoverColorDepth * 1.75).hexString(),
-    textColor: palette.textColor,
-    disabledColor: color(palette.disabledColor).darken(palette.disabledColorDarken).rgbString()
-  };
 
-  return {
-    root: {
-      outline: 'none',
-      boxSizing: 'border-box',
-      display: 'inline-flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      verticalAlign: 'middle',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      borderRadius: spacing.borderRadius,
-      width: spacing.avatarSize,
-      height: spacing.avatarSize,
-      marginBottom: spacing.margin,
-      marginRight: spacing.margin,
-      border: 0,
-      overflow: 'hidden',
-      transition: transitions.easeOut(),
-      color: palette.textColor,
-      backgroundColor: palette.greyColor
-    },
-    hover: {
-      ':hover': {
-        backgroundColor: color(palette.greyColor).darken(palette.hoverColorDepth).hexString()
-      }
-    },
-    disabled: {
-      cursor: 'default',
-      boxShadow: 'none'
-    },
-    large: {
-      width: spacing.largeAvatarSize,
-      height: spacing.largeAvatarSize
-    },
-    primary: {
-      backgroundColor: palette.primaryColor,
-      color: palette.highlightTextColor,
-      ':hover': {
-        backgroundColor: colors.primaryColorHover,
-        color: palette.highlightTextColor,
-      }
-    },
-    secondary: {
-      backgroundColor: palette.accentColor,
-      color: palette.highlightTextColor,
-      ':hover': {
-        backgroundColor: colors.accentColorHover,
-        color: palette.highlightTextColor,
-      }
+const getStyles = ({ palette, spacing }) => ({
+  root: {
+    outline: 'none',
+    boxSizing: 'border-box',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    verticalAlign: 'middle',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    borderRadius: spacing.borderRadius,
+    width: spacing.avatarSize,
+    height: spacing.avatarSize,
+    marginBottom: spacing.margin,
+    marginRight: spacing.margin,
+    border: 0,
+    overflow: 'hidden',
+    transition: transitions.easeOut(),
+    color: palette.default,
+    backgroundColor: palette.grey
+  },
+  hover: {
+    ':hover': {
+      backgroundColor: color(palette.grey).darken(palette.hoverDepth).hexString()
     }
-  };
-};
+  },
+  disabled: {
+    cursor: 'default',
+    boxShadow: 'none'
+  },
+  large: {
+    width: spacing.largeAvatarSize,
+    height: spacing.largeAvatarSize
+  },
+  primary: {
+    backgroundColor: palette.primary,
+    color: palette.inverted,
+    ':hover': {
+      backgroundColor: color(palette.primary).lighten(palette.hoverLightDepth).hexString(),
+      color: palette.inverted,
+    }
+  },
+  secondary: {
+    backgroundColor: palette.secondary,
+    color: palette.inverted,
+    ':hover': {
+      backgroundColor: color(palette.secondary).lighten(palette.hoverLightDepth).hexString(),
+      color: palette.inverted,
+    }
+  }
+});
 
 const getChildren = ({
   size,
@@ -76,13 +68,13 @@ const getChildren = ({
     default: {
       size,
       disabled,
-      baseColor: palette.textColor
+      baseColor: palette.default
     },
     primary: {
-      baseColor: palette.highlightTextColor
+      baseColor: palette.inverted
     },
     secondary: {
-      baseColor: palette.highlightTextColor
+      baseColor: palette.inverted
     }
   };
 
@@ -114,7 +106,7 @@ const IconButton = (props, { theme }) => {
     if (props.backgroundColor) {
       sx.push({
         backgroundColor: props.backgroundColor,
-        color: palette.highlightTextColor
+        color: palette.inverted
       });
       sx.push(props.hoverColor
         && { ':hover': { backgroundColor: props.hoverColor } });

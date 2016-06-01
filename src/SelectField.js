@@ -9,18 +9,18 @@ const getStyles = ({ palette, spacing }) => ({
     appearance: 'none',
     boxSizing: 'border-box',
     width: '100%',
-    color: palette.textColor,
+    color: palette.default,
     outline: 'none',
-    backgroundColor: palette.backgroundColor,
+    backgroundColor: palette.background,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: palette.borderColor,
+    borderColor: palette.border,
     borderRadius: spacing.borderRadius,
     padding: spacing.formPadding,
     marginBottom: 15,
     ':focus': {
-      boxShadow: `0 0 0 1px ${palette.primaryColor}`,
-      borderColor: palette.primaryColor,
+      boxShadow: `0 0 0 1px ${palette.primary}`,
+      borderColor: palette.primary,
     }
   },
   wrapper: {
@@ -56,7 +56,7 @@ const TextField = ({
   return (
     <div style={styles.wrapper}>
       <SvgIcon
-        baseColor={palette.placeholderColor}
+        baseColor={palette.placeholder}
         style={styles.icon}
         path={expandIcon}
       />
