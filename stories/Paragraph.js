@@ -1,15 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import { ThemeProvider } from '../src';
 import Aligner from './Aligner';
 
 
 storiesOf('Paragraph', module)
   .addDecorator((story) => (
     <Aligner>
-      <ThemeProvider>
-        {story()}
-      </ThemeProvider>
+      {story()}
     </Aligner>
   ))
   .add('Text', () => (

@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Aligner from './Aligner';
 import {
-  ThemeProvider,
   Subheader,
   Button,
   TextField,
@@ -24,12 +23,8 @@ const styles = {
 
 storiesOf('Form', module)
   .addDecorator((story) => (
-    <Aligner>
-      <ThemeProvider>
-        <div style={styles.wrapper}>
-          {story()}
-        </div>
-      </ThemeProvider>
+    <Aligner style={styles.wrapper}>
+      {story()}
     </Aligner>
   ))
   .add('Basic', () => (

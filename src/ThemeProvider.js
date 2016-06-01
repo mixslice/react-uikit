@@ -4,7 +4,6 @@ import merge from 'lodash.merge';
 import normalize from 'normalize.css';
 import themes from './themes/themes';
 import globalStyle from './themes/global';
-import font from './themes/font.css';
 
 
 export default class ThemeProvider extends Component {
@@ -17,17 +16,22 @@ export default class ThemeProvider extends Component {
     theme: PropTypes.object.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    this.theme = this.props.theme || themes.getTheme();
+  }
+
   getChildContext() {
     return {
-      theme: this.props.theme || themes.getTheme()
+      theme: this.theme
     };
   }
 
   render() {
-    const themeGlobalStyle = globalStyle(this.props.theme || themes.getTheme());
+    const gs = globalStyle(this.theme);
     return (
       <StyleRoot>
-        <Style rules={merge({}, normalize, font, themeGlobalStyle)} />
+        <Style rules={merge({}, normalize, gs)} />
         {this.props.children}
       </StyleRoot>
     );

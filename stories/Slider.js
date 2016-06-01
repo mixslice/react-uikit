@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Aligner from './Aligner';
 import {
-  ThemeProvider,
   Slider,
   Subheader
 } from '../src';
@@ -16,12 +15,8 @@ const styles = {
 
 storiesOf('Slider', module)
   .addDecorator((story) => (
-    <Aligner>
-      <ThemeProvider>
-        <div style={styles.wrapper}>
-          {story()}
-        </div>
-      </ThemeProvider>
+    <Aligner style={styles.wrapper}>
+      {story()}
     </Aligner>
   ))
   .add('Slider', () => (

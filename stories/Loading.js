@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import Aligner from './Aligner';
 import {
-  ThemeProvider,
   Loading
 } from '../src';
 
@@ -10,9 +9,7 @@ import {
 storiesOf('Loading', module)
   .addDecorator((story) => (
     <Aligner>
-      <ThemeProvider>
-        {story()}
-      </ThemeProvider>
+      {story()}
     </Aligner>
   ))
   .add('Loading', () => (

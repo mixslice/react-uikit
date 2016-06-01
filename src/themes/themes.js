@@ -1,11 +1,11 @@
 import merge from 'lodash.merge';
-import lightBaseTheme from './lightBaseTheme';
+import base from './base';
 
 
 class Themes {
 
   getTheme(theme, ...more) {
-    return merge({}, lightBaseTheme, theme, ...more);
+    return merge({}, base, theme, ...more);
   }
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import Aligner from './Aligner';
 import {
-  ThemeProvider,
   Panel,
   PanelBody,
   PanelHeader,
@@ -20,12 +19,8 @@ const styles = {
 
 storiesOf('Panel', module)
   .addDecorator((story) => (
-    <Aligner>
-      <ThemeProvider>
-        <div style={styles.wrapper}>
-          {story()}
-        </div>
-      </ThemeProvider>
+    <Aligner style={styles.wrapper}>
+      {story()}
     </Aligner>
   ))
   .add('Panel', () => (

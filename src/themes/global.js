@@ -6,7 +6,7 @@ export default ({ palette }) => ({
     fontSize: 14,
     lineHeight: 1.5,
     color: palette.textColor,
-    fontFamily: "lato, -apple-system, '.SFNSText-Regular', 'San Francisco', Roboto, 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif"
+    fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif'
   },
   p: {
     marginTop: 0

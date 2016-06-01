@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Aligner from './Aligner';
 import {
-  ThemeProvider,
   Button,
   IconButton,
   ActionGroup,
@@ -20,9 +19,7 @@ import { Flex } from 'reflexbox';
 storiesOf('Button', module)
   .addDecorator((story) => (
     <Aligner>
-      <ThemeProvider>
-        {story()}
-      </ThemeProvider>
+      {story()}
     </Aligner>
   ))
   .add('Button', () => (

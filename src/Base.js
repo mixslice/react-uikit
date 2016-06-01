@@ -1,9 +1,9 @@
 import React from 'react';
-import margins from './utils/margin';
+import margin from './utils/margin';
 import padding from './utils/padding';
 import radii from './utils/radii';
 import colorStyle from './utils/colorStyle';
-import config from './config';
+import config from './themes/config';
 import assign from 'object-assign';
 
 /**
@@ -34,7 +34,7 @@ const Base = ({
     { boxSizing: 'border-box' },
     baseStyle,
     contextStyle,
-    margins(props, scale),
+    margin(props, scale),
     padding(props, scale),
     colorStyle(props, colors, theme),
     radii(props, borderRadius),

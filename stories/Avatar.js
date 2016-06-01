@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Aligner from './Aligner';
 import {
-  ThemeProvider,
   Avatar,
   SvgIcon,
 } from '../src';
@@ -12,9 +11,7 @@ import { contactIcon, contentAddIcon } from 'utils/paths';
 storiesOf('Avatar', module)
   .addDecorator((story) => (
     <Aligner>
-      <ThemeProvider>
-        {story()}
-      </ThemeProvider>
+      {story()}
     </Aligner>
   ))
   .add('Avatar', () => (

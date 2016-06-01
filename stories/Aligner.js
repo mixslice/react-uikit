@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Flex } from 'reflexbox';
+import { ThemeProvider } from '../src';
 
 const styles = {
-  aligner: {
+  root: {
     margin: '0 auto',
     minHeight: '100%',
     width: 600
@@ -10,13 +11,18 @@ const styles = {
 };
 
 const Aligner = (props) => (
-  <Flex style={styles.aligner} align="center" justify="center">
-    {props.children}
+  <Flex style={styles.root} align="center" justify="center">
+    <ThemeProvider>
+      <div style={props.style}>
+        {props.children}
+      </div>
+    </ThemeProvider>
   </Flex>
 );
 
 Aligner.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  style: PropTypes.object
 };
 
 export default Aligner;
