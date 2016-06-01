@@ -66,14 +66,14 @@ class Checkbox extends Component {
     const { palette } = theme;
     const styles = getStyles(theme);
 
-    const inlineStyle = [styles.root];
+    const sx = [styles.root];
 
     if (style) {
-      inlineStyle.push(style);
+      sx.push(style);
     }
 
     return (
-      <label style={inlineStyle}>
+      <label style={sx}>
         <div style={styles.inputWrapper}>
           <SvgIcon
             baseColor={palette.primaryColor}

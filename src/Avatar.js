@@ -73,35 +73,35 @@ const Avatar = (props, { theme }) => {
     ...other
   } = props;
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (src) {
-    inlineStyle.push(styles.avatarPic);
+    sx.push(styles.avatarPic);
   }
 
   if (size === 'large') {
-    inlineStyle.push(styles.large);
+    sx.push(styles.large);
   }
 
   if (label || children) {
-    inlineStyle.push(styles.letter);
+    sx.push(styles.letter);
   }
 
   if (icon) {
-    inlineStyle.push(styles.icon);
+    sx.push(styles.icon);
   }
 
   if (props.onClick) {
-    inlineStyle.push(styles.clickable);
+    sx.push(styles.clickable);
   }
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
 
   return (
-    <div {...other} style={inlineStyle}>
+    <div {...other} style={sx}>
       {getChildren(props, theme.palette)}
     </div>
   );

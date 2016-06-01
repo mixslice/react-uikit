@@ -48,18 +48,18 @@ const Loading = ({
 }, { theme }) => {
   const styles = getStyles(theme);
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (size === 'large') {
-    inlineStyle.push(styles.large);
+    sx.push(styles.large);
   }
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
 
-  return (<div {...other} style={inlineStyle}></div>);
+  return (<div {...other} style={sx}></div>);
 };
 
 Loading.propTypes = {

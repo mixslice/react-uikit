@@ -104,34 +104,34 @@ const IconButton = (props, { theme }) => {
   const styles = getStyles(theme);
   const { palette } = theme;
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (props.disabled) {
-    inlineStyle.push(styles.disabled);
+    sx.push(styles.disabled);
   } else {
-    inlineStyle.push(styles.hover);
-    inlineStyle.push(styles[props.kind]);
+    sx.push(styles.hover);
+    sx.push(styles[props.kind]);
     if (props.backgroundColor) {
-      inlineStyle.push({
+      sx.push({
         backgroundColor: props.backgroundColor,
         color: palette.highlightTextColor
       });
-      inlineStyle.push(props.hoverColor
+      sx.push(props.hoverColor
         && { ':hover': { backgroundColor: props.hoverColor } });
     }
   }
 
   if (props.size && props.size !== 'normal') {
-    inlineStyle.push(styles[props.size]);
+    sx.push(styles[props.size]);
   }
 
   if (props.style) {
-    inlineStyle.push(props.style);
+    sx.push(props.style);
   }
 
   return (
     <div
-      style={inlineStyle}
+      style={sx}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >

@@ -107,18 +107,18 @@ const NavItem = ({
     }
   };
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (border) {
-    inlineStyle.push(styles.border);
+    sx.push(styles.border);
   }
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
   return (
-    <div {...props} style={inlineStyle}>
+    <div {...props} style={sx}>
       {getChildren({ ...props, children, palette })}
     </div>
   );

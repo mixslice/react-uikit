@@ -16,14 +16,14 @@ const Panel = ({
     }
   };
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
   return (
-    <div {...other} style={inlineStyle}>
+    <div {...other} style={sx}>
       {children}
     </div>
   );

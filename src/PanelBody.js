@@ -21,14 +21,14 @@ const PanelBody = ({
     }
   };
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
   return (
-    <div className="pbody" {...other} style={inlineStyle}>
+    <div className="pbody" {...other} style={sx}>
       <Style scopeSelector=".pbody" rules={styles.lastChild} />
       {children}
     </div>

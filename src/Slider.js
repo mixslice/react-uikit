@@ -42,15 +42,15 @@ const Slider = ({
 }, { theme }) => {
   const styles = getStyles({ props, ...theme });
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
   return (
     <div>
-      <input className="slider" {...props} name={name} type="range" style={inlineStyle} />
+      <input className="slider" {...props} name={name} type="range" style={sx} />
       <Style scopeSelector=".slider::-webkit-slider-thumb" rules={styles.thumb} />
     </div>
   );

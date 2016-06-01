@@ -35,14 +35,10 @@ const ActionBar = ({
 }, { theme }) => {
   const styles = getStyles(kind, { ...theme });
 
-  const inlineStyle = [styles.root];
-
-  if (style) {
-    inlineStyle.push(style);
-  }
+  const sx = [styles.root, style];
 
   return (
-    <div {...other} style={inlineStyle}>
+    <div {...other} style={sx}>
       {getChildren(children, kind)}
     </div>
   );

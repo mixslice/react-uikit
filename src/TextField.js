@@ -77,17 +77,17 @@ const TextField = (props, { theme }) => {
     ...other
   } = props;
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (props.icon) {
     const position = props.iconPosition || 'before';
-    inlineStyle.push(styles.iconPosition[position]);
+    sx.push(styles.iconPosition[position]);
   }
 
   return (
     <div style={[styles.wrapper, style]}>
       {getChildren(props, theme)}
-      <input {...other} style={inlineStyle} placeholder={props.placeholder} />
+      <input {...other} style={sx} placeholder={props.placeholder} />
     </div>
   );
 };

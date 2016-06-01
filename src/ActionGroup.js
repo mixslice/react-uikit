@@ -39,14 +39,14 @@ const ActionGroup = (props, { theme }) => {
   const styles = getStyles(theme);
   const { style } = props;
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
   return (
-    <div style={inlineStyle}>
+    <div style={sx}>
       {getChildren(props)}
     </div>
   );

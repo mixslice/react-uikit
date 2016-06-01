@@ -29,15 +29,15 @@ const Textarea = (props, { theme }) => {
     ...other
   } = props;
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
 
   return (
-    <textarea {...other} style={inlineStyle} placeholder={props.placeholder} />
+    <textarea {...other} style={sx} placeholder={props.placeholder} />
   );
 };
 

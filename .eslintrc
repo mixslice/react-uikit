@@ -4,6 +4,7 @@
   "rules": {
     "max-len": 0,
     "comma-dangle": 0,
+    "no-param-reassign": 0,
     "react/jsx-first-prop-new-line": 0
   },
   "settings": {

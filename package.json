@@ -60,6 +60,7 @@
     "eslint-import-resolver-webpack": "^0.2.5",
     "lodash.merge": "^4.4.0",
     "normalize.css": "^4.1.1",
+    "object-assign": "^4.1.0",
     "radium": "^0.17.1",
     "react-addons-create-fragment": "^15.1.0",
     "reflexbox": "^1.1.2"

@@ -46,10 +46,10 @@ const TextField = ({
   const styles = getStyles(theme);
   const { palette } = theme;
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
 
   if (style) {
-    inlineStyle.push(style);
+    sx.push(style);
   }
 
 
@@ -60,7 +60,7 @@ const TextField = ({
         style={styles.icon}
         path={expandIcon}
       />
-      <select {...other} style={inlineStyle}>
+      <select {...other} style={sx}>
         {children}
       </select>
     </div>

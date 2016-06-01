@@ -69,7 +69,7 @@ storiesOf('Form', module)
       <Subheader>Checkbox</Subheader>
       <Flex justify="space-between">
         <Box auto>
-          <Checkbox onChange={action('check1 clicked')} name="options" value="castello" label="Castello" />
+          <Box is={Checkbox} onChange={action('check1 clicked')} name="options" value="castello" label="Castello" />
         </Box>
         <Box auto>
           <Checkbox onChange={action('check2 clicked')} name="options" value="cannaregio" label="Cannaregio" checked />

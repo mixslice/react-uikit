@@ -61,27 +61,27 @@ const SvgIcon = ({
 }, { theme }) => {
   const styles = getStyles(theme);
 
-  const inlineStyle = [styles.root];
+  const sx = [styles.root];
   if (disabled) {
-    inlineStyle.push(styles.disabled);
+    sx.push(styles.disabled);
   } else {
-    inlineStyle.push(styles[kind]);
+    sx.push(styles[kind]);
     if (style) {
-      inlineStyle.push(style);
+      sx.push(style);
     }
     if (baseColor) {
-      inlineStyle.push({ fill: baseColor });
+      sx.push({ fill: baseColor });
     }
   }
 
   if (size && size !== 'normal') {
-    inlineStyle.push(styles[size]);
+    sx.push(styles[size]);
   }
 
   return (
     <svg
       {...other}
-      style={inlineStyle}
+      style={sx}
       viewBox={viewBox}
     >
       {path}
