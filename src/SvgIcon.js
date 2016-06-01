@@ -16,7 +16,7 @@ const getStyles = ({ palette, spacing }) => {
   };
 
   return {
-    default: {
+    root: {
       display: 'inline-block',
       height: spacing.iconSize,
       width: spacing.iconSize,
@@ -61,8 +61,7 @@ const SvgIcon = ({
 }, { theme }) => {
   const styles = getStyles(theme);
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.default);
+  const inlineStyle = [styles.root];
   if (disabled) {
     inlineStyle.push(styles.disabled);
   } else {

@@ -48,8 +48,7 @@ const Loading = ({
 }, { theme }) => {
   const styles = getStyles(theme);
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (size === 'large') {
     inlineStyle.push(styles.large);

@@ -4,7 +4,7 @@ import { extendChildren } from './utils/childUtils';
 
 
 const getStyles = (props, { palette, spacing }) => ({
-  avatar: {
+  root: {
     userSelect: 'none',
     outline: 'none',
     boxSizing: 'border-box',
@@ -73,8 +73,7 @@ const Avatar = (props, { theme }) => {
     ...other
   } = props;
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.avatar);
+  const inlineStyle = [styles.root];
 
   if (src) {
     inlineStyle.push(styles.avatarPic);

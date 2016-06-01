@@ -42,8 +42,7 @@ const Slider = ({
 }, { theme }) => {
   const styles = getStyles({ props, ...theme });
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (style) {
     inlineStyle.push(style);

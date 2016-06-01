@@ -14,7 +14,7 @@ const getStyles = ({ palette, spacing }) => {
   };
 
   return {
-    button: {
+    root: {
       outline: 'none',
       boxSizing: 'border-box',
       display: 'inline-flex',
@@ -104,8 +104,7 @@ const IconButton = (props, { theme }) => {
   const styles = getStyles(theme);
   const { palette } = theme;
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.button);
+  const inlineStyle = [styles.root];
 
   if (props.disabled) {
     inlineStyle.push(styles.disabled);

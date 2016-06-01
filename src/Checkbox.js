@@ -66,8 +66,7 @@ class Checkbox extends Component {
     const { palette } = theme;
     const styles = getStyles(theme);
 
-    const inlineStyle = [];
-    inlineStyle.push(styles.root);
+    const inlineStyle = [styles.root];
 
     if (style) {
       inlineStyle.push(style);

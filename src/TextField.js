@@ -77,8 +77,7 @@ const TextField = (props, { theme }) => {
     ...other
   } = props;
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (props.icon) {
     const position = props.iconPosition || 'before';

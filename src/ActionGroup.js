@@ -39,8 +39,7 @@ const ActionGroup = (props, { theme }) => {
   const styles = getStyles(theme);
   const { style } = props;
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (style) {
     inlineStyle.push(style);

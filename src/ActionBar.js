@@ -35,8 +35,7 @@ const ActionBar = ({
 }, { theme }) => {
   const styles = getStyles(kind, { ...theme });
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (style) {
     inlineStyle.push(style);

@@ -21,8 +21,7 @@ const Subheader = ({
     }
   };
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (style) {
     inlineStyle.push(style);

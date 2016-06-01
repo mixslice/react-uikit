@@ -107,8 +107,7 @@ const NavItem = ({
     }
   };
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.root);
+  const inlineStyle = [styles.root];
 
   if (border) {
     inlineStyle.push(styles.border);

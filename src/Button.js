@@ -13,7 +13,7 @@ const getStyles = ({ palette, spacing }) => {
   };
 
   return {
-    button: {
+    root: {
       outline: 'none',
       boxSizing: 'border-box',
       display: 'inline-block',
@@ -128,8 +128,7 @@ const getChildren = (props) => {
 const Button = (props, { theme }) => {
   const styles = getStyles(theme);
 
-  const inlineStyle = [];
-  inlineStyle.push(styles.button);
+  const inlineStyle = [styles.root];
 
   if (props.disabled) {
     inlineStyle.push(styles.disabled);
