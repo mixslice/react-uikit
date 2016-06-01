@@ -11,7 +11,7 @@ import {
   Checkbox,
   SvgIcon
 } from '../src';
-import { contactIcon, lockIcon } from 'utils/paths';
+import { ContactIcon, LockIcon } from 'utils/paths';
 import { Flex, Box } from 'reflexbox';
 
 
@@ -32,12 +32,12 @@ storiesOf('Form', module)
       <Subheader>Account</Subheader>
       <TextField
         placeholder="Name"
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={ContactIcon} />}
       />
       <TextField
         type="password"
         placeholder="Password"
-        icon={<SvgIcon path={lockIcon} />}
+        icon={<SvgIcon path={LockIcon} />}
         iconPosition="after"
       />
 

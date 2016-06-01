@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import SvgIcon from './SvgIcon';
-import { expandIcon } from './utils/paths';
+import { ExpandIcon } from './utils/paths';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -58,7 +58,7 @@ const TextField = ({
       <SvgIcon
         baseColor={palette.placeholder}
         style={styles.icon}
-        path={expandIcon}
+        path={ExpandIcon}
       />
       <select {...other} style={sx}>
         {children}

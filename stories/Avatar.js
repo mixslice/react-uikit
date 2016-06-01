@@ -5,7 +5,7 @@ import {
   Avatar,
   SvgIcon,
 } from '../src';
-import { contactIcon, contentAddIcon } from 'utils/paths';
+import { ContactIcon, ContentAddIcon } from 'utils/paths';
 
 
 storiesOf('Avatar', module)
@@ -38,23 +38,23 @@ storiesOf('Avatar', module)
         color="#fff"
       />
       <Avatar
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={ContactIcon} />}
         backgroundColor="#40c4ff"
         baseColor="#dce775"
       />
       <Avatar
-        icon={<SvgIcon path={contactIcon} />}
+        icon={<SvgIcon path={ContactIcon} />}
         size="large"
         backgroundColor="#aa00ff"
         baseColor="#fff"
       />
       <Avatar
-        icon={<SvgIcon path={contentAddIcon} />}
+        icon={<SvgIcon path={ContentAddIcon} />}
         backgroundColor="#ec407a"
         baseColor="#fff"
       />
       <Avatar
-        icon={<SvgIcon path={contentAddIcon} />}
+        icon={<SvgIcon path={ContentAddIcon} />}
         size="large"
         backgroundColor="#ec407a"
         baseColor="#fff"

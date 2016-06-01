@@ -8,9 +8,9 @@ import {
   SvgIcon,
 } from '../src';
 import {
-  contactIcon,
-  contentAddIcon,
-  boxIcon
+  ContactIcon,
+  ContentAddIcon,
+  BoxIcon
 } from 'utils/paths';
 import { blueGrey500, blueGrey100 } from 'utils/colors';
 import { Flex } from 'reflexbox';
@@ -42,18 +42,18 @@ storiesOf('Button', module)
         </Button>
         <Button
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
         <Button
           onClick={action('button clicked')}
           label="Person"
-          icon={<SvgIcon kind="primary" path={contactIcon} />}
+          icon={<SvgIcon kind="primary" path={ContactIcon} />}
         />
         <Button
           onClick={action('button clicked')}
           label="New"
           labelPosition="after"
-          icon={<SvgIcon kind="secondary" path={contentAddIcon} />}
+          icon={<SvgIcon kind="secondary" path={ContentAddIcon} />}
         />
       </Flex>
     </div>
@@ -61,23 +61,23 @@ storiesOf('Button', module)
   .add('IconButton', () => (
     <div>
       <IconButton onClick={action('button clicked')}
-        icon={<SvgIcon path={boxIcon} />}
+        icon={<SvgIcon path={BoxIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="primary"
-        icon={<SvgIcon path={boxIcon} />}
+        icon={<SvgIcon path={BoxIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="secondary"
-        icon={<SvgIcon path={boxIcon} />}
+        icon={<SvgIcon path={BoxIcon} />}
       />
       <IconButton onClick={action('button clicked')}
         baseColor="#00bcd4" hoverColor="#0097a7"
-        icon={<SvgIcon path={boxIcon} />}
+        icon={<SvgIcon path={BoxIcon} />}
       />
       <IconButton onClick={action('button clicked')} disabled
-        icon={<SvgIcon path={boxIcon} />}
+        icon={<SvgIcon path={BoxIcon} />}
       />
       <IconButton onClick={action('button clicked')} kind="secondary"
-        size="large" icon={<SvgIcon path={boxIcon} />}
+        size="large" icon={<SvgIcon path={BoxIcon} />}
       />
     </div>
   ))
@@ -87,34 +87,34 @@ storiesOf('Button', module)
         <IconButton
           kind="primary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
         <IconButton
           kind="primary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
         <IconButton
           kind="primary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
       </ActionGroup>
       <ActionGroup>
         <IconButton
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
         <IconButton
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
       </ActionGroup>
       <ActionGroup>
         <IconButton
           kind="secondary"
           onClick={action('button clicked')}
-          icon={<SvgIcon path={contactIcon} />}
+          icon={<SvgIcon path={ContactIcon} />}
         />
       </ActionGroup>
     </div>

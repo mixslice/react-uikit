@@ -6,7 +6,7 @@ import {
   NavItem,
   SvgIcon
 } from '../src';
-import { contactIcon, boxIcon } from 'utils/paths';
+import { ExpandIcon, BoxIcon } from 'utils/paths';
 
 
 storiesOf('Toolbar', module)
@@ -19,25 +19,25 @@ storiesOf('Toolbar', module)
     <Toolbar>
       <NavItem
         kind="primary"
-        icon={<SvgIcon path={contactIcon} size="large" />}
+        icon={<SvgIcon path={BoxIcon} size="large" />}
         border={false}
       />
       <NavItem
         pullRight
         borderLeft
-        icon={<SvgIcon path={boxIcon} />}
+        icon={<SvgIcon path={ExpandIcon} />}
+        label="Item 1"
+        labelPosition="after"
+      />
+      <NavItem
+        icon={<SvgIcon path={ExpandIcon} />}
         label="Item 2"
         labelPosition="after"
       />
       <NavItem
-        icon={<SvgIcon path={boxIcon} />}
-        label="Item 3"
-        labelPosition="after"
-      />
-      <NavItem
         lastChild
-        icon={<SvgIcon path={boxIcon} />}
-        label="Item 4"
+        icon={<SvgIcon path={ExpandIcon} />}
+        label="Item 3"
         labelPosition="after"
       />
     </Toolbar>

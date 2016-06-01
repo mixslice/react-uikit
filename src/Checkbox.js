@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import radium from 'radium';
 import SvgIcon from './SvgIcon';
-import { checkIcon } from './utils/paths';
+import { CheckIcon } from './utils/paths';
 
 
 const getStyles = ({ spacing, palette }) => ({
@@ -78,7 +78,7 @@ class Checkbox extends Component {
           <SvgIcon
             baseColor={palette.primary}
             style={this.state.checked ? styles.icon : styles.hidden}
-            path={checkIcon}
+            path={CheckIcon}
           />
           <input
             {...other}
