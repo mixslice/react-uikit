@@ -19,8 +19,6 @@ const getStyles = ({ palette, spacing }) => ({
     borderRadius: spacing.borderRadius,
     width: spacing.avatarSize,
     height: spacing.avatarSize,
-    marginBottom: spacing.margin,
-    marginRight: spacing.margin,
     border: 0,
     overflow: 'hidden',
     transition: transitions.easeOut(),
@@ -123,6 +121,7 @@ const IconButton = (props, { theme }) => {
 
   return (
     <div
+      className="btn"
       style={sx}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}

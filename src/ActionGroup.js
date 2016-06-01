@@ -21,12 +21,16 @@ const getChildren = (props) => (
       // single button or last one
       newStyle = merge({}, child.props.style, {
         marginRight: 0,
+        marginLeft: 0,
+        marginTop: 0,
         marginBottom: 0,
         borderRadius: 0
       });
     } else {
       newStyle = merge({}, child.props.style, {
         marginRight: 1,
+        marginLeft: 0,
+        marginTop: 0,
         marginBottom: 0,
         borderRadius: 0
       });
