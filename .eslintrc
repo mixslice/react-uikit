@@ -5,5 +5,12 @@
     "max-len": 0,
     "comma-dangle": 0,
     "react/jsx-first-prop-new-line": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": ".storybook/webpack.config.js"
+      }
+    }
   }
 }
