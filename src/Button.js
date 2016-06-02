@@ -117,7 +117,9 @@ const getChildren = (props) => {
 };
 
 const Button = (props, { theme }) => {
-  const styles = getStyles({ ...config, ...theme });
+  const mergedTheme = { ...config, ...theme };
+  const { palette } = mergedTheme;
+  const styles = getStyles(mergedTheme);
 
   const sx = [styles.root];
 
@@ -130,15 +132,15 @@ const Button = (props, { theme }) => {
       sx.push({
         backgroundColor: props.backgroundColor,
         color: color(props.backgroundColor).light()
-          ? theme.palette.default
-          : theme.palette.inverted
+          ? palette.default
+          : palette.inverted
       });
       sx.push(props.hoverColor
         && { ':hover': {
           backgroundColor: props.hoverColor,
           color: color(props.hoverColor).light()
-            ? theme.palette.default
-            : theme.palette.inverted
+            ? palette.default
+            : palette.inverted
         }
       });
     }
