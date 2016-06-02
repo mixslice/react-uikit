@@ -2,9 +2,26 @@ import React, { Component, PropTypes } from 'react';
 import { Style, StyleRoot } from 'radium';
 import merge from 'lodash.merge';
 import normalize from 'normalize.css';
-import globalStyle from './styles/global';
 import config from './styles/config';
 
+
+const getStyles = ({ palette, fontFamily }) => ({
+  'html, body, #root': {
+    height: '100%'
+  },
+  'html, body': {
+    fontSize: 14,
+    lineHeight: 1.5,
+    color: palette.foreground,
+    fontFamily,
+  },
+  p: {
+    marginTop: 0
+  },
+  '.btn+.btn': {
+    marginLeft: 10
+  }
+});
 
 export default class ThemeProvider extends Component {
   static propTypes = {
@@ -23,7 +40,7 @@ export default class ThemeProvider extends Component {
   }
 
   render() {
-    const gs = globalStyle({ ...config, ...this.props.theme });
+    const gs = getStyles({ ...config, ...this.props.theme });
     return (
       <StyleRoot>
         <Style rules={merge({}, normalize, gs)} />
