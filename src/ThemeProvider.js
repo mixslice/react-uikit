@@ -43,7 +43,7 @@ export default class ThemeProvider extends Component {
   render() {
     const gs = getStyles({ ...config, ...this.props.theme });
     return (
-      <StyleRoot>
+      <StyleRoot {...this.props}>
         <Style rules={merge({}, normalize, gs)} />
         {this.props.children}
       </StyleRoot>
