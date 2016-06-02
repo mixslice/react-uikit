@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Flex } from 'reflexbox';
 import { ThemeProvider } from '../src';
+import config from './configs/dark';
 
 const styles = {
   root: {
@@ -12,7 +13,7 @@ const styles = {
 
 const Aligner = (props) => (
   <Flex style={styles.root} align="center" justify="center">
-    <ThemeProvider>
+    <ThemeProvider theme={config}>
       <div style={props.style}>
         {props.children}
       </div>

@@ -29,21 +29,27 @@ const getStyles = ({ palette, spacing }) => ({
   },
   hover: {
     ':hover': {
-      backgroundColor: color(palette.default).darken(palette.hoverDepth).hexString()
+      backgroundColor: color(palette.background).light()
+      ? color(palette.default).darken(palette.hoverDepth).hexString()
+      : color(palette.default).lighten(palette.hoverLightDepth).hexString()
     }
   },
   primary: {
     backgroundColor: palette.primary,
     color: palette.inverted,
     ':hover': {
-      backgroundColor: color(palette.primary).lighten(palette.hoverLightDepth).hexString()
+      backgroundColor: color(palette.background).dark()
+      ? color(palette.primary).lighten(palette.hoverDepth).hexString()
+      : color(palette.primary).lighten(palette.hoverLightDepth).hexString()
     }
   },
   secondary: {
     backgroundColor: palette.secondary,
     color: palette.inverted,
     ':hover': {
-      backgroundColor: color(palette.secondary).lighten(palette.hoverLightDepth).hexString()
+      backgroundColor: color(palette.background).dark()
+      ? color(palette.secondary).lighten(palette.hoverDepth).hexString()
+      : color(palette.secondary).lighten(palette.hoverLightDepth).hexString()
     }
   },
   disabled: {

@@ -7,11 +7,12 @@ import {
   SvgIcon
 } from '../src';
 import { ExpandIcon, BoxIcon } from 'utils/paths';
+import config from './configs/dark';
 
 
 storiesOf('Toolbar', module)
   .addDecorator((story) => (
-    <ThemeProvider>
+    <ThemeProvider theme={config}>
       {story()}
     </ThemeProvider>
   ))
