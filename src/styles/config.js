@@ -35,7 +35,7 @@ const palette = {
   ...defaultColors,
   border: baseColors.midgray,
   canvas: baseColors.white,
-  disabled: color(baseColors.default).darken(0.1).rgbString(),
+  disabled: color(defaultColors.default).darken(0.1).rgbString(),
   panelHeader: color(baseColors.white).darken(0.05).rgbString(),
   toolbar: baseColors.white,
   toolbarHover: color(baseColors.white).darken(0.05).rgbString(),
