@@ -1,10 +1,3 @@
-import {
-  blueA200,
-  grey100,
-  grey300,
-  grey400,
-  white,
-} from '../utils/colors';
 import color from 'color';
 
 const monospace = '"Roboto Mono", Menlo, Consolas, monospace';
@@ -15,16 +8,16 @@ const sans = {
 const baseColors = {
   black: '#484848',
   white: '#fff',
-  grey: grey100,
-  midgray: grey300,
-  blue: blueA200,
+  grey: '#f5f5f5',
+  midgray: '#e0e0e0',
+  darkgray: '#bdbdbd',
+  blue: '#448aff',
   red: '#ff5a5f',
   orange: '#f70',
   green: '#1c7'
 };
 
-const palette = {
-  ...baseColors,
+const defaultColors = {
   primary: baseColors.blue,
   secondary: baseColors.red,
   default: baseColors.grey,
@@ -32,17 +25,22 @@ const palette = {
   success: baseColors.green,
   warning: baseColors.orange,
   error: baseColors.red,
-  inverted: white,
-  disabled: color(baseColors.grey).darken(0.1).rgbString(),
+  inverted: baseColors.white,
   foreground: baseColors.black,
-  background: white,
-  canvas: white,
+  background: baseColors.white,
+};
+
+const palette = {
+  ...baseColors,
+  ...defaultColors,
   border: baseColors.midgray,
-  panelHeader: color(baseColors.midgray).alpha(0.5).rgbString(),
-  toolbar: white,
-  toolbarHover: color(white).darken(0.05).rgbString(),
-  controlBorder: grey400,
-  placeholder: color(baseColors.black).alpha(0.5).rgbString(),
+  canvas: baseColors.white,
+  disabled: color(baseColors.default).darken(0.1).rgbString(),
+  panelHeader: color(baseColors.white).darken(0.05).rgbString(),
+  toolbar: baseColors.white,
+  toolbarHover: color(baseColors.white).darken(0.05).rgbString(),
+  controlBorder: baseColors.darkgray,
+  placeholder: color(defaultColors.foreground).alpha(0.5).rgbString(),
   hoverDepth: 0.1,
   hoverLightDepth: 0.175,
 };

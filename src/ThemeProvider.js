@@ -14,6 +14,7 @@ const getStyles = ({ palette, fontFamily }) => ({
     lineHeight: 1.5,
     color: palette.foreground,
     fontFamily,
+    backgroundColor: palette.canvas
   },
   p: {
     marginTop: 0
