@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
+import config from './styles/config';
 
 
 const loadingKeyframes = radium.keyframes({
@@ -46,7 +47,7 @@ const Loading = ({
   size,
   ...other
 }, { theme }) => {
-  const styles = getStyles(theme);
+  const styles = getStyles({ ...config, ...theme });
 
   const sx = [styles.root];
 

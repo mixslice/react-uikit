@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import radium from 'radium';
 import SvgIcon from './SvgIcon';
 import { CheckIcon } from './utils/paths';
+import config from './styles/config';
 
 
 const getStyles = ({ spacing, palette }) => ({
@@ -63,8 +64,9 @@ class Checkbox extends Component {
       ...other
     } = this.props;
     const { theme } = this.context;
-    const { palette } = theme;
-    const styles = getStyles(theme);
+    const mergedTheme = { ...config, ...theme };
+    const { palette } = mergedTheme;
+    const styles = getStyles(mergedTheme);
 
     const sx = [styles.root];
 

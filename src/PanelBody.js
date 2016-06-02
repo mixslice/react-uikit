@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import radium, { Style } from 'radium';
+import config from './styles/config';
 
 
 const PanelBody = ({
@@ -7,7 +8,7 @@ const PanelBody = ({
   style,
   ...other
 }, { theme }) => {
-  const { palette } = theme;
+  const { palette } = { ...config, ...theme };
   const styles = {
     root: {
       position: 'relative',

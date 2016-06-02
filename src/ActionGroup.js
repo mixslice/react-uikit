@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
+import config from './styles/config';
 
 
 const getStyles = ({ spacing }) => ({
@@ -40,7 +41,7 @@ const getChildren = (props) => (
 );
 
 const ActionGroup = (props, { theme }) => {
-  const styles = getStyles(theme);
+  const styles = getStyles({ ...config, ...theme });
   const { style } = props;
 
   const sx = [styles.root];

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
+import config from './styles/config';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -23,7 +24,7 @@ const getStyles = ({ palette, spacing }) => ({
 });
 
 const Textarea = (props, { theme }) => {
-  const styles = getStyles(theme);
+  const styles = getStyles({ ...config, ...theme });
   const {
     style,
     ...other

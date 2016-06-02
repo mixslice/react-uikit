@@ -3,7 +3,7 @@ import margin from './utils/margin';
 import padding from './utils/padding';
 import radii from './utils/radii';
 import colorStyle from './utils/colorStyle';
-import config from './themes/config';
+import config from './styles/config';
 import assign from 'object-assign';
 
 /**

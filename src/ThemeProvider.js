@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Style, StyleRoot } from 'radium';
 import merge from 'lodash.merge';
 import normalize from 'normalize.css';
-import themes from './themes/themes';
-import globalStyle from './themes/global';
+import globalStyle from './styles/global';
+import config from './styles/config';
 
 
 export default class ThemeProvider extends Component {
@@ -16,19 +16,14 @@ export default class ThemeProvider extends Component {
     theme: PropTypes.object.isRequired
   };
 
-  constructor(props) {
-    super(props);
-    this.theme = this.props.theme || themes.getTheme();
-  }
-
   getChildContext() {
     return {
-      theme: this.theme
+      theme: this.props.theme
     };
   }
 
   render() {
-    const gs = globalStyle(this.theme);
+    const gs = globalStyle({ ...config, ...this.props.theme });
     return (
       <StyleRoot>
         <Style rules={merge({}, normalize, gs)} />

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
 import merge from 'lodash.merge';
+import config from './styles/config';
 
 
 const getStyles = (kind, { spacing }) => ({
@@ -33,7 +34,7 @@ const ActionBar = ({
   kind,
   ...other
 }, { theme }) => {
-  const styles = getStyles(kind, { ...theme });
+  const styles = getStyles(kind, { ...config, ...theme });
 
   const sx = [styles.root, style];
 

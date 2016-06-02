@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import SvgIcon from './SvgIcon';
 import { ExpandIcon } from './utils/paths';
+import config from './styles/config';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -43,8 +44,9 @@ const TextField = ({
   style,
   ...other
 }, { theme }) => {
-  const styles = getStyles(theme);
-  const { palette } = theme;
+  const mergedTheme = { ...config, ...theme };
+  const styles = getStyles(mergedTheme);
+  const { palette } = mergedTheme;
 
   const sx = [styles.root];
 

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
+import config from './styles/config';
 
 
 const Subheader = ({
@@ -8,7 +9,7 @@ const Subheader = ({
   position,
   ...other
 }, { theme }) => {
-  const { palette, spacing } = theme;
+  const { palette, spacing } = { ...config, ...theme };
   const styles = {
     root: {
       boxSizing: 'border-box',

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
+import config from './styles/config';
 
 
 const Toolbar = ({
@@ -7,7 +8,7 @@ const Toolbar = ({
   style,
   ...other
 }, { theme }) => {
-  const { palette } = theme;
+  const { palette } = { ...config, ...theme };
   const styles = {
     root: {
       display: 'flex',

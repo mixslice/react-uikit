@@ -2,7 +2,7 @@
  * export all compoents
  */
 export { default as ThemeProvider } from './ThemeProvider';
-export { default as config } from './themes/config';
+export { default as config } from './styles/config';
 export { default as Base } from './Base';
 
 /**

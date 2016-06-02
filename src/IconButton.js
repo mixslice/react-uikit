@@ -4,6 +4,7 @@ import color from 'color';
 import transitions from './utils/transitions';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
+import config from './styles/config';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -91,8 +92,9 @@ const getChildren = ({
 };
 
 const IconButton = (props, { theme }) => {
-  const styles = getStyles(theme);
-  const { palette } = theme;
+  const mergedTheme = { ...config, ...theme };
+  const styles = getStyles(mergedTheme);
+  const { palette } = mergedTheme;
 
   const sx = [styles.root];
 

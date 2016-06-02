@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import radium, { Style } from 'radium';
+import config from './styles/config';
 
 
 const getStyles = (props, { palette }) => {
@@ -40,7 +41,7 @@ const Slider = ({
   name,
   ...props
 }, { theme }) => {
-  const styles = getStyles(props, theme);
+  const styles = getStyles(props, { ...config, ...theme });
 
   const sx = [styles.root];
 

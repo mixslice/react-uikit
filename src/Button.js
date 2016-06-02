@@ -3,6 +3,8 @@ import radium from 'radium';
 import color from 'color';
 import transitions from './utils/transitions';
 import { extendChildren } from './utils/childUtils';
+import config from './styles/config';
+
 
 const getStyles = ({ palette, spacing }) => ({
   root: {
@@ -115,7 +117,7 @@ const getChildren = (props) => {
 };
 
 const Button = (props, { theme }) => {
-  const styles = getStyles(theme);
+  const styles = getStyles({ ...config, ...theme });
 
   const sx = [styles.root];
 

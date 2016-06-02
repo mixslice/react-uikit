@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
+import config from './styles/config';
 
 
 const getStyles = (props, { palette, spacing }) => ({
@@ -42,7 +43,7 @@ const getStyles = (props, { palette, spacing }) => ({
   }
 });
 
-const getChildren = (props, palette) => {
+const getChildren = (props, { palette }) => {
   let children = '';
   const extendProps = {
     flex: 'none',
@@ -62,7 +63,8 @@ const getChildren = (props, palette) => {
 };
 
 const Avatar = (props, { theme }) => {
-  const styles = getStyles(props, theme);
+  const mergedTheme = { ...config, ...theme };
+  const styles = getStyles(props, mergedTheme);
   const {
     children,
     style,
@@ -102,7 +104,7 @@ const Avatar = (props, { theme }) => {
 
   return (
     <div {...other} style={sx}>
-      {getChildren(props, theme.palette)}
+      {getChildren(props, mergedTheme)}
     </div>
   );
 };

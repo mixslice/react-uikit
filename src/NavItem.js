@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
+import config from './styles/config';
 
 
 const getChildren = ({ palette, ...props }) => {
@@ -85,7 +86,7 @@ const NavItem = ({
   borderLeft,
   ...props
 }, { theme }) => {
-  const { palette, spacing } = theme;
+  const { palette, spacing } = { ...config, ...theme };
   const styles = {
     root: {
       display: 'flex',

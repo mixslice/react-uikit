@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
+import config from './styles/config';
 
 
 const PanelHeader = ({
@@ -8,7 +9,7 @@ const PanelHeader = ({
   style,
   ...other
 }, { theme }) => {
-  const { palette } = theme;
+  const { palette } = { ...config, ...theme };
   const styles = {
     root: {
       position: 'relative',
