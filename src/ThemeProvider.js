@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Style, StyleRoot } from 'radium';
 import merge from 'lodash.merge';
-import normalize from 'normalize.css';
+import normalize from './styles/normalize';
 import config from './styles/config';
 
 
