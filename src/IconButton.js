@@ -26,11 +26,6 @@ const getStyles = ({ palette, spacing }) => ({
     color: palette.foreground,
     backgroundColor: palette.default
   },
-  hover: {
-    ':hover': {
-      backgroundColor: color(palette.default).darken(palette.hoverDepth).hexString()
-    }
-  },
   disabled: {
     cursor: 'default',
     boxShadow: 'none'
@@ -39,22 +34,31 @@ const getStyles = ({ palette, spacing }) => ({
     width: spacing.largeAvatarSize,
     height: spacing.largeAvatarSize
   },
+  hover: {
+    ':hover': {
+      backgroundColor: color(palette.background).light()
+      ? color(palette.default).darken(palette.hoverDepth).hexString()
+      : color(palette.default).lighten(palette.hoverLightDepth).hexString()
+    }
+  },
   primary: {
     backgroundColor: palette.primary,
     color: palette.inverted,
     ':hover': {
-      backgroundColor: color(palette.primary).lighten(palette.hoverLightDepth).hexString(),
-      color: palette.inverted,
+      backgroundColor: color(palette.background).dark()
+      ? color(palette.primary).lighten(palette.hoverDepth).hexString()
+      : color(palette.primary).lighten(palette.hoverLightDepth).hexString()
     }
   },
   secondary: {
     backgroundColor: palette.secondary,
     color: palette.inverted,
     ':hover': {
-      backgroundColor: color(palette.secondary).lighten(palette.hoverLightDepth).hexString(),
-      color: palette.inverted,
+      backgroundColor: color(palette.background).dark()
+      ? color(palette.secondary).lighten(palette.hoverDepth).hexString()
+      : color(palette.secondary).lighten(palette.hoverLightDepth).hexString()
     }
-  }
+  },
 });
 
 const getChildren = ({

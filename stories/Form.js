@@ -54,7 +54,7 @@ storiesOf('Form', module)
       <TextArea placeholder="Leave your message" />
 
       <ActionBar kind="stretch">
-        <Button style={{ border: '1px solid #ccc' }}>Cancel</Button>
+        <Button style={{ backgroundColor: 'transparent', border: '1px solid #aaa' }}>Cancel</Button>
         <Button kind="primary">Primary</Button>
       </ActionBar>
     </div>
