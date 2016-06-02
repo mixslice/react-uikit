@@ -1,12 +1,12 @@
-export default ({ palette }) => ({
+export default ({ palette, fontFamily }) => ({
   'html, body, #root': {
     height: '100%'
   },
   'html, body': {
     fontSize: 14,
     lineHeight: 1.5,
-    color: palette.default,
-    fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif'
+    color: palette.foreground,
+    fontFamily,
   },
   p: {
     marginTop: 0

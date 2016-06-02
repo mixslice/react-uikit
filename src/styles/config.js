@@ -3,12 +3,14 @@ import {
   grey100,
   grey300,
   grey400,
-  grey500,
   white,
 } from '../utils/colors';
 import color from 'color';
 
 const monospace = '"Roboto Mono", Menlo, Consolas, monospace';
+const sans = {
+  fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", sans-serif'
+};
 
 const baseColors = {
   black: '#484848',
@@ -25,13 +27,14 @@ const palette = {
   ...baseColors,
   primary: baseColors.blue,
   secondary: baseColors.red,
-  default: baseColors.black,
+  default: baseColors.grey,
   info: baseColors.blue,
   success: baseColors.green,
   warning: baseColors.orange,
   error: baseColors.red,
   inverted: white,
   disabled: color(baseColors.grey).darken(0.1).rgbString(),
+  foreground: baseColors.black,
   background: white,
   canvas: white,
   border: baseColors.midgray,
@@ -39,7 +42,7 @@ const palette = {
   toolbar: white,
   toolbarHover: color(white).darken(0.05).rgbString(),
   controlBorder: grey400,
-  placeholder: grey500,
+  placeholder: color(baseColors.black).alpha(0.5).rgbString(),
   hoverDepth: 0.1,
   hoverLightDepth: 0.175,
 };
@@ -93,6 +96,7 @@ const config = {
   fontSizes,
   bold,
   monospace,
+  ...sans,
   zIndex,
   inverted,
   borderRadius,

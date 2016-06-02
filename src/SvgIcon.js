@@ -11,7 +11,7 @@ const getStyles = ({ palette, spacing }) => ({
     width: spacing.iconSize,
     userSelect: 'none',
     verticalAlign: 'middle',
-    fill: color(palette.default).hexString()
+    fill: color(palette.foreground).hexString()
   },
   primary: {
     fill: color(palette.primary).hexString(),

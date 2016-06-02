@@ -12,7 +12,7 @@ const PanelBody = ({
   const styles = {
     root: {
       position: 'relative',
-      color: palette.default,
+      color: palette.foreground,
       padding: 20
     },
     lastChild: {

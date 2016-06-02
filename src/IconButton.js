@@ -23,12 +23,12 @@ const getStyles = ({ palette, spacing }) => ({
     border: 0,
     overflow: 'hidden',
     transition: transitions.easeOut(),
-    color: palette.default,
-    backgroundColor: palette.grey
+    color: palette.foreground,
+    backgroundColor: palette.default
   },
   hover: {
     ':hover': {
-      backgroundColor: color(palette.grey).darken(palette.hoverDepth).hexString()
+      backgroundColor: color(palette.default).darken(palette.hoverDepth).hexString()
     }
   },
   disabled: {
@@ -67,7 +67,7 @@ const getChildren = ({
     default: {
       size,
       disabled,
-      baseColor: palette.default
+      baseColor: palette.foreground
     },
     primary: {
       baseColor: palette.inverted

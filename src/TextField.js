@@ -15,7 +15,7 @@ const getStyles = ({ palette, spacing }) => ({
     appearance: 'none',
     boxSizing: 'border-box',
     width: '100%',
-    color: palette.default,
+    color: palette.foreground,
     outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',

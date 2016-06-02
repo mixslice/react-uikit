@@ -11,7 +11,7 @@ const Panel = ({
   const { palette } = { ...config, ...theme };
   const styles = {
     root: {
-      color: palette.default,
+      color: palette.foreground,
       border: `1px solid ${palette.border}`,
       backgroundColor: palette.background
     }

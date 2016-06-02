@@ -13,7 +13,7 @@ const PanelFooter = ({
     root: {
       position: 'relative',
       textAlign: 'right',
-      color: palette.default,
+      color: palette.foreground,
       borderTop: `1px solid ${palette.border}`,
       padding: 20
     }

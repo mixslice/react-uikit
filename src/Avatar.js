@@ -20,7 +20,7 @@ const getStyles = (props, { palette, spacing }) => ({
     height: spacing.avatarSize,
     border: 0,
     borderRadius: '50%',
-    backgroundColor: props.backgroundColor || palette.grey
+    backgroundColor: props.backgroundColor || palette.default
   },
   large: {
     fontSize: `${spacing.largeAvatarSize / spacing.avatarSize}rem`,
@@ -33,7 +33,7 @@ const getStyles = (props, { palette, spacing }) => ({
     backgroundSize: 'contain'
   },
   letter: {
-    color: props.color || palette.default
+    color: props.color || palette.foreground
   },
   icon: {
     fontFamily: 'system'
@@ -48,8 +48,8 @@ const getChildren = (props, { palette }) => {
   const extendProps = {
     flex: 'none',
     size: props.size || 'normal',
-    baseColor: props.baseColor || palette.grey,
-    hoverColor: props.baseColor || palette.grey
+    baseColor: props.baseColor || palette.default,
+    hoverColor: props.baseColor || palette.default
   };
 
   if (props.icon) {

@@ -31,7 +31,7 @@ const getChildren = ({ palette, ...props }) => {
     const extendProps = {
       default: {
         disabled: props.disabled,
-        baseColor: palette.default
+        baseColor: palette.foreground
       },
       primary: {
         baseColor: palette.inverted
@@ -95,7 +95,7 @@ const NavItem = ({
       marginLeft: pullRight ? 'auto' : 0,
       fontSize: '1rem',
       height: 60,
-      textColor: palette.default,
+      textColor: palette.foreground,
       padding: `0 ${spacing.padding}px`,
       backgroundColor: palette.toolbar,
       ':hover': {

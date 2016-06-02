@@ -24,12 +24,12 @@ const getStyles = ({ palette, spacing }) => ({
     borderRadius: spacing.borderRadius,
     overflow: 'hidden',
     transition: transitions.easeOut(),
-    color: palette.default,
-    backgroundColor: palette.grey
+    color: palette.foreground,
+    backgroundColor: palette.default
   },
   hover: {
     ':hover': {
-      backgroundColor: color(palette.grey).darken(palette.hoverDepth).hexString()
+      backgroundColor: color(palette.default).darken(palette.hoverDepth).hexString()
     }
   },
   primary: {
@@ -132,14 +132,14 @@ const Button = (props, { theme }) => {
       sx.push({
         backgroundColor: props.backgroundColor,
         color: color(props.backgroundColor).light()
-          ? palette.default
+          ? palette.foreground
           : palette.inverted
       });
       sx.push(props.hoverColor
         && { ':hover': {
           backgroundColor: props.hoverColor,
           color: color(props.hoverColor).light()
-            ? palette.default
+            ? palette.foreground
             : palette.inverted
         }
       });
