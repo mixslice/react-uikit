@@ -57,15 +57,15 @@ const getChildren = ({ palette, ...props }) => {
       disabled: props.disabled
     });
 
-    const labelPosition = props.icon ? (props.labelPosition || 'before') : 'root';
+    const iconPosition = props.icon ? (props.iconPosition || 'before') : 'root';
 
     const label = (
-      <span style={childrenStyles.label[labelPosition]}>
+      <span style={childrenStyles.label[iconPosition]}>
         {props.label}
       </span>
     );
 
-    if (props.labelPosition && props.labelPosition === 'after') {
+    if (props.iconPosition && props.iconPosition === 'after') {
       children = (<div style={childrenStyles.wrapper}>{label}{icon}</div>);
     } else if (props.label) {
       children = (<div style={childrenStyles.wrapper}>{icon}{label}</div>);
@@ -136,7 +136,7 @@ NavItem.propTypes = {
   icon: PropTypes.element,
   label: PropTypes.string,
   kind: PropTypes.oneOf(['primary', 'secondary']),
-  labelPosition: PropTypes.oneOf(['before', 'after'])
+  iconPosition: PropTypes.oneOf(['before', 'after'])
 };
 
 NavItem.contextTypes = {

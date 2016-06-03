@@ -35,7 +35,7 @@ storiesOf('Button', module)
         <Button
           size="large"
           onClick={action('button clicked')}
-          backgroundColor={blueGrey500}
+          baseColor={blueGrey500}
           hoverColor={blueGrey100}
         >
           Customized Color
@@ -52,7 +52,7 @@ storiesOf('Button', module)
         <Button
           onClick={action('button clicked')}
           label="New"
-          labelPosition="after"
+          iconPosition="after"
           icon={<SvgIcon kind="secondary" path={ContentAddIcon} />}
         />
       </Flex>
@@ -60,24 +60,36 @@ storiesOf('Button', module)
   ))
   .add('IconButton', () => (
     <div>
-      <IconButton onClick={action('button clicked')}
+      <IconButton
+        onClick={action('button clicked')}
         icon={<SvgIcon path={BoxIcon} />}
       />
-      <IconButton onClick={action('button clicked')} kind="primary"
+      <IconButton
+        onClick={action('button clicked')}
+        kind="primary"
         icon={<SvgIcon path={BoxIcon} />}
       />
-      <IconButton onClick={action('button clicked')} kind="secondary"
+      <IconButton
+        onClick={action('button clicked')}
+        kind="secondary"
         icon={<SvgIcon path={BoxIcon} />}
       />
-      <IconButton onClick={action('button clicked')}
-        baseColor="#00bcd4" hoverColor="#0097a7"
+      <IconButton
+        onClick={action('button clicked')}
+        baseColor="#00bcd4"
+        hoverColor="#0097a7"
         icon={<SvgIcon path={BoxIcon} />}
       />
-      <IconButton onClick={action('button clicked')} disabled
+      <IconButton
+        onClick={action('button clicked')}
+        disabled
         icon={<SvgIcon path={BoxIcon} />}
       />
-      <IconButton onClick={action('button clicked')} kind="secondary"
-        size="large" icon={<SvgIcon path={BoxIcon} />}
+      <IconButton
+        onClick={action('button clicked')}
+        kind="secondary"
+        size="large"
+        icon={<SvgIcon path={BoxIcon} />}
       />
     </div>
   ))

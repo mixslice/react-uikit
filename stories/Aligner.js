@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Flex } from 'reflexbox';
 import { ThemeProvider } from '../src';
+// import config from 'styles/config';
 import config from './configs/dark';
 
 const styles = {
