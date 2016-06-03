@@ -10,7 +10,6 @@ const getStyles = ({ spacing }) => ({
   root: {
     display: 'inline-block',
     boxSizing: 'border-box',
-    borderRadius: spacing.borderRadius,
     overflow: 'hidden',
     marginRight: spacing.margin
   }
@@ -52,7 +51,7 @@ const ActionGroup = (props, { theme }) => {
   }
 
   return (
-    <Base style={sx}>
+    <Base rounded style={sx}>
       {getChildren(props)}
     </Base>
   );

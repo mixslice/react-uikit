@@ -28,8 +28,7 @@ const getStyles = ({ spacing, palette }) => ({
     outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: palette.controlBorder,
-    borderRadius: spacing.borderRadius
+    borderColor: palette.controlBorder
   },
   hidden: {
     display: 'none'
@@ -83,7 +82,9 @@ class Checkbox extends Component {
             style={this.state.checked ? styles.icon : styles.hidden}
             path={CheckIcon}
           />
-          <input
+          <Base
+            is="input"
+            rounded
             {...other}
             value={value}
             onChange={this.handleChange}

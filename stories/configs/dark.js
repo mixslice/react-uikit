@@ -54,8 +54,7 @@ const spacing = {
   margin: 10,
   padding: 20,
   formPadding: 10,
-  verticalPadding: '9px 0 8px',
-  borderRadius: 2
+  verticalPadding: '9px 0 8px'
 };
 
 const inverted = palette.black;

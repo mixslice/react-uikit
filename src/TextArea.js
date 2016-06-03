@@ -19,7 +19,6 @@ const getStyles = ({ palette, spacing }) => ({
       boxShadow: `0 0 0 1px ${palette.primary}`,
       borderColor: palette.primary,
     },
-    borderRadius: spacing.borderRadius,
     padding: spacing.formPadding,
     marginBottom: 15
   }
@@ -40,7 +39,13 @@ const Textarea = (props, { theme }) => {
 
 
   return (
-    <Base is="textarea" {...other} style={sx} placeholder={props.placeholder} />
+    <Base
+      is="textarea"
+      rounded
+      style={sx}
+      placeholder={props.placeholder}
+      {...other}
+    />
   );
 };
 

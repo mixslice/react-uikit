@@ -18,7 +18,6 @@ const getStyles = ({ palette, spacing }) => ({
     verticalAlign: 'middle',
     cursor: 'pointer',
     textDecoration: 'none',
-    borderRadius: spacing.borderRadius,
     width: spacing.avatarSize,
     height: spacing.avatarSize,
     border: 0,
@@ -130,6 +129,7 @@ const IconButton = (props, { theme }) => {
     <Base
       className="btn"
       style={sx}
+      rounded
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >

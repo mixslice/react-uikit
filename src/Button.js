@@ -21,7 +21,6 @@ const getStyles = ({ palette, spacing }) => ({
     fontWeight: 600,
     minWidth: spacing.buttonWidth,
     border: 0,
-    borderRadius: spacing.borderRadius,
     overflow: 'hidden',
     transition: transitions.easeOut(),
     color: palette.foreground,
@@ -170,6 +169,7 @@ const Button = (props, { theme }) => {
       is="button"
       className="btn"
       style={sx}
+      rounded
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >

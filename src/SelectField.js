@@ -17,7 +17,6 @@ const getStyles = ({ palette, spacing }) => ({
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: palette.border,
-    borderRadius: spacing.borderRadius,
     padding: spacing.formPadding,
     marginBottom: 15,
     ':focus': {
@@ -63,9 +62,9 @@ const TextField = ({
         style={styles.icon}
         path={ExpandIcon}
       />
-      <select {...other} style={sx}>
+      <Base is="select" rounded {...other} style={sx}>
         {children}
-      </select>
+      </Base>
     </Base>
   );
 };

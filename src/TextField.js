@@ -26,7 +26,6 @@ const getStyles = ({ palette, spacing }) => ({
       boxShadow: `0 0 0 1px ${palette.primary}`,
       borderColor: palette.primary,
     },
-    borderRadius: spacing.borderRadius,
     paddingTop: spacing.formPadding,
     paddingRight: spacing.formPadding,
     paddingBottom: spacing.formPadding,
@@ -91,7 +90,13 @@ const TextField = (props, { theme }) => {
   return (
     <Base style={[styles.wrapper, style]}>
       {getChildren(props, mergedTheme)}
-      <input {...other} style={sx} placeholder={props.placeholder} />
+      <Base
+        {...other}
+        is="input"
+        rounded
+        style={sx}
+        placeholder={props.placeholder}
+      />
     </Base>
   );
 };
