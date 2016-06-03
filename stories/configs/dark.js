@@ -15,7 +15,7 @@ const baseColors = {
   red: '#ff5a5f',
   orange: '#f70',
   green: '#1c7',
-  teal: '#26a69a'
+  teal: '#38BDB7'
 };
 
 const defaultColors = {
