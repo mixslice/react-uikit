@@ -3,6 +3,7 @@ import radium from 'radium';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getChildren = ({ palette, ...props }) => {
@@ -119,9 +120,9 @@ const NavItem = ({
   }
 
   return (
-    <div {...props} style={sx}>
+    <Base {...props} style={sx}>
       {getChildren({ ...props, children, palette })}
-    </div>
+    </Base>
   );
 };
 

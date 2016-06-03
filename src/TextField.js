@@ -3,6 +3,7 @@ import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
 import merge from 'lodash.merge';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -88,10 +89,10 @@ const TextField = (props, { theme }) => {
   }
 
   return (
-    <div style={[styles.wrapper, style]}>
+    <Base style={[styles.wrapper, style]}>
       {getChildren(props, mergedTheme)}
       <input {...other} style={sx} placeholder={props.placeholder} />
-    </div>
+    </Base>
   );
 };
 

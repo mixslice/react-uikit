@@ -5,6 +5,7 @@ import transitions from './utils/transitions';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -126,14 +127,14 @@ const IconButton = (props, { theme }) => {
   }
 
   return (
-    <div
+    <Base
       className="btn"
       style={sx}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >
     {getChildren(props, palette)}
-    </div>
+    </Base>
   );
 };
 

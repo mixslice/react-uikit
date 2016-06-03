@@ -3,6 +3,7 @@ import radium from 'radium';
 import SvgIcon from './SvgIcon';
 import { ExpandIcon } from './utils/paths';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -56,7 +57,7 @@ const TextField = ({
 
 
   return (
-    <div style={styles.wrapper}>
+    <Base style={styles.wrapper}>
       <SvgIcon
         baseColor={palette.placeholder}
         style={styles.icon}
@@ -65,7 +66,7 @@ const TextField = ({
       <select {...other} style={sx}>
         {children}
       </select>
-    </div>
+    </Base>
   );
 };
 

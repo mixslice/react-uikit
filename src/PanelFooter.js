@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import config from './styles/config';
+import Base from './Base';
 
 
 const PanelFooter = ({
@@ -26,9 +27,9 @@ const PanelFooter = ({
   }
 
   return (
-    <div {...other} style={sx}>
+    <Base {...other} style={sx}>
       {children}
-    </div>
+    </Base>
   );
 };
 

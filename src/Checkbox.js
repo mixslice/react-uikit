@@ -3,6 +3,7 @@ import radium from 'radium';
 import SvgIcon from './SvgIcon';
 import { CheckIcon } from './utils/paths';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ spacing, palette }) => ({
@@ -75,7 +76,7 @@ class Checkbox extends Component {
     }
 
     return (
-      <label style={sx}>
+      <Base is="label" style={sx}>
         <div style={styles.inputWrapper}>
           <SvgIcon
             baseColor={palette.primary}
@@ -94,7 +95,7 @@ class Checkbox extends Component {
         <div>
           <span>{label}</span>
         </div>
-      </label>
+      </Base>
     );
   }
 }

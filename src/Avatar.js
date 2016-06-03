@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = (props, { palette, spacing }) => ({
@@ -103,9 +104,9 @@ const Avatar = (props, { theme }) => {
 
 
   return (
-    <div {...other} style={sx}>
+    <Base {...other} style={sx}>
       {getChildren(props, mergedTheme)}
-    </div>
+    </Base>
   );
 };
 

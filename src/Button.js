@@ -167,6 +167,7 @@ const Button = (props, { theme }) => {
 
   return (
     <Base
+      is="button"
       className="btn"
       style={sx}
       onClick={props.onClick}

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -39,7 +40,7 @@ const Textarea = (props, { theme }) => {
 
 
   return (
-    <textarea {...other} style={sx} placeholder={props.placeholder} />
+    <Base is="textarea" {...other} style={sx} placeholder={props.placeholder} />
   );
 };
 

@@ -3,6 +3,7 @@ import radium from 'radium';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ spacing }) => ({
@@ -51,9 +52,9 @@ const ActionGroup = (props, { theme }) => {
   }
 
   return (
-    <div style={sx}>
+    <Base style={sx}>
       {getChildren(props)}
-    </div>
+    </Base>
   );
 };
 
