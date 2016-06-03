@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
 import transitions from './utils/transitions';
+import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
 
@@ -10,22 +11,28 @@ const getStyles = ({ palette, spacing }) => ({
   root: {
     outline: 'none',
     boxSizing: 'border-box',
-    display: 'inline-block',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     verticalAlign: 'middle',
     cursor: 'pointer',
     textDecoration: 'none',
-    paddingLeft: 21,
-    paddingRight: 21,
-    paddingTop: 7,
-    paddingBottom: 7,
-    fontWeight: 600,
-    minWidth: spacing.buttonWidth,
-    border: 0,
     borderRadius: spacing.borderRadius,
+    width: spacing.avatarSize,
+    height: spacing.avatarSize,
+    border: 0,
     overflow: 'hidden',
     transition: transitions.easeOut(),
     color: palette.foreground,
     backgroundColor: palette.default
+  },
+  disabled: {
+    cursor: 'default',
+    boxShadow: 'none'
+  },
+  large: {
+    width: spacing.largeAvatarSize,
+    height: spacing.largeAvatarSize
   },
   hover: {
     ':hover': {
@@ -52,80 +59,46 @@ const getStyles = ({ palette, spacing }) => ({
       : color(palette.secondary).lighten(palette.hoverLightDepth).hexString()
     }
   },
-  disabled: {
-    cursor: 'default',
-    color: palette.disabled,
-    boxShadow: 'none'
-  },
-  large: {
-    paddingLeft: 27,
-    paddingRight: 27,
-    paddingTop: 9,
-    paddingBottom: 9,
-  },
-  iconStyle: {
-    before: {
-      paddingLeft: 17
-    },
-    after: {
-      paddingRight: 17
-    }
-  }
 });
 
-const getChildren = (props) => {
-  const childrenStyles = {
-    wrapper: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '1.5em'
+const getChildren = ({
+  size,
+  disabled,
+  kind,
+  icon
+}, palette) => {
+  const extendProps = {
+    default: {
+      size,
+      disabled,
+      baseColor: palette.foreground
     },
-    label: {
-      root: {
-        margin: 0
-      },
-      before: {
-        margin: '0 0 0 0.5em'
-      },
-      after: {
-        margin: '0 0.5em 0 0'
-      }
+    primary: {
+      baseColor: palette.inverted
+    },
+    secondary: {
+      baseColor: palette.inverted
     }
   };
 
   let children = '';
-  if (props.icon || props.label) {
-    const icon = extendChildren(props.icon, {
-      size: props.size,
-      disabled: props.disabled
-    });
+  let childProps = extendProps.default;
 
-    const labelPosition = props.icon ? (props.labelPosition || 'before') : 'root';
-
-    const label = (
-      <span style={childrenStyles.label[labelPosition]}>
-        {props.label}
-      </span>
-    );
-
-    if (props.labelPosition && props.labelPosition === 'after') {
-      children = (<div style={childrenStyles.wrapper}>{label}{icon}</div>);
-    } else if (props.label) {
-      children = (<div style={childrenStyles.wrapper}>{icon}{label}</div>);
-    } else {
-      children = (<div style={childrenStyles.wrapper}>{icon}</div>);
-    }
-  } else {
-    children = props.children;
+  if (kind) {
+    childProps = merge({}, childProps, extendProps[kind]);
   }
+
+  if (icon) {
+    children = extendChildren(icon, childProps);
+  }
+
   return children;
 };
 
-const Button = (props, { theme }) => {
+const IconButton = (props, { theme }) => {
   const mergedTheme = { ...config, ...theme };
-  const { palette } = mergedTheme;
   const styles = getStyles(mergedTheme);
+  const { palette } = mergedTheme;
 
   const sx = [styles.root];
 
@@ -137,24 +110,11 @@ const Button = (props, { theme }) => {
     if (props.backgroundColor) {
       sx.push({
         backgroundColor: props.backgroundColor,
-        color: color(props.backgroundColor).light()
-          ? palette.foreground
-          : palette.inverted
+        color: palette.inverted
       });
       sx.push(props.hoverColor
-        && { ':hover': {
-          backgroundColor: props.hoverColor,
-          color: color(props.hoverColor).light()
-            ? palette.foreground
-            : palette.inverted
-        }
-      });
+        && { ':hover': { backgroundColor: props.hoverColor } });
     }
-  }
-
-  if (props.icon && props.label) {
-    const position = props.labelPosition || 'before';
-    sx.push(styles.iconStyle[position]);
   }
 
   if (props.size && props.size !== 'normal') {
@@ -166,34 +126,32 @@ const Button = (props, { theme }) => {
   }
 
   return (
-    <button
+    <div
       className="btn"
       style={sx}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >
-    {getChildren(props)}
-    </button>
+    {getChildren(props, palette)}
+    </div>
   );
 };
 
-Button.propTypes = {
+IconButton.propTypes = {
   backgroundColor: PropTypes.string,
-  children: PropTypes.node,
   disabled: PropTypes.bool,
+  baseColor: PropTypes.string,
   hoverColor: PropTypes.string,
   icon: PropTypes.element,
-  label: PropTypes.string,
-  labelPosition: PropTypes.oneOf(['before', 'after']),
   onClick: PropTypes.func,
   kind: PropTypes.oneOf(['primary', 'secondary']),
   size: PropTypes.oneOf(['normal', 'large']),
-  float: PropTypes.oneOf(['left', 'right']),
   style: PropTypes.object
 };
 
-Button.contextTypes = {
-  theme: PropTypes.object
+IconButton.contextTypes = {
+  theme: React.PropTypes.object
 };
 
-export default radium(Button);
+
+export default radium(IconButton);

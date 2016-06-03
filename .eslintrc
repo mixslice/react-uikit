@@ -1,18 +1,17 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "rules": {
+    "max-len": 0,
     "comma-dangle": 0,
-    "arrow-body-style": 0,
-    "prefer-arrow-callback": 0,
-    "func-names": 0,
-    "react/jsx-no-bind": 0,
-    "react/jsx-uses-react": 1,
-    "react/prefer-stateless-function": 0
+    "no-param-reassign": 0,
+    "react/jsx-first-prop-new-line": 0
   },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": ".storybook/webpack.config.js"
+      }
     }
   }
 }
