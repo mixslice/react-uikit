@@ -4,7 +4,7 @@ import color from 'color';
 import transitions from './utils/transitions';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
-
+import Base from './Base';
 
 const getStyles = ({ palette, spacing }) => ({
   root: {
@@ -166,14 +166,14 @@ const Button = (props, { theme }) => {
   }
 
   return (
-    <button
+    <Base
       className="btn"
       style={sx}
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >
     {getChildren(props)}
-    </button>
+    </Base>
   );
 };
 
