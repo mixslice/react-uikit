@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
 import transitions from './utils/transitions';
-import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
 import Base from './Base';
@@ -34,6 +33,10 @@ const getStyles = (props, { palette, spacing }) => {
 
 
   return {
+    backgroundColor,
+    backgroundHoverColor,
+    textColor,
+    textHoverColor,
     root: {
       outline: 'none',
       boxSizing: 'border-box',
@@ -74,41 +77,23 @@ const getStyles = (props, { palette, spacing }) => {
 const getChildren = ({
   size,
   disabled,
-  kind,
   icon
-}, palette) => {
-  const extendProps = {
-    default: {
-      size,
-      disabled,
-      baseColor: palette.foreground
-    },
-    primary: {
-      baseColor: palette.inverted
-    },
-    secondary: {
-      baseColor: palette.inverted
-    }
-  };
-
+}, styles) => {
   let children = '';
-  let childProps = extendProps.default;
-
-  if (kind) {
-    childProps = merge({}, childProps, extendProps[kind]);
-  }
 
   if (icon) {
-    children = extendChildren(icon, childProps);
+    children = extendChildren(icon, {
+      size,
+      disabled,
+      baseColor: styles.textColor
+    });
   }
 
   return children;
 };
 
 const IconButton = (props, { theme }) => {
-  const mergedTheme = { ...config, ...theme };
-  const styles = getStyles(props, mergedTheme);
-  const { palette } = mergedTheme;
+  const styles = getStyles(props, { ...config, ...theme });
 
   const sx = [styles.root];
 
@@ -134,7 +119,7 @@ const IconButton = (props, { theme }) => {
       onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
     >
-    {getChildren(props, palette)}
+    {getChildren(props, styles)}
     </Base>
   );
 };

@@ -76,8 +76,8 @@ storiesOf('Button', module)
       />
       <IconButton
         onClick={action('button clicked')}
-        baseColor="#00bcd4"
-        hoverColor="#0097a7"
+        baseColor="#0097a7"
+        hoverColor="#ffd600"
         icon={<SvgIcon path={BoxIcon} />}
       />
       <IconButton
