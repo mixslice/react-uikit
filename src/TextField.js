@@ -10,6 +10,13 @@ const getStyles = ({ palette, spacing }) => ({
   wrapper: {
     fontSize: '1rem',
     position: 'relative',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: palette.border,
+    ':focus': {
+      boxShadow: `0 0 0 1px ${palette.primary}`,
+      borderColor: palette.primary,
+    },
     marginBottom: 15
   },
   root: {
@@ -19,13 +26,7 @@ const getStyles = ({ palette, spacing }) => ({
     color: palette.foreground,
     background: palette.background,
     outline: 'none',
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: palette.border,
-    ':focus': {
-      boxShadow: `0 0 0 1px ${palette.primary}`,
-      borderColor: palette.primary,
-    },
+    border: 'none',
     paddingTop: spacing.formPadding,
     paddingRight: spacing.formPadding,
     paddingBottom: spacing.formPadding,
@@ -88,7 +89,7 @@ const TextField = (props, { theme }) => {
   }
 
   return (
-    <Base style={[styles.wrapper, style]}>
+    <Base rounded style={[styles.wrapper, style]}>
       {getChildren(props, mergedTheme)}
       <Base
         {...other}
