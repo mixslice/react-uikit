@@ -76,6 +76,8 @@ const fontSizes = [
   12
 ];
 
+const defaultFontSize = 14;
+
 const zIndex = [
   0,
   2,
@@ -91,6 +93,7 @@ const borderColor = 'rgba(0, 0, 0, .25)';
 const config = {
   scale,
   fontSizes,
+  defaultFontSize,
   bold,
   monospace,
   ...sans,

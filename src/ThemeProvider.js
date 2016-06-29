@@ -5,12 +5,12 @@ import normalize from './styles/normalize';
 import config from './styles/config';
 
 
-const getStyles = ({ palette, fontFamily }) => ({
+const getStyles = ({ palette, fontFamily, defaultFontSize }) => ({
   'html, body, #root': {
     height: '100%'
   },
   'html, body': {
-    fontSize: 14,
+    fontSize: defaultFontSize || 14,
     lineHeight: 1.5,
     color: palette.foreground,
     fontFamily,

@@ -9,17 +9,20 @@ import Base from './Base';
 const getStyles = ({ spacing, palette }) => ({
   root: {
     userSelect: 'none',
-    display: 'flex',
+    display: 'table',
     cursor: 'pointer',
     alignItems: 'center',
     padding: spacing.verticalPadding
   },
   inputWrapper: {
-    display: 'flex',
+    display: 'table-cell',
+    verticalAlign: 'top',
     boxSizing: 'border-box',
-    position: 'relative'
+    position: 'relative',
+    lineHeight: 0,
   },
   input: {
+    boxSizing: 'border-box',
     cursor: 'pointer',
     appearance: 'none',
     marginRight: 15,
@@ -29,6 +32,11 @@ const getStyles = ({ spacing, palette }) => ({
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: palette.controlBorder
+  },
+  label: {
+    boxSizing: 'border-box',
+    display: 'table-cell',
+    width: '99%'
   },
   hidden: {
     display: 'none'
@@ -93,9 +101,7 @@ class Checkbox extends Component {
             type="checkbox"
           />
         </div>
-        <div>
-          <span>{label}</span>
-        </div>
+        <div style={styles.label}>{label}</div>
       </Base>
     );
   }

@@ -12,6 +12,7 @@ const getStyles = ({ palette, spacing }) => ({
     position: 'relative',
     borderWidth: 1,
     borderStyle: 'solid',
+    backgroundColor: palette.background,
     borderColor: palette.border,
     ':focus': {
       boxShadow: `0 0 0 1px ${palette.primary}`,
@@ -22,9 +23,10 @@ const getStyles = ({ palette, spacing }) => ({
   root: {
     appearance: 'none',
     boxSizing: 'border-box',
+    lineHeight: '1.5',
     width: '100%',
     color: palette.foreground,
-    background: palette.background,
+    backgroundColor: 'transparent',
     outline: 'none',
     border: 'none',
     paddingTop: spacing.formPadding,

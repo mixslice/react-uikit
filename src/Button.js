@@ -130,12 +130,12 @@ const getChildren = (props) => {
   return children;
 };
 
-const Button = (props, { theme }) => {
+const Button = ({ style, disabled, ...props }, { theme }) => {
   const styles = getStyles(props, { ...config, ...theme });
 
   const sx = [styles.root];
 
-  if (props.disabled) {
+  if (disabled) {
     sx.push(styles.disabled);
   } else {
     sx.push(styles.default);
@@ -150,8 +150,8 @@ const Button = (props, { theme }) => {
     sx.push(styles[props.size]);
   }
 
-  if (props.style) {
-    sx.push(props.style);
+  if (style) {
+    sx.push(style);
   }
 
   return (
@@ -160,8 +160,8 @@ const Button = (props, { theme }) => {
       className="btn"
       style={sx}
       rounded
-      onClick={props.onClick}
       disabled={props.disabled ? 'disabled' : ''}
+      {...props}
     >
     {getChildren(props)}
     </Base>
