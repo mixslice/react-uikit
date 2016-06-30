@@ -7,8 +7,8 @@ import {
   SvgIcon
 } from '../src';
 import { ExpandIcon, BoxIcon } from 'utils/paths';
-// import config from 'styles/config';
-import config from './configs/dark';
+import config from 'styles/config';
+// import config from './configs/dark';
 
 
 storiesOf('Toolbar', module)

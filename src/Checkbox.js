@@ -25,6 +25,7 @@ const getStyles = ({ spacing, palette }) => ({
     boxSizing: 'border-box',
     cursor: 'pointer',
     appearance: 'none',
+    background: 'none',
     marginRight: 15,
     width: '1.4em',
     height: '1.4em',
