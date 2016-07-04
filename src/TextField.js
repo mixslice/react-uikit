@@ -44,7 +44,11 @@ const getStyles = ({ palette, spacing }) => ({
   }
 });
 
-const getChildren = (props, theme) => {
+const getChildren = ({
+  icon,
+  iconPosition,
+  disabled
+}, theme) => {
   const { palette } = theme;
 
   const childrenStyles = {
@@ -63,11 +67,11 @@ const getChildren = (props, theme) => {
   };
 
   let children = '';
-  if (props.icon) {
-    children = extendChildren(props.icon, {
+  if (icon) {
+    children = extendChildren(icon, {
       baseColor: palette.placeholder,
-      disabled: props.disabled,
-      style: props.iconPosition === 'after'
+      disabled,
+      style: iconPosition === 'after'
         ? merge({}, childrenStyles.root, childrenStyles.after)
         : childrenStyles.root
     });
@@ -75,29 +79,32 @@ const getChildren = (props, theme) => {
   return children;
 };
 
-const TextField = (props, { theme }) => {
+const TextField = ({
+  style,
+  icon,
+  iconPosition,
+  disabled,
+  ...props
+}, { theme }) => {
   const mergedTheme = { ...config, ...theme };
   const styles = getStyles(mergedTheme);
-  const {
-    style,
-    ...other
-  } = props;
 
   const sx = [styles.root];
 
-  if (props.icon) {
-    const position = props.iconPosition || 'before';
+  if (icon) {
+    const position = iconPosition || 'before';
     sx.push(styles.iconPosition[position]);
   }
 
   return (
     <Base rounded style={[styles.wrapper, style]}>
-      {getChildren(props, mergedTheme)}
+      {getChildren({ icon, iconPosition, disabled }, mergedTheme)}
       <Base
-        {...other}
+        {...props}
         is="input"
         rounded
         style={sx}
+        disabled={disabled}
         placeholder={props.placeholder}
       />
     </Base>
@@ -108,6 +115,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
   iconPosition: PropTypes.oneOf(['before', 'after']),
   icon: PropTypes.element,
+  disabled: PropTypes.bool,
   style: PropTypes.object
 };
 

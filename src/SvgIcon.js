@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -67,13 +68,14 @@ const SvgIcon = ({
   }
 
   return (
-    <svg
+    <Base
+      is="svg"
       {...other}
       style={sx}
       viewBox={viewBox}
     >
       {path}
-    </svg>
+    </Base>
   );
 };
 

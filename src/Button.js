@@ -6,14 +6,14 @@ import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
 import Base from './Base';
 
-const getStyles = (props, { palette, spacing }) => {
+const getStyles = ({ baseColor, hoverColor, kind }, { palette, spacing }) => {
   const backgroundColor =
-    props.baseColor
-    || (props.kind && palette[props.kind])
+    baseColor
+    || (kind && palette[kind])
     || palette.default;
 
   const backgroundHoverColor =
-    props.hoverColor
+    hoverColor
     || (
       color(backgroundColor).lightness() > 70
       ? color(backgroundColor).darken(palette.hoverDepth).hexString()
@@ -130,8 +130,18 @@ const getChildren = (props) => {
   return children;
 };
 
-const Button = ({ style, disabled, ...props }, { theme }) => {
-  const styles = getStyles(props, { ...config, ...theme });
+const Button = ({
+  style,
+  disabled,
+  baseColor,
+  hoverColor,
+  kind,
+  ...props
+}, { theme }) => {
+  const styles = getStyles(
+    { baseColor, hoverColor, kind },
+    { ...config, ...theme }
+  );
 
   const sx = [styles.root];
 

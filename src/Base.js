@@ -20,6 +20,14 @@ const Base = ({
   is,
   baseStyle,
   style,
+  // margin
+  m, mx, my, mt, mr, mb, ml,
+  // padding
+  p, px, py, pt, pr, pb, pl,
+  // color
+  color, backgroundColor, kind, inverted,
+  // radii
+  rounded, pill, circle,
   ...props
 }, { theme }) => {
   const { scale, palette, borderRadius } = { ...config, ...theme };
@@ -35,10 +43,10 @@ const Base = ({
     { boxSizing: 'border-box' },
     baseStyle,
     contextStyle,
-    margin(props, scale),
-    padding(props, scale),
-    colorStyle(props, palette, theme),
-    radii(props, borderRadius),
+    margin({ m, mx, my, mt, mr, mb, ml }, scale),
+    padding({ p, px, py, pt, pr, pb, pl }, scale),
+    colorStyle({ color, backgroundColor, kind, inverted }, palette, theme),
+    radii({ rounded, pill, circle }, borderRadius),
     style
   ];
 
