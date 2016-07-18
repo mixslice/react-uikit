@@ -81,7 +81,14 @@ const getStyles = ({ baseColor, hoverColor, kind }, { palette, spacing }) => {
   };
 };
 
-const getChildren = (props) => {
+const getChildren = ({
+  icon,
+  label,
+  size,
+  disabled,
+  iconPosition,
+  children,
+}) => {
   const childrenStyles = {
     wrapper: {
       display: 'flex',
@@ -102,32 +109,32 @@ const getChildren = (props) => {
     }
   };
 
-  let children = '';
-  if (props.icon || props.label) {
-    const icon = extendChildren(props.icon, {
-      size: props.size,
-      disabled: props.disabled
+  let result = '';
+  if (icon || label) {
+    const newIcon = extendChildren(icon, {
+      size,
+      disabled
     });
 
-    const iconPosition = props.icon ? (props.iconPosition || 'before') : 'root';
+    const position = icon ? (iconPosition || 'before') : 'root';
 
-    const label = (
-      <span style={childrenStyles.label[iconPosition]}>
-        {props.label}
+    const newLabel = (
+      <span style={childrenStyles.label[position]}>
+        {label}
       </span>
     );
 
-    if (props.iconPosition && props.iconPosition === 'after') {
-      children = (<div style={childrenStyles.wrapper}>{label}{icon}</div>);
-    } else if (props.label) {
-      children = (<div style={childrenStyles.wrapper}>{icon}{label}</div>);
+    if (iconPosition && iconPosition === 'after') {
+      result = (<div style={childrenStyles.wrapper}>{newLabel}{newIcon}</div>);
+    } else if (label) {
+      result = (<div style={childrenStyles.wrapper}>{newIcon}{newLabel}</div>);
     } else {
-      children = (<div style={childrenStyles.wrapper}>{icon}</div>);
+      result = (<div style={childrenStyles.wrapper}>{newIcon}</div>);
     }
   } else {
-    children = props.children;
+    result = children;
   }
-  return children;
+  return result;
 };
 
 const Button = ({
@@ -136,6 +143,11 @@ const Button = ({
   baseColor,
   hoverColor,
   kind,
+  icon,
+  label,
+  size,
+  iconPosition,
+  children,
   ...props
 }, { theme }) => {
   const styles = getStyles(
@@ -151,12 +163,12 @@ const Button = ({
     sx.push(styles.default);
   }
 
-  if (props.icon && props.label) {
-    const position = props.iconPosition || 'before';
+  if (icon && label) {
+    const position = iconPosition || 'before';
     sx.push(styles.iconPosition[position]);
   }
 
-  if (props.size && props.size !== 'normal') {
+  if (size && size !== 'normal') {
     sx.push(styles[props.size]);
   }
 
@@ -170,10 +182,17 @@ const Button = ({
       className="btn"
       style={sx}
       rounded
-      disabled={props.disabled ? 'disabled' : ''}
+      disabled={disabled}
       {...props}
     >
-    {getChildren(props)}
+    {getChildren({
+      icon,
+      label,
+      size,
+      disabled,
+      iconPosition,
+      children,
+    })}
     </Base>
   );
 };
