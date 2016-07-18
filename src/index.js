@@ -13,6 +13,9 @@ export { default as Avatar } from './Avatar';
 export { default as Loading } from './Loading';
 export { default as Slider } from './Slider';
 export { default as Subheader } from './Subheader';
+export { default as Media } from './Media';
+export { default as TableViewCell } from './TableViewCell';
+export { default as Arrow } from './Arrow';
 
 /**
  * buttons

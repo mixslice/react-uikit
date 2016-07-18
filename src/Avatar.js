@@ -31,7 +31,7 @@ const getStyles = (props, { palette, spacing }) => ({
   avatarPic: {
     backgroundImage: `url(${props.src})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain'
+    backgroundSize: 'cover'
   },
   letter: {
     color: props.color || palette.foreground
