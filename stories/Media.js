@@ -18,9 +18,10 @@ storiesOf('Media', module)
       <Media
         backgroundColor="#4aa"
         width={200}
-        backgroundSize="contain"
+        backgroundSize="cover"
         aspectRatio={16 / 9}
         src="http://www.material-ui.com/images/uxceo-128.jpg"
+        rounded
       />
     </div>
   ));

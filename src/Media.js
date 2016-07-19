@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import config from './styles/config';
 import Base from './Base';
+import { extendChildren } from './utils/childUtils';
 
 
 const getStyles = ({
@@ -20,7 +21,8 @@ const getStyles = ({
     width: '100%',
     paddingTop: `${100 / aspectRatio}%`,
   },
-  image: {
+  content: {
+    overflow: 'hidden',
     boxSizing: 'border-box',
     position: 'absolute',
     top: 0,
@@ -28,6 +30,8 @@ const getStyles = ({
     left: 0,
     right: 0,
     backgroundColor: backgroundColor || palette.default,
+  },
+  image: {
     backgroundSize: backgroundSize || 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -41,6 +45,7 @@ const Media = ({
   aspectRatio,
   backgroundSize,
   backgroundColor,
+  rounded,
   style,
   children,
   ...props
@@ -56,11 +61,25 @@ const Media = ({
   });
   const sx = { ...styles.wrapper, ...style };
 
+  let newChildren = (
+    <Base
+      style={{ ...styles.content, ...styles.image }}
+      rounded={rounded}
+    />
+  );
+  if (children) {
+    newChildren = extendChildren(children, {
+      style: {
+        ...styles.content,
+        ...children.props.style
+      }
+    });
+  }
+
   return (
     <Base style={sx} {...props}>
       <div style={styles.root}>
-        <div style={styles.image} />
-        {children}
+        {newChildren}
       </div>
     </Base>
 
@@ -76,8 +95,9 @@ Media.propTypes = {
   aspectRatio: PropTypes.number,
   backgroundSize: PropTypes.string,
   backgroundColor: PropTypes.string,
+  rounded: PropTypes.bool,
   style: PropTypes.object,
-  children: PropTypes.node,
+  children: PropTypes.element,
 };
 
 Media.contextTypes = {
