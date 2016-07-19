@@ -21,7 +21,8 @@ const getStyles = ({ baseColor, palette }) => {
   return {
     wrapper: {
       display: 'table',
-      width: '100%'
+      width: '100%',
+      height: '100%'
     },
     cell: {
       boxSizing: 'border-box',
@@ -55,7 +56,6 @@ const getStyles = ({ baseColor, palette }) => {
 const Loading = ({
   baseColor,
   size,
-  style,
   ...props
 }, { theme }) => {
   const styles = getStyles({ baseColor, ...config, ...theme });
@@ -67,9 +67,11 @@ const Loading = ({
   }
 
   return (
-    <Base style={{ ...styles.wrapper, ...style }} {...props}>
-      <div style={styles.cell}>
-        <div style={sx} />
+    <Base {...props}>
+      <div style={styles.wrapper}>
+        <div style={styles.cell}>
+          <div style={sx} />
+        </div>
       </div>
     </Base>
   );
@@ -78,7 +80,6 @@ const Loading = ({
 Loading.propTypes = {
   baseColor: PropTypes.string,
   size: PropTypes.oneOf(['normal', 'large']),
-  style: PropTypes.object,
 };
 
 Loading.contextTypes = {
