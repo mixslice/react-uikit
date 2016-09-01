@@ -4,7 +4,7 @@
   "description": "Uikit Component",
   "repository": {
     "type": "git",
-    "url": "https://github.com/you/repo.git"
+    "url": "https://github.com/pandacut/uikit.git"
   },
   "license": "MIT",
   "scripts": {
