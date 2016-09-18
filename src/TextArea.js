@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
@@ -9,7 +10,7 @@ const getStyles = ({ palette, spacing }) => ({
     boxSizing: 'border-box',
     width: '100%',
     color: palette.foreground,
-    background: palette.background,
+    backgroundColor: palette.background,
     outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',
@@ -18,7 +19,6 @@ const getStyles = ({ palette, spacing }) => ({
       boxShadow: `0 0 0 1px ${palette.primary}`,
       borderColor: palette.primary,
     },
-    borderRadius: spacing.borderRadius,
     padding: spacing.formPadding,
     marginBottom: 15
   }
@@ -39,7 +39,13 @@ const Textarea = (props, { theme }) => {
 
 
   return (
-    <textarea {...other} style={sx} placeholder={props.placeholder} />
+    <Base
+      is="textarea"
+      rounded
+      style={sx}
+      placeholder={props.placeholder}
+      {...other}
+    />
   );
 };
 

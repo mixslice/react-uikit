@@ -3,6 +3,7 @@ import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
 import merge from 'lodash.merge';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = (kind, { spacing }) => ({
@@ -39,9 +40,9 @@ const ActionBar = ({
   const sx = [styles.root, style];
 
   return (
-    <div {...other} style={sx}>
+    <Base {...other} style={sx}>
       {getChildren(children, kind)}
-    </div>
+    </Base>
   );
 };
 

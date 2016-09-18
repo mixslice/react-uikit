@@ -3,9 +3,18 @@ import radium from 'radium';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
-const getChildren = ({ palette, ...props }) => {
+const getChildren = ({
+  palette,
+  kind,
+  icon,
+  label,
+  iconPosition,
+  disabled,
+  children,
+}) => {
   const childrenStyles = {
     wrapper: {
       display: 'flex',
@@ -26,11 +35,11 @@ const getChildren = ({ palette, ...props }) => {
     }
   };
 
-  let children = '';
-  if (props.icon || props.label) {
+  let newChildren = '';
+  if (icon || label) {
     const extendProps = {
       default: {
-        disabled: props.disabled,
+        disabled,
         baseColor: palette.foreground
       },
       primary: {
@@ -43,38 +52,38 @@ const getChildren = ({ palette, ...props }) => {
 
     let childProps = extendProps.default;
 
-    if (props.kind) {
-      childProps = merge({}, childProps, extendProps[props.kind]);
+    if (kind) {
+      childProps = merge({}, childProps, extendProps[kind]);
     }
 
-    if (props.icon) {
-      children = extendChildren(props.icon, childProps);
+    if (icon) {
+      newChildren = extendChildren(icon, childProps);
     }
 
-    const icon = extendChildren(props.icon, {
-      baseColor: props.kind === 'primary' ? palette.primary : palette.placeholder,
-      disabled: props.disabled
+    const newIcon = extendChildren(icon, {
+      baseColor: kind === 'primary' ? palette.primary : palette.placeholder,
+      disabled
     });
 
-    const labelPosition = props.icon ? (props.labelPosition || 'before') : 'root';
+    const position = icon ? (iconPosition || 'before') : 'root';
 
-    const label = (
-      <span style={childrenStyles.label[labelPosition]}>
-        {props.label}
+    const newLabel = (
+      <span style={childrenStyles.label[position]}>
+        {label}
       </span>
     );
 
-    if (props.labelPosition && props.labelPosition === 'after') {
-      children = (<div style={childrenStyles.wrapper}>{label}{icon}</div>);
-    } else if (props.label) {
-      children = (<div style={childrenStyles.wrapper}>{icon}{label}</div>);
+    if (iconPosition && iconPosition === 'after') {
+      newChildren = (<div style={childrenStyles.wrapper}>{newLabel}{newIcon}</div>);
+    } else if (label) {
+      newChildren = (<div style={childrenStyles.wrapper}>{newIcon}{newLabel}</div>);
     } else {
-      children = (<div style={childrenStyles.wrapper}>{icon}</div>);
+      newChildren = (<div style={childrenStyles.wrapper}>{newIcon}</div>);
     }
   } else {
-    children = props.children;
+    newChildren = children;
   }
-  return children;
+  return newChildren;
 };
 
 const NavItem = ({
@@ -84,7 +93,12 @@ const NavItem = ({
   pullRight,
   lastChild,
   borderLeft,
-  ...props
+  kind,
+  icon,
+  label,
+  iconPosition,
+  disabled,
+  ...props,
 }, { theme }) => {
   const { palette, spacing } = { ...config, ...theme };
   const styles = {
@@ -119,9 +133,17 @@ const NavItem = ({
   }
 
   return (
-    <div {...props} style={sx}>
-      {getChildren({ ...props, children, palette })}
-    </div>
+    <Base {...props} style={sx}>
+      {getChildren({
+        palette,
+        kind,
+        icon,
+        label,
+        iconPosition,
+        disabled,
+        children,
+      })}
+    </Base>
   );
 };
 
@@ -135,7 +157,8 @@ NavItem.propTypes = {
   icon: PropTypes.element,
   label: PropTypes.string,
   kind: PropTypes.oneOf(['primary', 'secondary']),
-  labelPosition: PropTypes.oneOf(['before', 'after'])
+  iconPosition: PropTypes.oneOf(['before', 'after']),
+  disabled: PropTypes.bool,
 };
 
 NavItem.contextTypes = {

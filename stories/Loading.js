@@ -15,6 +15,6 @@ storiesOf('Loading', module)
   .add('Loading', () => (
     <div>
       <Loading />
-      <Loading size="large" />
+      <Loading size="large" baseColor="#4aa" />
     </div>
   ));

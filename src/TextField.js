@@ -3,29 +3,32 @@ import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
 import merge from 'lodash.merge';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ palette, spacing }) => ({
   wrapper: {
     fontSize: '1rem',
     position: 'relative',
-    marginBottom: 15
-  },
-  root: {
-    appearance: 'none',
-    boxSizing: 'border-box',
-    width: '100%',
-    color: palette.foreground,
-    background: palette.background,
-    outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',
+    backgroundColor: palette.background,
     borderColor: palette.border,
     ':focus': {
       boxShadow: `0 0 0 1px ${palette.primary}`,
       borderColor: palette.primary,
     },
-    borderRadius: spacing.borderRadius,
+    marginBottom: 15
+  },
+  root: {
+    appearance: 'none',
+    boxSizing: 'border-box',
+    lineHeight: '1.5',
+    width: '100%',
+    color: palette.foreground,
+    backgroundColor: 'transparent',
+    outline: 'none',
+    border: 'none',
     paddingTop: spacing.formPadding,
     paddingRight: spacing.formPadding,
     paddingBottom: spacing.formPadding,
@@ -41,7 +44,11 @@ const getStyles = ({ palette, spacing }) => ({
   }
 });
 
-const getChildren = (props, theme) => {
+const getChildren = ({
+  icon,
+  iconPosition,
+  disabled
+}, theme) => {
   const { palette } = theme;
 
   const childrenStyles = {
@@ -60,11 +67,11 @@ const getChildren = (props, theme) => {
   };
 
   let children = '';
-  if (props.icon) {
-    children = extendChildren(props.icon, {
+  if (icon) {
+    children = extendChildren(icon, {
       baseColor: palette.placeholder,
-      disabled: props.disabled,
-      style: props.iconPosition === 'after'
+      disabled,
+      style: iconPosition === 'after'
         ? merge({}, childrenStyles.root, childrenStyles.after)
         : childrenStyles.root
     });
@@ -72,26 +79,35 @@ const getChildren = (props, theme) => {
   return children;
 };
 
-const TextField = (props, { theme }) => {
+const TextField = ({
+  style,
+  icon,
+  iconPosition,
+  disabled,
+  ...props
+}, { theme }) => {
   const mergedTheme = { ...config, ...theme };
   const styles = getStyles(mergedTheme);
-  const {
-    style,
-    ...other
-  } = props;
 
   const sx = [styles.root];
 
-  if (props.icon) {
-    const position = props.iconPosition || 'before';
+  if (icon) {
+    const position = iconPosition || 'before';
     sx.push(styles.iconPosition[position]);
   }
 
   return (
-    <div style={[styles.wrapper, style]}>
-      {getChildren(props, mergedTheme)}
-      <input {...other} style={sx} placeholder={props.placeholder} />
-    </div>
+    <Base rounded style={[styles.wrapper, style]}>
+      {getChildren({ icon, iconPosition, disabled }, mergedTheme)}
+      <Base
+        {...props}
+        is="input"
+        rounded
+        style={sx}
+        disabled={disabled}
+        placeholder={props.placeholder}
+      />
+    </Base>
   );
 };
 
@@ -99,6 +115,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
   iconPosition: PropTypes.oneOf(['before', 'after']),
   icon: PropTypes.element,
+  disabled: PropTypes.bool,
   style: PropTypes.object
 };
 

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium, { Style } from 'radium';
 import config from './styles/config';
+import Base from './Base';
 
 
 const PanelBody = ({
@@ -29,10 +30,10 @@ const PanelBody = ({
   }
 
   return (
-    <div className="pbody" {...other} style={sx}>
+    <Base className="pbody" {...other} style={sx}>
       <Style scopeSelector=".pbody" rules={styles.lastChild} />
       {children}
-    </div>
+    </Base>
   );
 };
 

@@ -1,34 +1,22 @@
 import React, { PropTypes } from 'react';
 import radium from 'radium';
-import color from 'color';
 import config from './styles/config';
+import Base from './Base';
 
 
-const getStyles = ({ palette, spacing }) => ({
+const getStyles = ({ baseColor, kind, palette, spacing }) => ({
   root: {
     display: 'inline-block',
     height: spacing.iconSize,
     width: spacing.iconSize,
     userSelect: 'none',
     verticalAlign: 'middle',
-    fill: color(palette.foreground).hexString()
-  },
-  primary: {
-    fill: color(palette.primary).hexString(),
-    ':hover': {
-      fill: color(palette.primary).darken(palette.hoverDepth).hexString()
-    }
-  },
-  secondary: {
-    fill: color(palette.secondary).hexString(),
-    ':hover': {
-      fill: color(palette.secondary).darken(palette.hoverDepth).hexString()
-    }
+    fill: baseColor || palette[kind] || palette.foreground
   },
   disabled: {
-    fill: color(palette.disabled).hexString(),
+    fill: palette.disabled,
     ':hover': {
-      fill: color(palette.disabled).hexString()
+      fill: palette.disabled
     }
   },
   large: {
@@ -47,18 +35,14 @@ const SvgIcon = ({
   size,
   ...other,
 }, { theme }) => {
-  const styles = getStyles({ ...config, ...theme });
+  const styles = getStyles({ ...config, ...theme, kind, baseColor });
 
   const sx = [styles.root];
   if (disabled) {
     sx.push(styles.disabled);
   } else {
-    sx.push(styles[kind]);
     if (style) {
       sx.push(style);
-    }
-    if (baseColor) {
-      sx.push({ fill: baseColor });
     }
   }
 
@@ -67,13 +51,14 @@ const SvgIcon = ({
   }
 
   return (
-    <svg
+    <Base
+      is="svg"
       {...other}
       style={sx}
       viewBox={viewBox}
     >
       {path}
-    </svg>
+    </Base>
   );
 };
 
@@ -92,7 +77,7 @@ SvgIcon.propTypes = {
    */
   viewBox: PropTypes.string,
   size: PropTypes.oneOf(['normal', 'large']),
-  kind: PropTypes.oneOf(['primary', 'secondary'])
+  kind: PropTypes.oneOf(['primary', 'secondary', 'default'])
 };
 
 SvgIcon.defaultProps = {

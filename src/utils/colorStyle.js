@@ -7,7 +7,7 @@ const colorStyle = (props, colors, context) => {
   const {
     color,
     backgroundColor,
-    theme,
+    kind,
     inverted
   } = props || {};
   const result = {};
@@ -24,13 +24,13 @@ const colorStyle = (props, colors, context) => {
     result.backgroundColor = backgroundColor;
   }
 
-  if (theme && colors[theme]) {
+  if (kind && colors[kind]) {
     const invertedColor = context && context.inverted;
     if (inverted) {
       result.color = invertedColor || colors.white;
-      result.backgroundColor = colors[theme];
+      result.backgroundColor = colors[kind];
     } else {
-      result.color = colors[theme];
+      result.color = colors[kind];
     }
   }
 

@@ -2,9 +2,16 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
-const getStyles = (props, { palette, spacing }) => ({
+const getStyles = ({
+  palette,
+  spacing,
+  backgroundColor,
+  src,
+  baseColor
+}) => ({
   root: {
     userSelect: 'none',
     outline: 'none',
@@ -20,7 +27,7 @@ const getStyles = (props, { palette, spacing }) => ({
     height: spacing.avatarSize,
     border: 0,
     borderRadius: '50%',
-    backgroundColor: props.backgroundColor || palette.default
+    backgroundColor: backgroundColor || palette.default
   },
   large: {
     fontSize: `${spacing.largeAvatarSize / spacing.avatarSize}rem`,
@@ -28,12 +35,12 @@ const getStyles = (props, { palette, spacing }) => ({
     height: spacing.largeAvatarSize
   },
   avatarPic: {
-    backgroundImage: `url(${props.src})`,
+    backgroundImage: `url(${src})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain'
+    backgroundSize: 'cover'
   },
   letter: {
-    color: props.color || palette.foreground
+    color: baseColor || palette.foreground
   },
   icon: {
     fontFamily: 'system'
@@ -43,37 +50,47 @@ const getStyles = (props, { palette, spacing }) => ({
   }
 });
 
-const getChildren = (props, { palette }) => {
-  let children = '';
+const getChildren = ({
+  icon,
+  label,
+  size,
+  baseColor,
+  children,
+  palette,
+}) => {
+  let result = '';
   const extendProps = {
-    flex: 'none',
-    size: props.size || 'normal',
-    baseColor: props.baseColor || palette.default,
-    hoverColor: props.baseColor || palette.default
+    size: size || 'normal',
+    baseColor: baseColor || palette.default
   };
 
-  if (props.icon) {
-    const icon = extendChildren(props.icon, extendProps);
-    children = icon;
-  } else if (props.label || props.children) {
-    children = props.label || props.children;
+  if (icon) {
+    result = extendChildren(icon, extendProps);
+  } else if (label || children) {
+    result = label || children;
   }
 
-  return children;
+  return result;
 };
 
-const Avatar = (props, { theme }) => {
+const Avatar = ({
+  children,
+  style,
+  icon,
+  label,
+  size,
+  backgroundColor,
+  src,
+  baseColor,
+  ...props
+}, { theme }) => {
   const mergedTheme = { ...config, ...theme };
-  const styles = getStyles(props, mergedTheme);
-  const {
-    children,
-    style,
-    icon,
-    label,
-    size,
+  const styles = getStyles({
+    ...mergedTheme,
+    backgroundColor,
     src,
-    ...other
-  } = props;
+    baseColor,
+  });
 
   const sx = [styles.root];
 
@@ -103,9 +120,16 @@ const Avatar = (props, { theme }) => {
 
 
   return (
-    <div {...other} style={sx}>
-      {getChildren(props, mergedTheme)}
-    </div>
+    <Base {...props} style={sx}>
+      {getChildren({
+        ...mergedTheme,
+        icon,
+        label,
+        size,
+        baseColor,
+        children,
+      })}
+    </Base>
   );
 };
 

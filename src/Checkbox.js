@@ -3,32 +3,41 @@ import radium from 'radium';
 import SvgIcon from './SvgIcon';
 import { CheckIcon } from './utils/paths';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ spacing, palette }) => ({
   root: {
     userSelect: 'none',
-    display: 'flex',
+    display: 'table',
     cursor: 'pointer',
     alignItems: 'center',
     padding: spacing.verticalPadding
   },
   inputWrapper: {
-    display: 'flex',
+    display: 'table-cell',
+    verticalAlign: 'top',
     boxSizing: 'border-box',
-    position: 'relative'
+    position: 'relative',
+    lineHeight: 0,
   },
   input: {
+    boxSizing: 'border-box',
     cursor: 'pointer',
     appearance: 'none',
+    background: 'none',
     marginRight: 15,
     width: '1.4em',
     height: '1.4em',
     outline: 'none',
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: palette.controlBorder,
-    borderRadius: spacing.borderRadius
+    borderColor: palette.controlBorder
+  },
+  label: {
+    boxSizing: 'border-box',
+    display: 'table-cell',
+    width: '99%'
   },
   hidden: {
     display: 'none'
@@ -75,14 +84,16 @@ class Checkbox extends Component {
     }
 
     return (
-      <label style={sx}>
+      <Base is="label" style={sx}>
         <div style={styles.inputWrapper}>
           <SvgIcon
             baseColor={palette.primary}
             style={this.state.checked ? styles.icon : styles.hidden}
             path={CheckIcon}
           />
-          <input
+          <Base
+            is="input"
+            rounded
             {...other}
             value={value}
             onChange={this.handleChange}
@@ -91,10 +102,8 @@ class Checkbox extends Component {
             type="checkbox"
           />
         </div>
-        <div>
-          <span>{label}</span>
-        </div>
-      </label>
+        <div style={styles.label}>{label}</div>
+      </Base>
     );
   }
 }

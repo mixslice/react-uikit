@@ -7,7 +7,8 @@ import {
   SvgIcon
 } from '../src';
 import { ExpandIcon, BoxIcon } from 'utils/paths';
-import config from './configs/dark';
+import config from 'styles/config';
+// import config from './configs/dark';
 
 
 storiesOf('Toolbar', module)
@@ -28,18 +29,18 @@ storiesOf('Toolbar', module)
         borderLeft
         icon={<SvgIcon path={ExpandIcon} />}
         label="Item 1"
-        labelPosition="after"
+        iconPosition="after"
       />
       <NavItem
         icon={<SvgIcon path={ExpandIcon} />}
         label="Item 2"
-        labelPosition="after"
+        iconPosition="after"
       />
       <NavItem
         lastChild
         icon={<SvgIcon path={ExpandIcon} />}
         label="Item 3"
-        labelPosition="after"
+        iconPosition="after"
       />
     </Toolbar>
   ));

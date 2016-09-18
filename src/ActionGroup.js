@@ -3,13 +3,13 @@ import radium from 'radium';
 import merge from 'lodash.merge';
 import { extendChildren } from './utils/childUtils';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = ({ spacing }) => ({
   root: {
     display: 'inline-block',
     boxSizing: 'border-box',
-    borderRadius: spacing.borderRadius,
     overflow: 'hidden',
     marginRight: spacing.margin
   }
@@ -51,9 +51,9 @@ const ActionGroup = (props, { theme }) => {
   }
 
   return (
-    <div style={sx}>
+    <Base rounded style={sx}>
       {getChildren(props)}
-    </div>
+    </Base>
   );
 };
 

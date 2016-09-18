@@ -53,8 +53,7 @@ const spacing = {
   margin: 10,
   padding: 20,
   formPadding: 10,
-  verticalPadding: '9px 0 8px',
-  borderRadius: 2
+  verticalPadding: '9px 0 8px'
 };
 
 const inverted = palette.white;
@@ -77,6 +76,8 @@ const fontSizes = [
   12
 ];
 
+const defaultFontSize = 14;
+
 const zIndex = [
   0,
   2,
@@ -92,6 +93,7 @@ const borderColor = 'rgba(0, 0, 0, .25)';
 const config = {
   scale,
   fontSizes,
+  defaultFontSize,
   bold,
   monospace,
   ...sans,

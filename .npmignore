@@ -1,5 +1,3 @@
 src
 .babelrc
 stories
-.gitlab-ci.yml
-staging.yml

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import radium, { Style } from 'radium';
 import config from './styles/config';
+import Base from './Base';
 
 
 const getStyles = (props, { palette }) => {
@@ -50,10 +51,10 @@ const Slider = ({
   }
 
   return (
-    <div>
+    <Base>
       <input className="slider" {...props} name={name} type="range" style={sx} />
       <Style scopeSelector=".slider::-webkit-slider-thumb" rules={styles.thumb} />
-    </div>
+    </Base>
   );
 };
 

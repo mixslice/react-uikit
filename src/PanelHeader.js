@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import radium from 'radium';
 import color from 'color';
 import config from './styles/config';
+import Base from './Base';
 
 
 const PanelHeader = ({
@@ -28,9 +29,9 @@ const PanelHeader = ({
   }
 
   return (
-    <div {...other} style={sx}>
+    <Base {...other} style={sx}>
       {children}
-    </div>
+    </Base>
   );
 };
 

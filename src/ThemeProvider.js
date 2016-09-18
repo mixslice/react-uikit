@@ -5,12 +5,12 @@ import normalize from './styles/normalize';
 import config from './styles/config';
 
 
-const getStyles = ({ palette, fontFamily }) => ({
+const getStyles = ({ palette, fontFamily, defaultFontSize }) => ({
   'html, body, #root': {
     height: '100%'
   },
   'html, body': {
-    fontSize: 14,
+    fontSize: defaultFontSize || 14,
     lineHeight: 1.5,
     color: palette.foreground,
     fontFamily,
@@ -27,6 +27,7 @@ const getStyles = ({ palette, fontFamily }) => ({
 export default class ThemeProvider extends Component {
   static propTypes = {
     children: PropTypes.node,
+    style: PropTypes.object,
     theme: PropTypes.object
   };
 
@@ -41,9 +42,10 @@ export default class ThemeProvider extends Component {
   }
 
   render() {
-    const gs = getStyles({ ...config, ...this.props.theme });
+    const { theme, style } = this.props;
+    const gs = getStyles({ ...config, ...theme });
     return (
-      <StyleRoot {...this.props}>
+      <StyleRoot style={style}>
         <Style rules={merge({}, normalize, gs)} />
         {this.props.children}
       </StyleRoot>

@@ -28,14 +28,14 @@ storiesOf('Avatar', module)
       <Avatar
         size="normal"
         backgroundColor="#40c4ff"
-        color="#dce775"
+        baseColor="#dce775"
       >C</Avatar>
       <Avatar
         onClick={action('avatar clicked')}
         size="large"
         label="YP"
         backgroundColor="#aa00ff"
-        color="#fff"
+        baseColor="#fff"
       />
       <Avatar
         icon={<SvgIcon path={ContactIcon} />}

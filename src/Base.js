@@ -1,4 +1,5 @@
 import React from 'react';
+import radium from 'radium';
 import margin from './utils/margin';
 import padding from './utils/padding';
 import radii from './utils/radii';
@@ -19,6 +20,14 @@ const Base = ({
   is,
   baseStyle,
   style,
+  // margin
+  m, mx, my, mt, mr, mb, ml,
+  // padding
+  p, px, py, pt, pr, pb, pl,
+  // color
+  color, backgroundColor, kind, inverted,
+  // radii
+  rounded, pill, circle,
   ...props
 }, { theme }) => {
   const { scale, palette, borderRadius } = { ...config, ...theme };
@@ -30,16 +39,16 @@ const Base = ({
   // This will be deprecated in the next version
   const Component = is || tagName || 'div';
 
-  const sx = assign(
+  const sx = [
     { boxSizing: 'border-box' },
     baseStyle,
     contextStyle,
-    margin(props, scale),
-    padding(props, scale),
-    colorStyle(props, palette, theme),
-    radii(props, borderRadius),
+    margin({ m, mx, my, mt, mr, mb, ml }, scale),
+    padding({ p, px, py, pt, pr, pb, pl }, scale),
+    colorStyle({ color, backgroundColor, kind, inverted }, palette, theme),
+    radii({ rounded, pill, circle }, borderRadius),
     style
-  );
+  ];
 
   return <Component {...props} style={sx} />;
 };
@@ -129,4 +138,4 @@ Base.contextTypes = {
   theme: React.PropTypes.object
 };
 
-export default Base;
+export default radium(Base);
